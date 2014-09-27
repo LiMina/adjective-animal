@@ -5,7 +5,7 @@ public class Dialogue : MonoBehaviour {
 
 	void OnGUI () {
 		// Make a background box
-		GUI.Box(new Rect(80,Screen.height - 170,Screen.width - 160,150), "Dialogue");
+		GUI.Box(new Rect(80,Screen.height - 270,Screen.width - 160,250), "Dialogue");
 		
 		// Buttons
 		if(GUI.Button(new Rect(100,Screen.height - 140,Screen.width - 200,20), "Level 1")) {
