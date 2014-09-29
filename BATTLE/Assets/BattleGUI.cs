@@ -5,6 +5,8 @@ public class BattleGUI : MonoBehaviour {
 
 	// GUI yay
 	void OnGUI() {
-	
+	//Announcer
+		GUI.Box (new Rect (50, 50, Screen.width - 50, 50), "This is the announcer.");
+
 	}
 }
