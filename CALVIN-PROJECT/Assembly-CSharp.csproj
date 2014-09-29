@@ -47,15 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Controller.cs" />
-     <Compile Include="Assets\HealthDisplay.cs" />
-     <Compile Include="Assets\Stats.cs" />
      <Compile Include="Assets\TurnStateMachine.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{B0141DF7-BA5B-C529-82C4-974FC1566D9D}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{69ED8260-9AEE-F651-BE1B-75ADEA651099}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
