@@ -21,6 +21,8 @@ public class TurnStateMachine : MonoBehaviour {
 	 **/
 	public static int commandSelection = 0;
 
+	public static int playerHP = 100;
+
 	// Use this for initialization
 	void Start () {
 	
