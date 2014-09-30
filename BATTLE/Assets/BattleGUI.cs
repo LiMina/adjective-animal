@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BattleGUI : MonoBehaviour {
 
+	public bool attackLock = false;
+
 	// GUI yay!!
 	void OnGUI() {
 	//Announcer
