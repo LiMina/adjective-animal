@@ -31,10 +31,10 @@ public class TurnStateMachine : MonoBehaviour {
 
 		if (whosTurn == 0) {
 			Debug.Log ("player's turn " + playerHP);
-			if (Input.GetButtonDown ("Fire1")) {
+			/*if (Input.GetButtonDown ("Fire1")) {
 				TurnStateMachine.nextTurn ();
 				Debug.Log ("clicked");
-			}
+			}*/
 		}
 		//player turn
 		//enemy turn
