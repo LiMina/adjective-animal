@@ -19,7 +19,7 @@ public class BattleGUI : MonoBehaviour {
 	
 		//Attack Menu
 			GUI.Box (new Rect (375, Screen.height - 200, 300, 150), "");
-			if (TurnStateMachine.whosTurn == 0) {
+			if (TurnStateMachine.getTurn () == 0) {
 				attackLock = false;
 			} 
 			else {	
