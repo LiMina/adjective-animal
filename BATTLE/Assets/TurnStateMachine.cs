@@ -33,9 +33,10 @@ public class TurnStateMachine : MonoBehaviour {
 		
 		while (battle) {
 			if (whosTurn == 0) {
+				Debug.Log ("player's turn");
 				if (Input.GetButtonDown ("Fire1")) {
 					TurnStateMachine.nextTurn ();
-					Debug.Log ("asdkfsdf");
+					Debug.Log ("clicked");
 				}
 			}
 			//player turn
