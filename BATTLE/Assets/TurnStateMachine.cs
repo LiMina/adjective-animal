@@ -37,6 +37,9 @@ public class TurnStateMachine : MonoBehaviour {
 				foreach (RaycastHit2D ray in hits) {
 					foreach (GameObject e in enemies) {
 						if (ray.collider == e.GetComponent<BoxCollider2D>()) {
+							if (e.GetComponent<Stats>().health <= 0) {
+								return;
+							}
 							e.GetComponent<Stats>().health -= 15;
 							Debug.Log (e.GetComponent<EnemyControl>().ID + " " + e.GetComponent<Stats>().health);
 							TurnStateMachine.nextTurn ();

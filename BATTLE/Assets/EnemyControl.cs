@@ -14,7 +14,9 @@ public class EnemyControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (TurnStateMachine.getTurn () == ID) {
-			TurnStateMachine.playerHP -= 5;
+			if (this.GetComponent<Stats>().health > 0) {
+				TurnStateMachine.playerHP -= 5;
+			}
 			TurnStateMachine.nextTurn ();
 		}
 	}
