@@ -52,7 +52,7 @@
      <Compile Include="Assets\Stats.cs" />
      <Compile Include="Assets\TurnStateMachine.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Tracy/Documents/[adjective][animal]/adjective-animal/BATTLE/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/Calvin/Documents/GitHub/adjective-animal/BATTLE/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
