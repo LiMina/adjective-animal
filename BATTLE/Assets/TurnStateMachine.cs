@@ -10,7 +10,7 @@ public class TurnStateMachine : MonoBehaviour {
 	 * ...
 	 * n = n-th enemy's turn
 	 **/
-	public static int whosTurn = 0;
+	private static int whosTurn = 0;
 	public static int numEnemies = 0;
 	/**
 	 * What action is currently selected. e.g. this changes after you press the attack button and you're choosing a target.
@@ -29,12 +29,24 @@ public class TurnStateMachine : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (whosTurn == 0) {
-			Debug.Log ("player's turn " + playerHP);
-			/*if (Input.GetButtonDown ("Fire1")) {
-				TurnStateMachine.nextTurn ();
-				Debug.Log ("clicked");
-			}*/
+		if (whosTurn == 0 && commandSelection == 1) {
+			if (Input.GetButtonDown ("Fire1")) {
+
+				RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+				GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+				foreach (RaycastHit2D ray in hits) {
+					foreach (GameObject e in enemies) {
+						if (ray.collider == e.GetComponent<BoxCollider2D>()) {
+							e.GetComponent<Stats>().health -= 15;
+							Debug.Log (e.GetComponent<EnemyControl>().ID + " " + e.GetComponent<Stats>().health);
+							TurnStateMachine.nextTurn ();
+							Debug.Log ("player hp " + playerHP);
+						}
+				    }
+				}
+
+				commandSelection = 0;
+			}
 		}
 		//player turn
 		//enemy turn

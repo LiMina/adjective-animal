@@ -3,12 +3,12 @@ using System.Collections;
 
 public class EnemyControl : MonoBehaviour {
 	
-	public int ID = 1;
-	int actionSelect = 0;
+	public int ID;
 	
 	// Use this for initialization
 	void Start () {
 		TurnStateMachine.numEnemies++;
+		ID = TurnStateMachine.numEnemies;
 	}
 	
 	// Update is called once per frame
