@@ -8,6 +8,7 @@ Temp
 *.user
 *.pidb
 *.userprefs
+*.asset
 
 Library/cache/*
 Library/metadata/*
