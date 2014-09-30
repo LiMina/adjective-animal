@@ -11,7 +11,7 @@ public class TurnStateMachine : MonoBehaviour {
 	 * n = n-th enemy's turn
 	 **/
 	public static int whosTurn = 0;
-	public static int numEnemies = 1;
+	public static int numEnemies = 0;
 	/**
 	 * What action is currently selected. e.g. this changes after you press the attack button and you're choosing a target.
 	 * 0 = No selection
