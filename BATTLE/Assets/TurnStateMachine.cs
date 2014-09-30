@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class TurnStateMachine : MonoBehaviour {
-	//Probably just true, like, all the time
-	bool battle = true;
 	/**
 	 * Who's turn it is.
 	 * 0 = Player's turn
@@ -30,18 +28,16 @@ public class TurnStateMachine : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		while (battle) {
-			if (whosTurn == 0) {
-				Debug.Log ("player's turn");
-				if (Input.GetButtonDown ("Fire1")) {
-					TurnStateMachine.nextTurn ();
-					Debug.Log ("clicked");
-				}
+
+		if (whosTurn == 0) {
+			Debug.Log ("player's turn");
+			if (Input.GetButtonDown ("Fire1")) {
+				TurnStateMachine.nextTurn ();
+				Debug.Log ("clicked");
 			}
-			//player turn
-			//enemy turn
 		}
+		//player turn
+		//enemy turn
 		
 	}
 	
