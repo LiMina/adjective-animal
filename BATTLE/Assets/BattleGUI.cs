@@ -16,6 +16,7 @@ public class BattleGUI : MonoBehaviour {
 
 		//HP/MP display
 			GUI.Box (new Rect (50, Screen.height - 200, 300, 150), ""); 
+			GUI.Label (new Rect(75, Screen.height - 180, 300, 25), "HP :" + TurnStateMachine.playerHP);
 	
 		//Attack Menu
 			GUI.Box (new Rect (375, Screen.height - 200, 300, 150), "");
