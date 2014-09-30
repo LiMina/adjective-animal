@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Controller : MonoBehaviour {
+public class EnemyControl : MonoBehaviour {
 	
 	int ID = 1;
 	int actionSelect = 0;

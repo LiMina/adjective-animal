@@ -30,7 +30,7 @@ public class TurnStateMachine : MonoBehaviour {
 	void Update () {
 
 		if (whosTurn == 0) {
-			Debug.Log ("player's turn");
+			Debug.Log ("player's turn " + playerHP);
 			if (Input.GetButtonDown ("Fire1")) {
 				TurnStateMachine.nextTurn ();
 				Debug.Log ("clicked");
