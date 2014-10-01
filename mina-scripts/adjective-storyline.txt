@@ -1,0 +1,124 @@
+WAKE UP!!!!
+You roll over, groan and hit your alarm clock.
+[START] What will you do?
+Get up. (1)
+Don’t get up. (2)
+
+(1) Get up.
+Sighing, you push yourself out of bed and stand shakily while you blink blearily. [BATTLE] [BREAKFAST]
+(2) Don’t get up.
+Really? [START]
+//WOOOOOO YEAHHHHHH THE HYPE IS REAL :D :D :D :D
+
+[BREAKFAST] Climbing down the stairs, you find your way to the kitchen, make some food, and shovel some of it into your mouth. What did you have?
+Eggs and bacon (1)
+Cereal (2)
+Leftovers from last night (3)
+Other (4)
+
+(1) Eggs and bacon
+(2) Cereal
+Sounds good! [SCHOOL]
+(3) Leftovers from last night 
+Okay, that’s cool; dinner for breakfast is great! [SCHOOL]
+(4) Other
+Whatever floats your boat! [SCHOOL]
+
+classesTaken = 0; \\for now, limit to 5 items in the school day?
+lunch  = false;
+
+[SCHOOL] Welcome to the start of your day. What do you have first?
+Lecture (1)
+Test (2)
+Gym (3)
+(1) Lecture
+Alright, this class should be okay, right? [BATTLE] [LECTURE]
+(2) Test
+Well, you studied...right? [BATTLE] [TEST]
+(3) Gym
+Hope you’re ready to get psyched first thing in the morning! [BATTLE] [GYM]
+
+classesTaken++;
+
+[LECTURE - winning] You made it through the class! Alright, what are you doing next? (while classesTaken < 5:) [SCHOOL 2]
+[LECTURE - losing] Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. Where are you headed to next? (while classesTaken < 5:) [SCHOOL 2]
+
+[TEST - winning] Aww yiss, you aced it! Ready for the rest of the day? [SCHOOL 2]
+[TEST - losing] Wow, you really didn’t study, did you? What a shame. What’s next? [SCHOOL 2]
+
+[GYM - winning] You feel rejuvenated and a bit tired, but ready for the next thing in your day. [SCHOOL 2]
+[GYM - losing] You were completely uncoordinated and your classmates glared at you as you struggled to keep up. Too bad you still have the rest of the day to go. [SCHOOL 2]
+
+[SCHOOL 2] (if classesTaken == 5: [AFTER SCHOOL]) Where are you going?
+Test (1)
+Gym (2)
+Lecture (3)
+Lunch (4) (if lunch == false)
+Studying (5)
+
+(1) Test
+Are you ready for this? [BATTLE] [TEST]
+(2) Gym
+Get pumped! [BATTLE] [GYM]
+(3) Lecture
+How do you feel about this subject? [BATTLE] [LECTURE]
+(4) Lunch
+So, what’s on the menu? [BATTLE] [LUNCH]
+(5) Studying
+Time to break out those books! [BATTLE] [LECTURE]
+
+classesTaken++;
+
+[LUNCH - winning] That was a great lunch! You had a delicious meal, and it was a beautiful day. Time to go! [SCHOOL 2]
+[LUNCH - losing] You couldn’t decide what to eat and then when you bought something, it was horrible and you didn’t have enough time to finish anyways. You’re still hungry, but you have to go. [SCHOOL 2]
+
+[STUDYING - winning] You really figured out what you weren’t understanding in class, and the concepts turned out to be much easier than you thought they would be. You feel confident that you’ll do well in this class. [SCHOOL 2]
+[STUDYING - losing] Nothing makes sense in this course, and you fell asleep while reading your textbook and got woken up by the librarian asking if you were okay. No. Not really. [SCHOOL 2]
+
+extracurriculars = 0;
+
+[AFTER SCHOOL] You made it through the day! What are you doing after school?
+Club (1)
+Hanging out (2)
+Homework (3)
+
+(1) Club
+Not all clubs are made equal - how do you like yours? [BATTLE] [CLUB]
+(2) Hanging out
+Cool, your friends are free! Are you ready to socialize? [BATTLE] [HANGING OUT]
+(3) Homework
+Ugh, you do have to get it done… [BATTLE] [HOMEWORK]
+
+[CLUB - winning] The club meeting was awesome - everyone listened to what you had to say, and you feel really excited for your next meeting. [AFTER SCHOOL 2]
+[CLUB - losing] The club meeting was a mess. No one wanted to listen to you and the club is going in a direction that you never wanted it to go. Very disappointing.
+
+[HANGING OUT - winning] It was great to catch up with your friends and forget about school for a while. [AFTER SCHOOL 2]
+[HANGING OUT - losing] Your friends ignored you the entire time, even though they invited you, and you felt uncomfortable that they kept making jokes about the queer community. You didn’t feel like you could speak up, though, and was quietly uncomfortable. [AFTER SCHOOL 2]
+
+[HOMEWORK - winning] All right, easy homework! You’re done with it now and don’t have to worry about it for the rest of the night. [AFTER SCHOOL 2]
+[HOMEWORK - losing] Your homework was impossibly hard and no one else knows how to do it (or won’t help you)
+
+[AFTER SCHOOL 2] (if extracurriculars == 3: [END]) What are you going to do now?
+Club (1)
+Hanging out (2)
+Homework (3)
+Party (4)
+
+extracurriculars++;
+
+(1) Club
+Sometimes, large groups of people are hard to handle. Are you prepared? [BATTLE] [CLUB]
+(2) Hanging out
+Hey, your friends asked you to go out with them! [BATTLE] [HANGING OUT]
+(3) Homework
+It’s too bad, but homework has to get done eventually. [BATTLE] [HOMEWORK]
+(4) Party
+You got invited to a party! Time to crank up the music and break out those dance moves! [BATTLE] [PARTY]
+
+[PARTY - winning] The party had great music and you just might have hooked up with this really hot person. You even got their number! [AFTER SCHOOL 2]
+[PARTY - losing] It was a horrible mess of people - you could barely move at all and got crushed in the crowd towards the front, and had your hearing blasted out by the speakers. Your ears are still ringing from the music… [AFTER SCHOOL 2]
+
+[END] Phew. It’s been a long day. Time to go to bed and try to sleep. [BATTLE]
+
+(ending scene maybe black out screen for falling asleep)
+
