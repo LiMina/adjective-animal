@@ -1,1 +1,6 @@
 Any notes for Mina's work.
+
+Dimensions: 1280x900
+Textbox: 1120x250
+
+How to wrap textin OnGUI: GUI.skin.box.wordWrap = true;
