@@ -1,0 +1,57 @@
+/* SCHOOL 2 */
+
+if (state == 1 && path == 0) {
+    choosingOption = true;
+    dialogue = "Where are you going?";
+
+    if (!lunch) {
+        if (GUI.Button (new Rect (100, Screen.height - 170, Screen.width - 200, 25), "Test")) {
+            clickedbutton = 1;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Gym")) {
+            clickedbutton = 2;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Lecture")) {
+            clickedbutton = 3;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lunch")) {
+            clickedbutton = 4;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying")) {
+            clickedbutton = 5;
+        }
+    } else {
+        if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Test")) {
+            clickedbutton = 1;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Gym")) {
+            clickedbutton = 2;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lecture")) {
+            clickedbutton = 3;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying")) {
+            clickedbutton = 4;
+        }
+    }
+}
+if (!lunch) {
+    if (state == 0 && path == 1) {
+        dialogue = "Are you ready for this?";
+    }
+    if (state == 0 && path == 2) {
+        dialogue = "Get pumped!";
+    }
+    if (state == 0 && path == 3) {
+        dialogue = "How do you feel about this subject?";
+    }
+    if (state == 0 && path == 4) {
+        dialogue = "So, what's on the menu?";
+        lunch = true;
+    }
+    if (state == 0 && path == 5) {
+        dialogue = "Time to break out those books!";
+    }
+}
+
+classesTaken++;
