@@ -57,7 +57,6 @@ public class BattleGUI : MonoBehaviour {
 				}
 				if (GUI.Button (new Rect (380, Screen.height - 150, 295, 25), "SPLOSIONS")) {
 					TurnStateMachine.castSPLOSIONS();
-					TurnStateMachine.commandSelection = TurnStateMachine.SELECT_NONE;
 				}
 				GUI.enabled = !attackLock;
 

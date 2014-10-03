@@ -55,13 +55,17 @@ public class TurnStateMachine : MonoBehaviour {
 							} else if (commandSelection == SELECT_TARGET_DIE) {		//Do DIE ability
 								e.GetComponent<Stats>().health -= 30;
 								playerMP -= 5;
+								commandSelection = SELECT_NONE;
 								TurnStateMachine.nextTurn ();
 							}
 						}
 				    }
 				}
-
-				commandSelection = 0;
+				if (commandSelection == SELECT_NONE || commandSelection == SELECT_TARGET_ATTACK) {
+					commandSelection = SELECT_NONE;
+				} else {
+					commandSelection = SELECT_ABILITY;
+				}
 			}
 		}
 		//player turn
@@ -86,6 +90,7 @@ public class TurnStateMachine : MonoBehaviour {
 		foreach (GameObject e in enemies) {
 			e.GetComponent<Stats>().health -= 20;
 		}
+		commandSelection = SELECT_NONE;
 		TurnStateMachine.nextTurn ();
 	}
 }
