@@ -26,7 +26,7 @@ public class TurnStateMachine : MonoBehaviour {
 	public static int numEnemies = 0;
 	
 	public static int playerHP = 100;
-	public static int playerMP = 20;
+	public static int playerMP = 25;
 	
 	// Use this for initialization
 	void Start () {
@@ -78,6 +78,15 @@ public class TurnStateMachine : MonoBehaviour {
 		whosTurn++;
 		if (whosTurn > numEnemies)
 			whosTurn = 0;
+	}
+
+	public static void castSPLOSIONS() {
+		playerMP -= 10;
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach (GameObject e in enemies) {
+			e.GetComponent<Stats>().health -= 20;
+		}
+		TurnStateMachine.nextTurn ();
 	}
 }
 

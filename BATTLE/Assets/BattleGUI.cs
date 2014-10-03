@@ -48,10 +48,19 @@ public class BattleGUI : MonoBehaviour {
 					GUI.enabled = false;
 				}
 				if (GUI.Button (new Rect (380, Screen.height - 180, 295, 25), "DIEDIEDIE")) {
-					Debug.Log ("DIEEEEEE");
 					TurnStateMachine.commandSelection = TurnStateMachine.SELECT_TARGET_DIE;
 				}
 				GUI.enabled = !attackLock;
+
+				if (TurnStateMachine.playerMP < 10) {
+					GUI.enabled = false;
+				}
+				if (GUI.Button (new Rect (380, Screen.height - 150, 295, 25), "SPLOSIONS")) {
+					TurnStateMachine.castSPLOSIONS();
+					TurnStateMachine.commandSelection = TurnStateMachine.SELECT_NONE;
+				}
+				GUI.enabled = !attackLock;
+
 				if (GUI.Button (new Rect (380, Screen.height - 90, 295, 25), "Back")) {
 					TurnStateMachine.commandSelection = TurnStateMachine.SELECT_NONE;
 				}
