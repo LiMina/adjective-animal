@@ -55,3 +55,72 @@ if (!lunch) {
 }
 
 classesTaken++;
+
+
+
+/* AFTER SCHOOL */
+
+else if (scene == "afterschool") {
+
+    if (state == 1 && path == 0) {
+        choosingOption = true;
+        dialogue = "You made it through the day! What are you doing after school?";
+
+        if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Club")) {
+            clickedbutton = 1;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Hanging out with friends")) {
+            clickedbutton = 2;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Homework")) {
+            clickedbutton = 3;
+        }
+    }
+    if (state == 0 && path == 1) {
+        dialogue = "Not all clubs are made equal - how do you like yours?";
+    }
+    if (state == 0 && path == 2) {
+        dialogue = "Cool, your friends are free! Are you ready to socialize?";
+    }
+    if (state == 0 && path == 3) {
+        dialogue = "Ugh, you do have to get it done...";
+    }
+    extracurriculars++;
+}
+
+/* AFTER SCHOOL 2 */
+
+else if (scene == "afterschool2") {
+
+    if (state == 1 && path == 0) {
+        choosingOption = true;
+        dialogue = "What are you going to do now?";
+
+        if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Club")) {
+            clickedbutton = 1;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 10, Screen.width - 200, 25), "Hanging out with friends")) {
+            clickedbutton = 2;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Homework")) {
+            clickedbutton = 3;
+        }
+        if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Party")) {
+            clickedbutton = 4;
+        }
+
+   }
+    if (state == 0 && path == 1) {
+        dialogue = "Sometimes, large groups of people are hard to handle. Are you prepared?";
+    }
+    if (state == 0 && path == 2) {
+        dialogue = "Hey, your friends asked you to go out with them!";
+    }
+    if (state == 0 && path == 3) {
+        dialogue = "It's too bad, but homework has to get done eventually.";
+    }
+    if (state == 0 && path == 4) {
+        dialogue = "You got invted to a party! Time to crack up the music and break out those dance moves!";
+    }
+
+}
