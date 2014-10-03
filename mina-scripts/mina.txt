@@ -4,3 +4,6 @@ Dimensions: 1280x900
 Textbox: 1120x250
 
 How to wrap textin OnGUI: GUI.skin.box.wordWrap = true;
+
+STYLING:
+Use GUI.skin = customSkin and specify the name of the skin as an additional argument for the GUI items
