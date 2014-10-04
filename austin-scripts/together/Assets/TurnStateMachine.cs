@@ -27,21 +27,41 @@ public class TurnStateMachine : MonoBehaviour {
 	
 	public static int playerHP = 100;
 	public static int playerMP = 25;
+	public int deadEnemyCounter = 0;
 	
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
+	void CheckAllDead(){
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		deadEnemyCounter = 0;
+		foreach (GameObject e in enemies) {
+			if(e.GetComponent<Stats>().health <=0){
+				deadEnemyCounter++;
+			}
+			if(deadEnemyCounter == numEnemies){ // THEY'RE ALL DEAD AHHHHHHH
+				Application.LoadLevel ("dialogue");
+				transitions.won = true;
+
+			}
+		}
+		if (playerHP <= 0) {
+			Application.LoadLevel ("dialogue");
+			transitions.won = false;
+
+		}
+	}
 	// Update is called once per frame
 	void Update () {
-
+		CheckAllDead ();
 		if (whosTurn == 0 && isCommandTargeting ()) {
 			if (Input.GetButtonDown ("Fire1")) {
 
 				RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 				foreach (RaycastHit2D ray in hits) {
+
 					foreach (GameObject e in enemies) {
 						if (ray.collider == e.GetComponent<BoxCollider2D>()) {
 							if (e.GetComponent<Stats>().health <= 0) {

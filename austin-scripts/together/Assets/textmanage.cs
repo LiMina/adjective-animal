@@ -22,7 +22,13 @@ public class textmanage : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-	
+				state = transitions.nextState;
+				path = transitions.nextPath;
+				if (transitions.nextScene != null) {
+						scene = transitions.nextScene;
+				} else {
+						scene = "room";
+				}
 		}
 
 		void Reset_statepath ()
@@ -34,18 +40,26 @@ public class textmanage : MonoBehaviour
 		IEnumerator Wait (float wait_time)
 		{	
 				//if (!waitActive) {
-						waitActive = true;
-						yield return new WaitForSeconds (wait_time);
-						waitActive = false;
-						Application.LoadLevel ("Battle");
+				waitActive = true;
+				yield return new WaitForSeconds (wait_time);
+				waitActive = false;
+				Application.LoadLevel ("Battle");
 			
 				//}
 				//inScene = true;
 		}
 
+		void SetTransition (int state, int path, string scene)
+		{
+				transitions.nextState = state;
+				transitions.nextPath = path;
+				transitions.nextScene = scene;
+		}
+
 		void Update ()
 		{
-				if (Input.GetMouseButtonDown (0) && !choosingOption) {
+				
+				if (Input.GetMouseButtonDown (0) && !choosingOption && !waitActive) {
 
 						if (scene == "room" && state == 0 && path == 2) {
 								Reset_statepath ();
@@ -107,6 +121,7 @@ public class textmanage : MonoBehaviour
 						path = 5;
 						state = 0;
 				}
+				//print ("nextPath: " + transitions.nextPath + "; nextScene: " + transitions.nextScene + ". nextState: " + transitions.nextState);
 		}
 		//void onMouseClick
 		void OnGUI ()
@@ -140,6 +155,10 @@ public class textmanage : MonoBehaviour
 								dialogue = "Sighing, you push yourself out of bed and stand shakily while you blink blearily. ";
 								//load Battle
 								StartCoroutine (Wait (BATTLETIMEDELAY));
+				SetTransition (0,0,"breakfast");
+								/*transitions.nextState = 0;
+								transitions.nextPath = 0;
+								transitions.nextScene = "breakfast";*/
 								//if (!waitActive) {
 								//CallWait (BATTLETIMEDELAY);
 								//Application.LoadLevel ("Battle");
@@ -200,34 +219,41 @@ public class textmanage : MonoBehaviour
 						if (state == 0 && path == 1) {
 								dialogue = "Alright, this class should be okay, right? ";
 								//LOAD BATTLE
-								winlose = Random.Range (0, 1f);
+				StartCoroutine (Wait (BATTLETIMEDELAY));
+								//winlose = Random.Range (0, 1f);
+				SetTransition (1,1,"breakfast");
 						}
 						if (state == 0 && path == 2) {
 								dialogue = "Well, you studied...right? ";
 								//LOAD BATTLE
+				StartCoroutine (Wait (BATTLETIMEDELAY));
 								winlose = Random.Range (0, 1f);
+				SetTransition (1,2,"breakfast");
 						}
 						if (state == 0 && path == 3) {
 								dialogue = "Hope you’re ready to get psyched first thing in the morning!";
 								//LOAD BATLE
+				StartCoroutine (Wait (BATTLETIMEDELAY));
+				SetTransition (1,3,"breakfast");
+
 								winlose = Random.Range (0, 1f);
 						}
 						/*
 						 * win lose states
 						 */
-						if (state == 1 && path == 1 && winlose <= 0.5f) { // win lecture
+			if (state == 1 && path == 1 && transitions.won) { // win lecture
 								dialogue = "You made it through the class! Alright, what are you doing next?";
-						} else if (state == 1 && path == 1 && winlose > 0.5f) {
+			} else if (state == 1 && path == 1 && !transitions.won) {
 								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. ";
 						}
-						if (state == 1 && path == 2 && winlose <= 0.5f) { // test win{
+			if (state == 1 && path == 2 && transitions.won) { // test win{
 								dialogue = "Aww yiss, you aced it! Ready for the rest of the day? ";
-						} else if (state == 1 && path == 2 && winlose > 0.5f) {
+			} else if (state == 1 && path == 2 && !transitions.won) {
 								dialogue = "Wow, you really didn’t study, did you? What a shame. What’s next?";		
 						}
-						if (state == 1 && path == 3 && winlose <= 0.5f) {// gym win
+			if (state == 1 && path == 3 && transitions.won) {// gym win
 								dialogue = "You feel rejuvenated and a bit tired, but ready for the next thing in your day.";
-						} else if (state == 1 && path == 3 && winlose > 0.5f) {
+			} else if (state == 1 && path == 3 && !transitions.won) {
 								dialogue = "You were completely uncoordinated and your classmates glared at you as you struggled to keep up. Too bad you still have the rest of the day to go. ";		
 						}
 
