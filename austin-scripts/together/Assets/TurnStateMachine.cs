@@ -33,6 +33,7 @@ public class TurnStateMachine : MonoBehaviour {
 	void Start () {
 		
 	}
+
 	void CheckAllDead(){
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 		deadEnemyCounter = 0;
@@ -41,20 +42,25 @@ public class TurnStateMachine : MonoBehaviour {
 				deadEnemyCounter++;
 			}
 			if(deadEnemyCounter == numEnemies){ // THEY'RE ALL DEAD AHHHHHHH
+				TurnStateMachine.numEnemies = 0;
 				Application.LoadLevel ("dialogue");
 				transitions.won = true;
 
 			}
 		}
 		if (playerHP <= 0) {
+			TurnStateMachine.numEnemies = 0;
 			Application.LoadLevel ("dialogue");
 			transitions.won = false;
 
 		}
 	}
+
 	// Update is called once per frame
 	void Update () {
 		CheckAllDead ();
+		Debug.Log ("asdf " + commandSelection);
+		Debug.Log ("whose turn? " + whosTurn);
 		if (whosTurn == 0 && isCommandTargeting ()) {
 			if (Input.GetButtonDown ("Fire1")) {
 

@@ -41,9 +41,11 @@ public class BattleGUI : MonoBehaviour {
 		//Handles whether or not the buttons are locked (due to currently choosing a target)
 			GUI.Box (new Rect (50+(Screen.width - (Screen.width/8)- 100)/3 + Screen.width/16, Screen.height - 200, (Screen.width - (Screen.width/8)- 100)/3, 150), "");
 			if (TurnStateMachine.getTurn () == 0 && !TurnStateMachine.isCommandTargeting()) {
+				Debug.Log ("ATTACK LOG OFF");
 				attackLock = false;
 			} 
 			else {	
+				Debug.Log ("ATTACKLOCK ON");
 				attackLock = true;
 			}
 			GUI.enabled = !attackLock;
