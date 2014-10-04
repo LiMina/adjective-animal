@@ -4,18 +4,33 @@ using System.Collections;
 public class BattleGUI : MonoBehaviour {
 	
 	public bool attackLock = false;
-	private string playerTurnString = "Please select a move.";
-	private string selectTargetString = "Choose a target.";
+	public string playerTurnString = "Please select a move.";
+	public string selectTargetString = "Choose a target.";
+	public string dialogue;
+
+	void Start(){
+		dialogue = playerTurnString;
+	}
 	
 	void OnGUI() {
 		/*Announcer
 		 * This section will display what attack the enemy used or playerTurnString.
 		 */
-			GUI.Box (new Rect (25, 25, Screen.width - 50, 50), "");
+			
+			/*GUI.Box (new Rect (25, 25, Screen.width - 50, 50), "");
 			if (!attackLock) {
 				GUI.Label (new Rect (25, 25, Screen.width - 50, 50), playerTurnString);
 			} else if (TurnStateMachine.isCommandTargeting()) {
 				GUI.Label (new Rect (25, 25, Screen.width - 50, 50), selectTargetString);
+			}*/
+
+			
+			GUI.Box (new Rect (25, 25, Screen.width - 50, 50), dialogue);
+			if (!attackLock) {
+				dialogue = playerTurnString;
+			} else if (TurnStateMachine.isCommandTargeting()) {
+			//print ("called lololol");
+				dialogue = selectTargetString;
 			}
 
 		//HP/MP display
