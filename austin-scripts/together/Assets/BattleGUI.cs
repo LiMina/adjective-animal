@@ -81,6 +81,6 @@ public class BattleGUI : MonoBehaviour {
 					TurnStateMachine.commandSelection = TurnStateMachine.SELECT_NONE;
 				}
 			}
-			GUI.Box (new Rect (50+2*(Screen.width - (Screen.width/8)- 100)/3 + Screen.width/8, Screen.height - 200, (Screen.width - (Screen.width/8)- 100)/3, 150), "");
+			//GUI.Box (new Rect (50+2*(Screen.width - (Screen.width/8)- 100)/3 + Screen.width/8, Screen.height - 200, (Screen.width - (Screen.width/8)- 100)/3, 150), "");
 	}
 }
