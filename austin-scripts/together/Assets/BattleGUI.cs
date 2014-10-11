@@ -35,8 +35,8 @@ public class BattleGUI : MonoBehaviour {
 
 		//HP/MP display
 			GUI.Box (new Rect (50, Screen.height - 200, (Screen.width - (Screen.width/8) - 100)/3, 150), ""); 
-			GUI.Label (new Rect(70, Screen.height - 180, (Screen.width - (Screen.width/8) - 100)/3-40, 25), "HP :" + TurnStateMachine.playerHP);
-			GUI.Label (new Rect (70, Screen.height - 165, (Screen.width - (Screen.width/8) - 100)/3-40, 25), "MP :" + TurnStateMachine.playerMP);
+			GUI.Label (new Rect(70, Screen.height - 180, (Screen.width - (Screen.width/8) - 100)/3-40, 25), "Well-being :" + TurnStateMachine.playerHP);
+			GUI.Label (new Rect (70, Screen.height - 165, (Screen.width - (Screen.width/8) - 100)/3-40, 25), "Grades :" + TurnStateMachine.playerMP);
 	
 		//Handles whether or not the buttons are locked (due to currently choosing a target)
 			GUI.Box (new Rect (50+(Screen.width - (Screen.width/8)- 100)/3 + Screen.width/16, Screen.height - 200, (Screen.width - (Screen.width/8)- 100)/3, 150), "");

@@ -19,9 +19,12 @@ public class textmanage : MonoBehaviour
 		public bool waitActive = false;
 		public float BATTLETIMEDELAY = 3.0f;
 		public bool wait_called = false;
+		public bool stats_upped = false;
+		//Sprite clock;
 		// Use this for initialization
 		void Start ()
 		{
+				//clock = (Sprite)Resources.Load ("clock");
 				state = transitions.nextState;
 				path = transitions.nextPath;
 				if (transitions.nextScene != null) {
@@ -49,15 +52,17 @@ public class textmanage : MonoBehaviour
 				//inScene = true;
 		}
 
-		void SetTransition (int state, int path, string scene)
+		void SetTransition (int state, int path, string scene, Sprite nextImage)
 		{
 				transitions.nextState = state;
 				transitions.nextPath = path;
 				transitions.nextScene = scene;
+				transitions.nextImage = nextImage;
 		}
 
 		void Update ()
 		{
+		print (transitions.nextScene);
 				
 				if (Input.GetMouseButtonDown (0) && !choosingOption && !waitActive) {
 
@@ -155,7 +160,7 @@ public class textmanage : MonoBehaviour
 								dialogue = "Sighing, you push yourself out of bed and stand shakily while you blink blearily. ";
 								//load Battle
 								StartCoroutine (Wait (BATTLETIMEDELAY));
-				SetTransition (0,0,"breakfast");
+								SetTransition (0, 0, "breakfast", Resources.Load<Sprite> ("clock"));
 								/*transitions.nextState = 0;
 								transitions.nextPath = 0;
 								transitions.nextScene = "breakfast";*/
@@ -192,16 +197,36 @@ public class textmanage : MonoBehaviour
 								
 						}
 						if (state == 0 && (path == 1 || path == 2)) {
+								if (!stats_upped) {
+										transitions.wellbeing = 1f;
+										transitions.grades += 0.5f;
+										transitions.happiness += 0.2f;
+										stats_upped = true;
+								}
 								dialogue = "Sounds good!";
 						}
 						if (state == 0 && path == 3) {
+								if (!stats_upped) {
+										transitions.wellbeing = 1f;
+										transitions.grades += 0.5f;
+										transitions.happiness += 0.2f;
+										stats_upped = true;
+								}
 								dialogue = "Okay, that's cool; dinner for breakfast is great!";			
 						}
 						if (state == 0 && path == 4) {
+								if (!stats_upped) {
+										transitions.wellbeing = 1f;
+										transitions.grades += 0.5f;
+										transitions.happiness += 0.2f;
+										stats_upped = true;
+								}
 								dialogue = "Whatever floats your boat!";
 						}
+				
 				} else if (scene == "school") {
 						if (state == 0 && path == 0) {
+								stats_upped = false;
 								choosingOption = true;
 								dialogue = "Welcome to the start of your day. What do you have first?";
 
@@ -219,41 +244,41 @@ public class textmanage : MonoBehaviour
 						if (state == 0 && path == 1) {
 								dialogue = "Alright, this class should be okay, right? ";
 								//LOAD BATTLE
-				StartCoroutine (Wait (BATTLETIMEDELAY));
+								StartCoroutine (Wait (BATTLETIMEDELAY));
 								//winlose = Random.Range (0, 1f);
-				SetTransition (1,1,"breakfast");
+								SetTransition (1, 1, "school", Resources.Load<Sprite>("clock"));
 						}
 						if (state == 0 && path == 2) {
 								dialogue = "Well, you studied...right? ";
 								//LOAD BATTLE
-				StartCoroutine (Wait (BATTLETIMEDELAY));
+								StartCoroutine (Wait (BATTLETIMEDELAY));
 								winlose = Random.Range (0, 1f);
-				SetTransition (1,2,"breakfast");
+								SetTransition (1, 2, "school", Resources.Load<Sprite>("clock"));
 						}
 						if (state == 0 && path == 3) {
 								dialogue = "Hope you’re ready to get psyched first thing in the morning!";
 								//LOAD BATLE
-				StartCoroutine (Wait (BATTLETIMEDELAY));
-				SetTransition (1,3,"breakfast");
+								StartCoroutine (Wait (BATTLETIMEDELAY));
+								SetTransition (1, 3, "school", Resources.Load<Sprite>("clock"));
 
 								winlose = Random.Range (0, 1f);
 						}
 						/*
 						 * win lose states
 						 */
-			if (state == 1 && path == 1 && transitions.won) { // win lecture
+						if (state == 1 && path == 1 && transitions.won) { // win lecture
 								dialogue = "You made it through the class! Alright, what are you doing next?";
-			} else if (state == 1 && path == 1 && !transitions.won) {
+						} else if (state == 1 && path == 1 && !transitions.won) {
 								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. ";
 						}
-			if (state == 1 && path == 2 && transitions.won) { // test win{
+						if (state == 1 && path == 2 && transitions.won) { // test win{
 								dialogue = "Aww yiss, you aced it! Ready for the rest of the day? ";
-			} else if (state == 1 && path == 2 && !transitions.won) {
+						} else if (state == 1 && path == 2 && !transitions.won) {
 								dialogue = "Wow, you really didn’t study, did you? What a shame. What’s next?";		
 						}
-			if (state == 1 && path == 3 && transitions.won) {// gym win
+						if (state == 1 && path == 3 && transitions.won) {// gym win
 								dialogue = "You feel rejuvenated and a bit tired, but ready for the next thing in your day.";
-			} else if (state == 1 && path == 3 && !transitions.won) {
+						} else if (state == 1 && path == 3 && !transitions.won) {
 								dialogue = "You were completely uncoordinated and your classmates glared at you as you struggled to keep up. Too bad you still have the rest of the day to go. ";		
 						}
 

@@ -10,7 +10,7 @@ public class Stats : MonoBehaviour {
 	void OnGUI() {
 		var p = Camera.main.WorldToScreenPoint(transform.position);
 		if (health > 0) {
-			GUI.Label (new Rect (p.x - 30, Screen.height - p.y - 40,300, 25), "hp:" + health);
+			GUI.Label (new Rect (p.x - 30, Screen.height - p.y - 20,300, 25), "hp:" + health);
 		} else {
 			GUI.Label (new Rect (p.x - 30, Screen.height - p.y - 40,300, 25), "  K.O.");
 		}
