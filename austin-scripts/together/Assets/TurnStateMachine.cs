@@ -69,7 +69,7 @@ public class TurnStateMachine : MonoBehaviour
 				}
 		}
 
-		// Update is called once per f	rame
+		// Update is called once per frame
 		void Update ()
 		{
 				print (transitions.nextImage);
