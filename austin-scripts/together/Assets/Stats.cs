@@ -20,7 +20,7 @@ public class Stats : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (textmanage.scene == "school") {
-			health = 150;
+			health = 120;
 			attack = 10;
 		}
 	}

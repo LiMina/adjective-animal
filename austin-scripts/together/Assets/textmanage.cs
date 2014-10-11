@@ -198,30 +198,30 @@ public class textmanage : MonoBehaviour
 						}
 						if (state == 0 && (path == 1 || path == 2)) {
 								if (!stats_upped) {
-										transitions.wellbeing = 1f;
+										//transitions.wellbeing = 1f;
 										transitions.grades += 0.5f;
-										transitions.happiness += 0.2f;
+										transitions.happiness += 0.1f;
 										stats_upped = true;
 								}
-								dialogue = "Sounds good!";
+								dialogue = "Sounds good! A good breakfast makes you feel more prepared for school. Your grades increased.";
 						}
 						if (state == 0 && path == 3) {
 								if (!stats_upped) {
 										transitions.wellbeing = 1f;
-										transitions.grades += 0.5f;
-										transitions.happiness += 0.2f;
+										//transitions.grades += 0.5f;
+										transitions.happiness += 0.1f;
 										stats_upped = true;
 								}
-								dialogue = "Okay, that's cool; dinner for breakfast is great!";			
+								dialogue = "Okay, that's cool; dinner for breakfast is great! Your sense of well-being increased.";			
 						}
 						if (state == 0 && path == 4) {
 								if (!stats_upped) {
-										transitions.wellbeing = 1f;
-										transitions.grades += 0.5f;
+										transitions.wellbeing += 0.2f;
+										transitions.grades += 0.25f;
 										transitions.happiness += 0.2f;
 										stats_upped = true;
 								}
-								dialogue = "Whatever floats your boat!";
+								dialogue = "Whatever floats your boat! Your grades and well-being increased...?";
 						}
 				
 				} else if (scene == "school") {
