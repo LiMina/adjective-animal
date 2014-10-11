@@ -3,6 +3,8 @@ adjective-animal
 
 [adjective][animal] - for QGCon 2014
 
+Collaborators: LiMina, KirbiKaka, austinshyu, lunartofu.
+
 All parts of this project were a combined effort, although LiMina took a heavier focus on writing story progression, while KirbiKaka, austinshyu and lunartofu worked more on artwork.
 
 In teams, LiMina and austinshyu worked primarily on the narrative and handling user input to move the story along, while KirbiKaka and lunartofu worked primarily on the battle mechanics.
