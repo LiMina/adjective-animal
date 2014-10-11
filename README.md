@@ -23,4 +23,4 @@ October 11, 2014: Workshop 3. Attempting to finalize framework and finalizing pr
 
 *October 25-26, 2014: QGCon 2014. Presentation day.
 
-* To be completed.
+*To be completed.
