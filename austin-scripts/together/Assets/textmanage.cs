@@ -7,7 +7,7 @@ public class textmanage : MonoBehaviour
 		public int clickedbutton = 0;
 		public bool choosingOption = false;
 		public int path = 0;
-		public string scene = "room";
+		public static string scene = "room";
 		public string dialogue = "WAKE UP!!!!!";
 		public int fontSize = 18;
 		public int classesTaken = 0;
@@ -17,7 +17,7 @@ public class textmanage : MonoBehaviour
 		public int CLASSLIMIT = 3;
 		public int EXTRALIMIT = 2;
 		public bool waitActive = false;
-		public float BATTLETIMEDELAY = 3.0f;
+		public float BATTLETIMEDELAY = 2.0f;
 		public bool wait_called = false;
 		public bool stats_upped = false;
 		//Sprite clock;

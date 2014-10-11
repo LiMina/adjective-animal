@@ -15,6 +15,9 @@ public class TurnStateMachine : MonoBehaviour
 		public static readonly int SELECT_TARGET_ATTACK = 101;
 		public static readonly int SELECT_TARGET_DIE = 102;
 
+	public static readonly int DIE_MANA_COST = 25;
+	public static readonly int SPLOSIONS_MANA_COST = 50;
+
 		/**
 	 * Who's turn it is.
 	 * 0 = Player's turn
@@ -50,6 +53,7 @@ public class TurnStateMachine : MonoBehaviour
 						}
 						if (deadEnemyCounter == numEnemies) { // THEY'RE ALL DEAD AHHHHHHH
 								TurnStateMachine.numEnemies = 0;
+								transitions.wellbeing = ((float)(playerHP)) / 100f;
 								Application.LoadLevel ("dialogue");
 								transitions.won = true;
 
@@ -63,8 +67,6 @@ public class TurnStateMachine : MonoBehaviour
 						
 
 				}
-		transitions.wellbeing = ((float)(playerHP)) / 100f;
-		transitions.grades = ((float)playerMP) / 100f;
 		}
 
 		// Update is called once per f	rame
@@ -72,8 +74,6 @@ public class TurnStateMachine : MonoBehaviour
 		{
 				print (transitions.nextImage);
 				CheckAllDead ();
-				Debug.Log ("asdf " + commandSelection);
-				Debug.Log ("whose turn? " + whosTurn);
 				if (whosTurn == 0 && isCommandTargeting ()) {
 						if (Input.GetButtonDown ("Fire1")) {
 
@@ -93,7 +93,7 @@ public class TurnStateMachine : MonoBehaviour
 																Debug.Log ("player hp " + playerHP);
 														} else if (commandSelection == SELECT_TARGET_DIE) {		//Do DIE ability
 																e.GetComponent<Stats> ().health -= 30;
-																playerMP -= 5;
+																playerMP -= DIE_MANA_COST;
 																commandSelection = SELECT_NONE;
 																TurnStateMachine.nextTurn ();
 														}
@@ -132,10 +132,10 @@ public class TurnStateMachine : MonoBehaviour
 
 		public static void castSPLOSIONS ()
 		{
-				playerMP -= 10;
+				playerMP -= SPLOSIONS_MANA_COST;
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 				foreach (GameObject e in enemies) {
-						e.GetComponent<Stats> ().health -= 20;
+						e.GetComponent<Stats> ().health -= 25;
 				}
 				commandSelection = SELECT_NONE;
 				TurnStateMachine.nextTurn ();

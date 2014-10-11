@@ -15,7 +15,7 @@ public class EnemyControl : MonoBehaviour {
 	void Update () {
 		if (TurnStateMachine.getTurn () == ID) {
 			if (this.GetComponent<Stats>().health > 0) {
-				TurnStateMachine.playerHP -= 5;
+				TurnStateMachine.playerHP -= this.GetComponent<Stats>().attack;
 			}
 			TurnStateMachine.nextTurn ();
 		}

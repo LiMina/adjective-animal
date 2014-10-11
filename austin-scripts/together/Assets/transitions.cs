@@ -3,7 +3,7 @@ using System.Collections;
 
 public class transitions : MonoBehaviour {
 	public static float happiness=.50f;
-	public static float grades=1f;
+	public static float grades=.50f;
 	public static float wellbeing=1f;
 	public static Sprite nextImage = null;
 	public static bool won = false;

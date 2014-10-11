@@ -9,6 +9,7 @@ public class DescriptionBox : MonoBehaviour {
 	}
 
 	void OnMouseOver() {
+		GetComponent<MeshRenderer>().enabled = true;
 	}
 	
 	// Update is called once per frame

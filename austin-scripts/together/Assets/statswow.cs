@@ -52,27 +52,27 @@ public class statswow : MonoBehaviour {
 		GUI.EndGroup ();
 
 		/*
-		 * Grades
-		 */
-
-		GUI.BeginGroup (new Rect (pos.x, pos.y+30, size.x, size.y), "      Grades",textcolor);
+		 * Wellbeing
+		 */ 
+		GUI.BeginGroup (new Rect (pos.x, pos.y+30, size.x, size.y), "    Well-being",textcolor);
 		GUI.Box (new Rect (0,0, size.x, size.y),progressBarEmpty);
 		
 		// draw the filled-in part:
-		GUI.BeginGroup (new Rect (0, 0, size.x * grades, size.y));
+		GUI.BeginGroup (new Rect (0, 0, size.x * wellbeing, size.y));
 		GUI.Box (new Rect (0,0, size.x, size.y),progressBarFull);
 		GUI.EndGroup ();
 		
 		GUI.EndGroup ();
 
 		/*
-		 * Wellbeing
-		 */ 
-		GUI.BeginGroup (new Rect (pos.x, pos.y+60, size.x, size.y), "    Well-being",textcolor);
+		 * Grades
+		 */
+		
+		GUI.BeginGroup (new Rect (pos.x, pos.y+60, size.x, size.y), "      Grades",textcolor);
 		GUI.Box (new Rect (0,0, size.x, size.y),progressBarEmpty);
 		
 		// draw the filled-in part:
-		GUI.BeginGroup (new Rect (0, 0, size.x * wellbeing, size.y));
+		GUI.BeginGroup (new Rect (0, 0, size.x * grades, size.y));
 		GUI.Box (new Rect (0,0, size.x, size.y),progressBarFull);
 		GUI.EndGroup ();
 		
