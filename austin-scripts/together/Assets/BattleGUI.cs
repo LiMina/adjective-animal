@@ -12,12 +12,19 @@ public class BattleGUI : MonoBehaviour
 		public int fontSize = 18;
 		public GUIStyle styler;
 		public Texture2D texture;
+	public GUIStyle promptStyler;
+	public Texture2D promptTexture;
 		public GUIStyle buttonStyler;
 		public Texture2D buttonTexture;
 
 		void Start ()
 		{
 				dialogue = playerTurnString;
+		}
+
+		void Update ()
+		{
+				Camera.main.backgroundColor = new Color (163f / 255f, 203f / 255f, 204f / 255f, 1f);
 		}
 	
 		void OnGUI ()
@@ -47,7 +54,7 @@ public class BattleGUI : MonoBehaviour
 				float announcerWidth = Screen.width - 50;
 				float announcerHeight = 50;	
 				GUI.skin.box.wordWrap = true;
-				texture = new Texture2D (128, 128);
+				texture = new Texture2D (16, 16);
 				for (int y = 0; y < texture.height; ++y) {
 						for (int x = 0; x < texture.width; ++x) {
 								if ((x > 2 && y > 2) && (x < texture.width - 3 && y < texture.height - 3)) {
@@ -65,6 +72,26 @@ public class BattleGUI : MonoBehaviour
 				styler.normal.textColor = Color.white;
 				styler.fontSize = 18;
 				styler.normal.background = texture;
+
+				/* For dialogue */
+		promptTexture = new Texture2D (Screen.width - 50, 50);
+		for (int y = 0; y < promptTexture.height; ++y) {
+			for (int x = 0; x < promptTexture.width; ++x) {
+				if ((x > 2 && y > 2) && (x < promptTexture.width - 3 && y < promptTexture.height - 3)) {
+					Color color = new Color (228f / 255f, 174f / 255f, 198f / 255f, 1f);
+					promptTexture.SetPixel (x, y, color);
+				} else {
+					Color color = new Color (228f / 255f, 200f / 255f, 213f / 255f, 1f);
+					promptTexture.SetPixel (x, y, color);
+				}
+			}
+		}
+		promptTexture.Apply ();
+		
+		promptStyler = new GUIStyle (GUI.skin.box);
+		promptStyler.normal.textColor = Color.white;
+		promptStyler.fontSize = 18;
+		promptStyler.normal.background = promptTexture;
 
 				/* For buttons */
 				buttonTexture = new Texture2D ((int)buttonWidth, (int)buttonHeight);
@@ -97,7 +124,7 @@ public class BattleGUI : MonoBehaviour
 			}*/
 
 			
-				GUI.Box (new Rect (25, 25, Screen.width - 50, 50), dialogue, styler);
+				GUI.Box (new Rect (25, 25, Screen.width - 50, 50), dialogue, promptStyler);
 				if (!attackLock) {
 						dialogue = playerTurnString;
 				} else if (TurnStateMachine.isCommandTargeting ()) {

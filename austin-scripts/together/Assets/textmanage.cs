@@ -67,6 +67,8 @@ public class textmanage : MonoBehaviour
 
 		void Update ()
 		{
+		//Camera camera = (Camera) GameObject.Find ("Main Camera");
+		Camera.main.backgroundColor = new Color (163f/255f, 203f/255f, 204f/255f, 1f);
 				print (transitions.nextScene);
 				
 				if (Input.GetMouseButtonDown (0) && !choosingOption && !waitActive) {
@@ -136,7 +138,6 @@ public class textmanage : MonoBehaviour
 		//void onMouseClick
 		void OnGUI ()
 		{
-				
 				GUI.skin.box.fontSize = fontSize;	
 				GUI.skin.box.wordWrap = true;
 				texture = new Texture2D (128, 128);
