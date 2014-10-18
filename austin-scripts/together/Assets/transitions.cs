@@ -11,6 +11,8 @@ public class transitions : MonoBehaviour {
 	public static int nextState = 0;
 	public static int nextPath = 0;
 	public static string nextScene;
+	public static bool lunch = false;
+	public static int classesTaken = 0;
 	// Use this for initialization
 	void Start () {
 	

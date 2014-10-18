@@ -25,6 +25,7 @@ public class textmanage : MonoBehaviour
 		public GUIStyle buttonStyler;
 		public Texture2D buttonTexture;
 		public Texture2D buttonHoverTexture;
+		public bool addedClass = false;
 		//Sprite clock;
 		// Use this for initialization
 		void Start ()
@@ -38,6 +39,8 @@ public class textmanage : MonoBehaviour
 				} else {
 						scene = "room";
 				}
+				lunch = transitions.lunch;
+				classesTaken = transitions.classesTaken;
 		}
 
 		void Reset_statepath ()
@@ -76,20 +79,23 @@ public class textmanage : MonoBehaviour
 
 						if (scene == "room" && state == 0 && path == 2) {
 								Reset_statepath ();
-						} else if (scene == "room" && state == 0 && path == 1) {
+						} else if (scene == "room" && state == 1 && path == 1) {
 								scene = "breakfast";
 								Reset_statepath ();
 						} else if (scene == "breakfast" && state == 0 && path != 0) {
 								scene = "school";
 								Reset_statepath ();
-						} else if (scene == "school" && state == 1 && path != 0) {
+						} else if (scene == "school" && state == 2 && path != 0) {
 								scene = "school2";
 								Reset_statepath ();
-						} else if (scene == "school2" && state == 1 && path != 0 && classesTaken <= CLASSLIMIT) {
+						} else if (scene == "school2" && state == 2 && path != 0 && classesTaken <= CLASSLIMIT) {
 								if (!lunch && path == 4) {
 										lunch = true;
+										transitions.lunch = true;
 								}
-								classesTaken++;
+								addedClass = false;
+								//classesTaken++;
+								//transitions.classesTaken++;
 								Reset_statepath ();
 						} else if (scene == "school2" && classesTaken > CLASSLIMIT) {
 								scene = "afterschool";
@@ -186,13 +192,13 @@ public class textmanage : MonoBehaviour
 						}
 				}
 				buttonHoverTexture.Apply ();
-
+		
 				buttonStyler = new GUIStyle (GUI.skin.box);
 				buttonStyler.normal.textColor = Color.black;
 				buttonStyler.fontSize = 14;
 				buttonStyler.normal.background = buttonTexture;
 				buttonStyler.hover.background = buttonHoverTexture;
-
+		
 				GUI.Box (new Rect (80, Screen.height - 220, Screen.width - 160, 200), dialogue, styler);
 				/*
 				 *ROOOOOMMM SCEEEENNNNEEEE
@@ -215,10 +221,10 @@ public class textmanage : MonoBehaviour
 								dialogue = "Really?";
 						
 						} else if (state == 0 && path == 1) { // option 1
-								dialogue = "Sighing, you push yourself out of bed and stand shakily while you blink blearily. ";
+								dialogue = "Sighing, you push yourself out of bed and stand shakily while you blink blearily. AN ENEMY APPEARED!";
 								//load Battle
-								StartCoroutine (Wait (BATTLETIMEDELAY));
-								SetTransition (0, 0, "breakfast", Resources.Load<Sprite> ("clock"));
+								//StartCoroutine (Wait (BATTLETIMEDELAY));
+								
 								/*transitions.nextState = 0;
 								transitions.nextPath = 0;
 								transitions.nextScene = "breakfast";*/
@@ -226,7 +232,11 @@ public class textmanage : MonoBehaviour
 								//CallWait (BATTLETIMEDELAY);
 								//Application.LoadLevel ("Battle");
 								//}
+						} else if (state == 1 && path == 1) {
+								Application.LoadLevel ("Battle");
+								SetTransition (0, 0, "breakfast", Resources.Load<Sprite> ("clock"));
 						}
+						
 							
 				}
 				/*
@@ -300,43 +310,55 @@ public class textmanage : MonoBehaviour
 				
 						}
 						if (state == 0 && path == 1) {
-								dialogue = "Alright, this class should be okay, right? ";
+								dialogue = "Alright, this class should be okay, right? AN ENEMY APPEARED!";
 								//LOAD BATTLE
-								StartCoroutine (Wait (BATTLETIMEDELAY));
+								//StartCoroutine (Wait (BATTLETIMEDELAY));
 								//winlose = Random.Range (0, 1f);
-								SetTransition (1, 1, "school", Resources.Load<Sprite> ("clock"));
+								//SetTransition (1, 1, "school", Resources.Load<Sprite> ("clock"));
 						}
 						if (state == 0 && path == 2) {
-								dialogue = "Well, you studied...right? ";
+								dialogue = "Well, you studied...right? AN ENEMY APPEARED!";
 								//LOAD BATTLE
-								StartCoroutine (Wait (BATTLETIMEDELAY));
-								winlose = Random.Range (0, 1f);
-								SetTransition (1, 2, "school", Resources.Load<Sprite> ("clock"));
+								//StartCoroutine (Wait (BATTLETIMEDELAY));
+								//winlose = Random.Range (0, 1f);
+								//SetTransition (1, 2, "school", Resources.Load<Sprite> ("clock"));
 						}
 						if (state == 0 && path == 3) {
-								dialogue = "Hope you’re ready to get psyched first thing in the morning!";
+								dialogue = "Hope you’re ready to get psyched first thing in the morning! AN ENEMY APPEARED!";
 								//LOAD BATLE
-								StartCoroutine (Wait (BATTLETIMEDELAY));
-								SetTransition (1, 3, "school", Resources.Load<Sprite> ("clock"));
+								//StartCoroutine (Wait (BATTLETIMEDELAY));
+								//SetTransition (1, 3, "school", Resources.Load<Sprite> ("clock"));
 
-								winlose = Random.Range (0, 1f);
+								//winlose = Random.Range (0, 1f);
+						}
+						if (state == 1 && path == 1) {
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 1, "school", Resources.Load<Sprite> ("chalkboard"));
+						}
+						if (state == 1 && path == 2) {
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 2, "school", Resources.Load <Sprite> ("book"));
+						}
+						if (state == 1 && path == 3) {
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 3, "school", Resources.Load<Sprite> ("gym"));
 						}
 						/*
 						 * win lose states
 						 */
-						if (state == 1 && path == 1 && transitions.won) { // win lecture
+						if (state == 2 && path == 1 && transitions.won) { // win lecture
 								dialogue = "You made it through the class! Alright, what are you doing next?";
-						} else if (state == 1 && path == 1 && !transitions.won) {
+						} else if (state == 2 && path == 1 && !transitions.won) {
 								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. ";
 						}
-						if (state == 1 && path == 2 && transitions.won) { // test win{
+						if (state == 2 && path == 2 && transitions.won) { // test win{
 								dialogue = "Aww yiss, you aced it! Ready for the rest of the day? ";
-						} else if (state == 1 && path == 2 && !transitions.won) {
+						} else if (state == 2 && path == 2 && !transitions.won) {
 								dialogue = "Wow, you really didn’t study, did you? What a shame. What’s next?";		
 						}
-						if (state == 1 && path == 3 && transitions.won) {// gym win
+						if (state == 2 && path == 3 && transitions.won) {// gym win
 								dialogue = "You feel rejuvenated and a bit tired, but ready for the next thing in your day.";
-						} else if (state == 1 && path == 3 && !transitions.won) {
+						} else if (state == 2 && path == 3 && !transitions.won) {
 								dialogue = "You were completely uncoordinated and your classmates glared at you as you struggled to keep up. Too bad you still have the rest of the day to go. ";		
 						}
 
@@ -383,76 +405,126 @@ public class textmanage : MonoBehaviour
 								if (state == 0 && path == 1) {
 										dialogue = "Are you ready for this?";
 										//LOAD BATTLE
-										winlose = Random.Range (0, 1f);
+										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 2) {
 										dialogue = "Get pumped!";
 										//LOAD BATTLE
-										winlose = Random.Range (0, 1f);
+										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 3) {
 										dialogue = "How do you feel about this subject?";
 										//LOAD BATTLE
-										winlose = Random.Range (0, 1f);
+										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 4) {
 										dialogue = "So, what's on the menu?";
 										//LOAD BATTLE
 										//lunch = true;
-										winlose = Random.Range (0, 1f);
+										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 5) {
 										dialogue = "Time to break out those books!";
 										//LOAD BATTLE
-										winlose = Random.Range (0, 1f);
+										//winlose = Random.Range (0, 1f);
 								}
 						}
 						if (lunch) {
 								if (state == 0 && path == 1) {
 										dialogue = "Are you ready for this?";
 										//LOAD BATTLE
-										winlose = Random.Range (0, 1f);
+										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 2) {
 										dialogue = "Get pumped!";
 										//LOAD BATTLE
-										winlose = Random.Range (0, 1f);
+										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 3) {
 										dialogue = "How do you feel about this subject?";
 										//LOAD BATTLE
-										winlose = Random.Range (0, 1f);
+										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 4) {
 										dialogue = "Time to break out those books!";
 										//LOAD BATTLE
-										winlose = Random.Range (0, 1f);
+										//winlose = Random.Range (0, 1f);
 								}
 
 						}
-						if (state == 1 && path == 1 && winlose <= 0.5f) { // won test!
+
+
+						if (state == 1 && path == 1) { // test
+								if (!addedClass) {
+										classesTaken++;
+										transitions.classesTaken++;
+										addedClass = true;
+								}
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 1, "school2", Resources.Load <Sprite> ("book"));
+						}
+						if (state == 1 && path == 2) { //gym
+								if (!addedClass) {
+										classesTaken++;
+										transitions.classesTaken++;
+										addedClass = true;
+								}
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 2, "school2", Resources.Load<Sprite> ("gym"));
+						}
+						if (state == 1 && path == 3) { // lecture
+								if (!addedClass) {
+										classesTaken++;
+										transitions.classesTaken++;
+										addedClass = true;
+								}
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 3, "school2", Resources.Load<Sprite> ("chalkboard"));
+						}
+						if (state == 1 && path == 4 && !lunch) { // lunch
+								if (!addedClass) {
+										classesTaken++;
+										transitions.classesTaken++;
+										addedClass = true;
+								}
+								//load lunch
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 4, "school2", Resources.Load<Sprite> ("lunch"));
+						}
+						if (((state == 1 && path == 4 && lunch) || (state == 1 && path == 5 && !lunch))) { //studying
+								if (!addedClass) {
+										classesTaken++;
+										transitions.classesTaken++;
+										addedClass = true;
+								}				
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 5, "school2", Resources.Load<Sprite> ("book"));
+						}
+
+
+						if (state == 2 && path == 1 && transitions.won) { // won test!
 								dialogue = "Aww yiss, you aced it! Ready for the rest of the day?";
 					
-						} else if (state == 1 && path == 1 && winlose > 0.5f) {
+						} else if (state == 2 && path == 1 && !transitions.won) {
 								dialogue = "Wow, you really didn’t study, did you? What a shame. What’s next?";
 						}
-						if (state == 1 && path == 2 && winlose <= 0.5f) {// gym won!
+						if (state == 2 && path == 2 && transitions.won) {// gym won!
 								dialogue = "You feel rejuvenated and a bit tired, but ready for the next thing in your day.";
-						} else if (state == 1 && path == 3 && winlose > 0.5f) {
+						} else if (state == 2 && path == 2 && !transitions.won) {
 								dialogue = "You were completely uncoordinated and your classmates glared at you as you struggled to keep up. Too bad you still have the rest of the day to go. ";		
 						}
-						if (state == 1 && path == 3 && winlose <= 0.5f) { // win lecture
+						if (state == 2 && path == 3 && transitions.won) { // win lecture
 								dialogue = "You made it through the class! Alright, what are you doing next?";
-						} else if (state == 1 && path == 3 && winlose > 0.5f) {
+						} else if (state == 2 && path == 3 && !transitions.won) {
 								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. ";
 						}
-						if (state == 1 && path == 4 && winlose <= 0.5f && !lunch) { // lunch win!
+						if (state == 2 && path == 4 && transitions.won) { // lunch win!
 								dialogue = "That was a great lunch! You had a delicious meal, and it was a beautiful day. Time to go! ";
-						} else if (state == 1 && path == 4 && winlose > 0.5f && !lunch) {
+						} else if (state == 2 && path == 4 && !transitions.won) {
 								dialogue = "You couldn’t decide what to eat and then when you bought something, it was horrible and you didn’t have enough time to finish anyways. You’re still hungry, but you have to go. ";
-						} else if (state == 1 && path == 4 && winlose <= 0.5f && lunch) { // study win!
+						} else if (state == 2 && path == 5 && transitions.won) { // study win!
 								dialogue = "You really figured out what you weren’t understanding in class, and the concepts turned out to be much easier than you thought they would be. You feel confident that you’ll do well in this class. ";
-						} else if (state == 1 && path == 4 && winlose > 0.5f && lunch) {
+						} else if (state == 2 && path == 5 && !transitions.won) {
 								dialogue = "Nothing makes sense in this course, and you fell asleep while reading your textbook and got woken up by the librarian asking if you were okay. No. Not really. ";
 						}
 						//classesTaken++;
@@ -479,32 +551,46 @@ public class textmanage : MonoBehaviour
 						if (state == 0 && path == 1) {
 								dialogue = "Not all clubs are made equal - how do you like yours?";
 								//LOAD BATTLE
-								winlose = Random.Range (0, 1f);
+								//winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 2) {
 								dialogue = "Cool, your friends are free! Are you ready to socialize?";
 								//LOAD BATTLE
-								winlose = Random.Range (0, 1f);
+								//winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 3) {
 								dialogue = "Ugh, you do have to get it done...";
 								//LOAD BATTLE
-								winlose = Random.Range (0, 1f);
+								//winlose = Random.Range (0, 1f);
 						}
-						if (state == 1 && path == 1 && winlose <= 0.5f) { // won club!
+
+						if (state == 1 && path == 1) { // club
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 1, "afterschool", Resources.Load <Sprite> ("crowd"));
+						}
+						if (state == 1 && path == 2) { // friends
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 2, "afterschool", Resources.Load <Sprite> ("crowd"));
+						}
+						if (state == 1 && path == 3) { // hw
+								Application.LoadLevel ("Battle");
+								SetTransition (2, 3, "afterschool", Resources.Load <Sprite> ("book"));
+						}
+
+						if (state == 2 && path == 1 && winlose <= 0.5f) { // won club!
 								dialogue = "The club meeting was awesome - everyone listened to what you had to say, and you feel really excited for your next meeting.";
 				
-						} else if (state == 1 && path == 1 && winlose > 0.5f) {
+						} else if (state == 2 && path == 1 && winlose > 0.5f) {
 								dialogue = "The club meeting was a mess. No one wanted to listen to you and the club is going in a direction that you never wanted it to go. Very disappointing.";
 						}
-						if (state == 1 && path == 2 && winlose <= 0.5f) { // hangout won!
+						if (state == 2 && path == 2 && winlose <= 0.5f) { // hangout won!
 								dialogue = "It was great to catch up with your friends and forget about school for a while.";
-						} else if (state == 1 && path == 3 && winlose > 0.5f) {
+						} else if (state == 2 && path == 3 && winlose > 0.5f) {
 								dialogue = "Your friends ignored you the entire time, even though they invited you, and you felt uncomfortable that they kept making jokes about the queer community. You didn’t feel like you could speak up, though, and was quietly uncomfortable. ";		
 						}
-						if (state == 1 && path == 3 && winlose <= 0.5f) { // win lecture
+						if (state == 2 && path == 3 && winlose <= 0.5f) { // win lecture
 								dialogue = "All right, easy homework! You’re done with it now and don’t have to worry about it for the rest of the night. ";
-						} else if (state == 1 && path == 3 && winlose > 0.5f) {
+						} else if (state == 2 && path == 3 && winlose > 0.5f) {
 								dialogue = "Your homework was impossibly hard and no one else knows how to do it (or won’t help you).";
 						}
 						//extracurriculars++;
