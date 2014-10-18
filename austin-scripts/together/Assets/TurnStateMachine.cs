@@ -70,6 +70,9 @@ public class TurnStateMachine : MonoBehaviour
 								if (getTurnState () == 2) {
 									if (Input.GetButtonDown("Fire1")) {
 											TurnStateMachine.numEnemies = 0;
+											whosTurn = 0;
+											turnState = 0;
+											announcerLine = "";
 											transitions.wellbeing = ((float)(playerHP)) / 100f;
 											Application.LoadLevel ("dialogue");
 											transitions.won = true;
@@ -86,6 +89,9 @@ public class TurnStateMachine : MonoBehaviour
 						if (getTurnState () == 2) {
 							if (Input.GetButtonDown ("Fire1")) {
 									TurnStateMachine.numEnemies = 0;
+									whosTurn = 0;
+									turnState = 0;
+									announcerLine = "";
 									Application.LoadLevel ("dialogue");
 									transitions.won = false;
 							}
