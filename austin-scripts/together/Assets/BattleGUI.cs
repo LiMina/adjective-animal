@@ -125,7 +125,9 @@ public class BattleGUI : MonoBehaviour
 
 			
 				GUI.Box (new Rect (25, 25, Screen.width - 50, 50), dialogue, promptStyler);
-				if (!attackLock) {
+				if (TurnStateMachine.getTurnState () == 2) {
+					dialogue = TurnStateMachine.announcerLine;
+				} else if (!attackLock) {
 						dialogue = playerTurnString;
 				} else if (TurnStateMachine.isCommandTargeting ()) {
 						//print ("called lololol");

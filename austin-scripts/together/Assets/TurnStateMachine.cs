@@ -27,16 +27,26 @@ public class TurnStateMachine : MonoBehaviour
 	 * n = n-th enemy's turn
 	 **/
 		private static int whosTurn = 0;
+	/**
+	 * The current stage of the turn. Turns consist of up to 3 stages.
+	 * 0 = Selecting an attack
+	 * 1 = Attack is currently animating / in progress
+	 * 2 = Attack outcome string is currently displayed on announcer GUI.
+	 * */
+		private static int turnState = 0;
 		public static int numEnemies = 0;
 		public static int playerHP = 100;
 		public static int playerMP = 25;
 		public int deadEnemyCounter = 0;
+
+		public static string announcerLine;
+		private static string attackLine = "You tackled the problem at hand for 15 damage!";
 	
 		// Use this for initialization
 		void Start ()
 		{
-		playerHP = (int)(transitions.wellbeing * 100);
-		playerMP = (int)(transitions.grades * 100);
+		playerHP = Mathf.CeilToInt(transitions.wellbeing * 100);
+		playerMP = Mathf.CeilToInt(transitions.grades * 100);
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 				foreach (GameObject e in enemies) {
 						e.GetComponent<SpriteRenderer> ().sprite = transitions.nextImage;
@@ -72,8 +82,15 @@ public class TurnStateMachine : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+		Debug.Log ("turn " + whosTurn + " stage " + turnState);
 				print (transitions.nextImage);
 				CheckAllDead ();
+				if (whosTurn == 0 && turnState == 2) {
+						if (Input.GetButtonDown("Fire1")) {
+								TurnStateMachine.nextTurnState ();
+								return;
+						}
+				}
 				if (whosTurn == 0 && isCommandTargeting ()) {
 						if (Input.GetButtonDown ("Fire1")) {
 
@@ -89,8 +106,10 @@ public class TurnStateMachine : MonoBehaviour
 														if (commandSelection == SELECT_TARGET_ATTACK) {		//Do regular attack
 																e.GetComponent<Stats> ().health -= 15;
 																Debug.Log (e.GetComponent<EnemyControl> ().ID + " " + e.GetComponent<Stats> ().health);
-																TurnStateMachine.nextTurn ();
-																Debug.Log ("player hp " + playerHP);
+																announcerLine = attackLine;
+																TurnStateMachine.nextTurnState ();	
+																TurnStateMachine.nextTurnState (); //twice b/c no animation
+																//TurnStateMachine.nextTurn ();
 														} else if (commandSelection == SELECT_TARGET_DIE) {		//Do DIE ability
 																e.GetComponent<Stats> ().health -= 30;
 																playerMP -= DIE_MANA_COST;
@@ -128,6 +147,20 @@ public class TurnStateMachine : MonoBehaviour
 				whosTurn++;
 				if (whosTurn > numEnemies)
 						whosTurn = 0;
+		}
+
+		public static int getTurnState ()
+		{
+				return turnState;
+		}
+
+		public static void nextTurnState ()
+		{
+				turnState++;
+				if (turnState > 2) {
+						nextTurn ();
+						turnState = 0;
+				}
 		}
 
 		public static void castSPLOSIONS ()
