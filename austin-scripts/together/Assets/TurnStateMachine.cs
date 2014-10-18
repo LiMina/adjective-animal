@@ -41,6 +41,10 @@ public class TurnStateMachine : MonoBehaviour
 
 		public static string announcerLine;
 		private static string attackLine = "You tackled the problem at hand for 15 damage!";
+		private static string DIELine = "You sipped your coffee, jolting your tiredness awake for 30 damage!";
+		private static string SPLOSIONSLine = "A cold shower snaps 25 damage at all your tiredness!";
+		private static string winLine = "You overcame your adversaries!";
+		private static string loseLine = "You feel terribly overwhelmed. You couldn't handle the pressure...";
 	
 		// Use this for initialization
 		void Start ()
@@ -53,7 +57,7 @@ public class TurnStateMachine : MonoBehaviour
 				}
 		}
 
-		void CheckAllDead ()
+		bool CheckAllDead ()
 		{
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 				deadEnemyCounter = 0;
@@ -62,32 +66,52 @@ public class TurnStateMachine : MonoBehaviour
 								deadEnemyCounter++;
 						}
 						if (deadEnemyCounter == numEnemies) { // THEY'RE ALL DEAD AHHHHHHH
-								TurnStateMachine.numEnemies = 0;
-								transitions.wellbeing = ((float)(playerHP)) / 100f;
-								Application.LoadLevel ("dialogue");
-								transitions.won = true;
-
+								announcerLine = winLine;
+								if (getTurnState () == 2) {
+									if (Input.GetButtonDown("Fire1")) {
+											TurnStateMachine.numEnemies = 0;
+											transitions.wellbeing = ((float)(playerHP)) / 100f;
+											Application.LoadLevel ("dialogue");
+											transitions.won = true;
+									}
+									return true;
+								}
+								nextTurnState ();
+								nextTurnState ();
+								return true;
 						}
 				}
 				if (playerHP <= 0) {
-						TurnStateMachine.numEnemies = 0;
-						Application.LoadLevel ("dialogue");
-						transitions.won = false;
+						announcerLine = loseLine;
+						if (getTurnState () == 2) {
+							if (Input.GetButtonDown ("Fire1")) {
+									TurnStateMachine.numEnemies = 0;
+									Application.LoadLevel ("dialogue");
+									transitions.won = false;
+							}
+							return true;
+						}
+						nextTurnState ();
+						nextTurnState ();
+						return true;
 						
 						
 
 				}
+				return false;
 		}
 
 		// Update is called once per frame
 		void Update ()
 		{
-		Debug.Log ("turn " + whosTurn + " stage " + turnState);
 				print (transitions.nextImage);
-				CheckAllDead ();
-				if (whosTurn == 0 && turnState == 2) {
+				if (CheckAllDead ()) {
+						return;
+				}
+				
+				if (turnState == 2) {
 						if (Input.GetButtonDown("Fire1")) {
-								TurnStateMachine.nextTurnState ();
+								TurnStateMachine.nextTurn ();
 								return;
 						}
 				}
@@ -106,15 +130,20 @@ public class TurnStateMachine : MonoBehaviour
 														if (commandSelection == SELECT_TARGET_ATTACK) {		//Do regular attack
 																e.GetComponent<Stats> ().health -= 15;
 																Debug.Log (e.GetComponent<EnemyControl> ().ID + " " + e.GetComponent<Stats> ().health);
+
 																announcerLine = attackLine;
-																TurnStateMachine.nextTurnState ();	
-																TurnStateMachine.nextTurnState (); //twice b/c no animation
+																nextTurnState ();	
+																nextTurnState (); //twice b/c no animation
 																//TurnStateMachine.nextTurn ();
 														} else if (commandSelection == SELECT_TARGET_DIE) {		//Do DIE ability
 																e.GetComponent<Stats> ().health -= 30;
 																playerMP -= DIE_MANA_COST;
 																commandSelection = SELECT_NONE;
-																TurnStateMachine.nextTurn ();
+
+																announcerLine = DIELine;
+																nextTurnState ();	
+																nextTurnState (); //twice b/c no animation
+																//TurnStateMachine.nextTurn ();
 														}
 												}
 										}
@@ -145,8 +174,10 @@ public class TurnStateMachine : MonoBehaviour
 		public static void nextTurn ()
 		{
 				whosTurn++;
-				if (whosTurn > numEnemies)
+				if (whosTurn > numEnemies) {
 						whosTurn = 0;
+				}
+				turnState = 0;
 		}
 
 		public static int getTurnState ()
@@ -159,8 +190,12 @@ public class TurnStateMachine : MonoBehaviour
 				turnState++;
 				if (turnState > 2) {
 						nextTurn ();
-						turnState = 0;
 				}
+		}
+
+		public static void setAnnouncerLine (string s)
+		{
+				announcerLine = s;
 		}
 
 		public static void castSPLOSIONS ()
@@ -170,8 +205,12 @@ public class TurnStateMachine : MonoBehaviour
 				foreach (GameObject e in enemies) {
 						e.GetComponent<Stats> ().health -= 25;
 				}
+
+				announcerLine = SPLOSIONSLine;
+				nextTurnState ();	
+				nextTurnState (); //twice b/c no animation
 				commandSelection = SELECT_NONE;
-				TurnStateMachine.nextTurn ();
+				//TurnStateMachine.nextTurn ();
 		}
 }
 

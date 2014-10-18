@@ -13,11 +13,14 @@ public class EnemyControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (TurnStateMachine.getTurn () == ID) {
+		if (TurnStateMachine.getTurn () == ID && TurnStateMachine.getTurnState () == 0) {
 			if (this.GetComponent<Stats>().health > 0) {
 				TurnStateMachine.playerHP -= this.GetComponent<Stats>().attack;
 			}
-			TurnStateMachine.nextTurn ();
+			TurnStateMachine.setAnnouncerLine("Your well-being takes a hit of " + this.GetComponent<Stats>().attack + " points!");
+			TurnStateMachine.nextTurnState ();
+			TurnStateMachine.nextTurnState (); //twice b/c no animation yet.
+			//TurnStateMachine.nextTurn ();
 		}
 	}
 }
