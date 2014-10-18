@@ -12,6 +12,9 @@ public class DescriptionBox : MonoBehaviour {
 
 	public string currentDesc = "";
 
+	public GUIStyle styler;
+	public Texture2D texture;
+
 	// Use this for initialization
 	void Start () {
 		GetComponent<MeshRenderer>().enabled = false;
@@ -70,6 +73,24 @@ public class DescriptionBox : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		GUI.Box (new Rect (50+2*(Screen.width - (Screen.width/8)- 100)/3 + Screen.width/8, Screen.height - 200, (Screen.width - (Screen.width/8)- 100)/3, 150), currentDesc);
+		texture = new Texture2D (128, 128);
+		for (int y = 0; y < texture.height; ++y) {
+			for (int x = 0; x < texture.width; ++x) {
+				if ((x > 2 && y > 2) && (x < texture.width - 3 && y < texture.height - 3)) {
+					Color color = new Color (228f / 255f, 174f / 255f, 198f / 255f, 1f);
+					texture.SetPixel (x, y, color);
+				} else {
+					Color color = new Color (228f / 255f, 200f / 255f, 213f / 255f, 1f);
+					texture.SetPixel (x, y, color);
+				}
+			}
+		}
+		texture.Apply ();
+		
+		styler = new GUIStyle (GUI.skin.box);
+		styler.normal.textColor = Color.white;
+		styler.fontSize = 18;
+		styler.normal.background = texture;
+		GUI.Box (new Rect (50+2*(Screen.width - (Screen.width/8)- 100)/3 + Screen.width/8, Screen.height - 200, (Screen.width - (Screen.width/8)- 100)/3, 150), currentDesc, styler);
 	}
 }

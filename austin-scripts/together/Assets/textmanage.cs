@@ -20,10 +20,15 @@ public class textmanage : MonoBehaviour
 		public float BATTLETIMEDELAY = 2.0f;
 		public bool wait_called = false;
 		public bool stats_upped = false;
+		public GUIStyle styler;
+		public Texture2D texture;
+		public GUIStyle buttonStyler;
+		public Texture2D buttonTexture;
 		//Sprite clock;
 		// Use this for initialization
 		void Start ()
 		{
+				//styler = ;
 				//clock = (Sprite)Resources.Load ("clock");
 				state = transitions.nextState;
 				path = transitions.nextPath;
@@ -62,7 +67,7 @@ public class textmanage : MonoBehaviour
 
 		void Update ()
 		{
-		print (transitions.nextScene);
+				print (transitions.nextScene);
 				
 				if (Input.GetMouseButtonDown (0) && !choosingOption && !waitActive) {
 
@@ -131,11 +136,48 @@ public class textmanage : MonoBehaviour
 		//void onMouseClick
 		void OnGUI ()
 		{
-			
-				GUI.Box (new Rect (80, Screen.height - 220, Screen.width - 160, 200), dialogue);
+				
 				GUI.skin.box.fontSize = fontSize;	
 				GUI.skin.box.wordWrap = true;
+				texture = new Texture2D (128, 128);
+				for (int y = 0; y < texture.height; ++y) {
+						for (int x = 0; x < texture.width; ++x) {
+								if ((x > 2 && y > 2) && (x < texture.width - 3 && y < texture.height - 3)) {
+										Color color = new Color (228f / 255f, 174f / 255f, 198f / 255f, 1f);
+										texture.SetPixel (x, y, color);
+								} else {
+										Color color = new Color (228f / 255f, 200f / 255f, 213f / 255f, 1f);
+										texture.SetPixel (x, y, color);
+								}
+						}
+				}
+				texture.Apply ();
 
+				styler = new GUIStyle (GUI.skin.box);
+				styler.normal.textColor = Color.white;
+				styler.normal.background = texture;
+
+				/* For buttons */
+				buttonTexture = new Texture2D (Screen.width - 200, 25);
+				for (int y = 0; y < buttonTexture.height; ++y) {
+						for (int x = 0; x < buttonTexture.width; ++x) {
+								if ((x > 1 && y > 1) && (x < buttonTexture.width - 2 && y < buttonTexture.height - 2)) {
+										Color color = new Color (245f / 255f, 207f / 255f, 148f / 255f, 1f);
+										buttonTexture.SetPixel (x, y, color);
+								} else {
+										Color color = new Color (254f / 255f, 234f / 255f, 174f / 255f, 1f);
+										buttonTexture.SetPixel (x, y, color);
+								}
+						}
+				}
+				buttonTexture.Apply ();
+
+				buttonStyler = new GUIStyle (GUI.skin.box);
+				buttonStyler.normal.textColor = Color.white;
+				buttonStyler.fontSize = 14;
+				buttonStyler.normal.background = buttonTexture;
+
+				GUI.Box (new Rect (80, Screen.height - 220, Screen.width - 160, 200), dialogue, styler);
 				/*
 				 *ROOOOOMMM SCEEEENNNNEEEE
 				 */
@@ -147,10 +189,10 @@ public class textmanage : MonoBehaviour
 						} else if (state == 2 && path == 0) {
 								choosingOption = true;
 								dialogue = "What will you do?";
-								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Get up")) {
+								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Get up", buttonStyler)) {
 										clickedbutton = 1;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Don't get up")) {
+								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Don't get up", buttonStyler)) {
 										clickedbutton = 2;
 								}
 						} else if (state == 0 && path == 2) { // option 2
@@ -182,16 +224,16 @@ public class textmanage : MonoBehaviour
 								choosingOption = true;
 								dialogue = "What do you eat? ";
 								
-								if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Eggs and Bacon")) {
+								if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Eggs and Bacon", buttonStyler)) {
 										clickedbutton = 1;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Cereal")) {
+								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Cereal", buttonStyler)) {
 										clickedbutton = 2;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Leftovers from last night")) {
+								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Leftovers from last night", buttonStyler)) {
 										clickedbutton = 3;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Mysterious Ooze")) {
+								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Mysterious Ooze", buttonStyler)) {
 										clickedbutton = 4;
 								}
 								
@@ -230,13 +272,13 @@ public class textmanage : MonoBehaviour
 								choosingOption = true;
 								dialogue = "Welcome to the start of your day. What do you have first?";
 
-								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Lecture")) {
+								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Lecture", buttonStyler)) {
 										clickedbutton = 1;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Test")) {
+								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Test", buttonStyler)) {
 										clickedbutton = 2;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Gym")) {
+								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Gym", buttonStyler)) {
 										clickedbutton = 3;
 								}
 				
@@ -246,20 +288,20 @@ public class textmanage : MonoBehaviour
 								//LOAD BATTLE
 								StartCoroutine (Wait (BATTLETIMEDELAY));
 								//winlose = Random.Range (0, 1f);
-								SetTransition (1, 1, "school", Resources.Load<Sprite>("clock"));
+								SetTransition (1, 1, "school", Resources.Load<Sprite> ("clock"));
 						}
 						if (state == 0 && path == 2) {
 								dialogue = "Well, you studied...right? ";
 								//LOAD BATTLE
 								StartCoroutine (Wait (BATTLETIMEDELAY));
 								winlose = Random.Range (0, 1f);
-								SetTransition (1, 2, "school", Resources.Load<Sprite>("clock"));
+								SetTransition (1, 2, "school", Resources.Load<Sprite> ("clock"));
 						}
 						if (state == 0 && path == 3) {
 								dialogue = "Hope you’re ready to get psyched first thing in the morning!";
 								//LOAD BATLE
 								StartCoroutine (Wait (BATTLETIMEDELAY));
-								SetTransition (1, 3, "school", Resources.Load<Sprite>("clock"));
+								SetTransition (1, 3, "school", Resources.Load<Sprite> ("clock"));
 
 								winlose = Random.Range (0, 1f);
 						}
@@ -291,32 +333,32 @@ public class textmanage : MonoBehaviour
 								dialogue = "Where are you going next?";
 				
 								if (!lunch) {
-										if (GUI.Button (new Rect (100, Screen.height - 170, Screen.width - 200, 25), "Test")) {
+										if (GUI.Button (new Rect (100, Screen.height - 170, Screen.width - 200, 25), "Test", buttonStyler)) {
 												clickedbutton = 1;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Gym")) {
+										if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Gym", buttonStyler)) {
 												clickedbutton = 2;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Lecture")) {
+										if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Lecture", buttonStyler)) {
 												clickedbutton = 3;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lunch")) {
+										if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lunch", buttonStyler)) {
 												clickedbutton = 4;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying")) {
+										if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying", buttonStyler)) {
 												clickedbutton = 5;
 										}
 								} else {
-										if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Test")) {
+										if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Test", buttonStyler)) {
 												clickedbutton = 1;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Gym")) {
+										if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Gym", buttonStyler)) {
 												clickedbutton = 2;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lecture")) {
+										if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lecture", buttonStyler)) {
 												clickedbutton = 3;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying")) {
+										if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying", buttonStyler)) {
 												clickedbutton = 4;
 										}
 								}
@@ -408,13 +450,13 @@ public class textmanage : MonoBehaviour
 								choosingOption = true;
 								dialogue = "You made it through the day! What are you doing after school?";
 				
-								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Club")) {
+								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Club", buttonStyler)) {
 										clickedbutton = 1;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Hanging out with friends")) {
+								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Hanging out with friends", buttonStyler)) {
 										clickedbutton = 2;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Homework")) {
+								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Homework", buttonStyler)) {
 										clickedbutton = 3;
 								}
 						}
@@ -460,16 +502,16 @@ public class textmanage : MonoBehaviour
 								choosingOption = true;
 								dialogue = "What are you going to do now?";
 				
-								if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Club")) {
+								if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Club", buttonStyler)) {
 										clickedbutton = 1;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Hanging out with friends")) {
+								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Hanging out with friends", buttonStyler)) {
 										clickedbutton = 2;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Homework")) {
+								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Homework", buttonStyler)) {
 										clickedbutton = 3;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Party")) {
+								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Party", buttonStyler)) {
 										clickedbutton = 4;
 								}
 				
