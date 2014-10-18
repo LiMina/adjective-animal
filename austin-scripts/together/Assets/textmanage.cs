@@ -24,6 +24,7 @@ public class textmanage : MonoBehaviour
 		public Texture2D texture;
 		public GUIStyle buttonStyler;
 		public Texture2D buttonTexture;
+		public Texture2D buttonHoverTexture;
 		//Sprite clock;
 		// Use this for initialization
 		void Start ()
@@ -67,8 +68,8 @@ public class textmanage : MonoBehaviour
 
 		void Update ()
 		{
-		//Camera camera = (Camera) GameObject.Find ("Main Camera");
-		Camera.main.backgroundColor = new Color (163f/255f, 203f/255f, 204f/255f, 1f);
+				//Camera camera = (Camera) GameObject.Find ("Main Camera");
+				Camera.main.backgroundColor = new Color (163f / 255f, 203f / 255f, 204f / 255f, 1f);
 				print (transitions.nextScene);
 				
 				if (Input.GetMouseButtonDown (0) && !choosingOption && !waitActive) {
@@ -172,11 +173,25 @@ public class textmanage : MonoBehaviour
 						}
 				}
 				buttonTexture.Apply ();
+				buttonHoverTexture = new Texture2D (Screen.width - 200, 25);
+				for (int y = 0; y < buttonHoverTexture.height; ++y) {
+						for (int x = 0; x < buttonHoverTexture.width; ++x) {
+								if ((x > 1 && y > 1) && (x < buttonHoverTexture.width - 2 && y < buttonHoverTexture.height - 2)) {
+										Color color = new Color (254f / 255f, 234f / 255f, 174f / 255f, 1f);
+										buttonHoverTexture.SetPixel (x, y, color);
+								} else {
+										Color color = new Color (254f / 255f, 234f / 255f, 174f / 255f, 1f);
+										buttonHoverTexture.SetPixel (x, y, color);
+								}
+						}
+				}
+				buttonHoverTexture.Apply ();
 
 				buttonStyler = new GUIStyle (GUI.skin.box);
-				buttonStyler.normal.textColor = Color.white;
+				buttonStyler.normal.textColor = Color.black;
 				buttonStyler.fontSize = 14;
 				buttonStyler.normal.background = buttonTexture;
+				buttonStyler.hover.background = buttonHoverTexture;
 
 				GUI.Box (new Rect (80, Screen.height - 220, Screen.width - 160, 200), dialogue, styler);
 				/*
