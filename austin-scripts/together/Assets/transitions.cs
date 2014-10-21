@@ -14,6 +14,7 @@ public class transitions : MonoBehaviour {
 	public static bool lunch = false;
 	public static int classesTaken = 0;
 	public static int extra = 0;
+	public static string currBattle = "wakeup";
 	// Use this for initialization
 	void Start () {
 	

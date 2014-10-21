@@ -5,10 +5,10 @@ public class DescriptionBox : MonoBehaviour
 {
 
 		public string BLANK_DESC = "";
-		public string ATTACK_DESC = "Tackle the problem at hand.";
-		public string DIE_DESC = "Invigorate yourself with a cuppa joe. Deals high damage to a single target.\nRequires a grade of 25.";
+		public static string ATTACK_DESC = "Tackle the problem at hand.";
+		public static string DIE_DESC = "Invigorate yourself with a cuppa joe. Deals high damage to a single target.\nRequires a grade of 25.";
 		public string ABILITY_DESC = "Perform a special action only available to the studious.";
-		public string SPLOSIONS_DESC = "An icy shower strikes down lethargy. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+		public static string SPLOSIONS_DESC = "An icy shower strikes down lethargy. Deals moderate damage to all enemies.\nRequires a grade of 50.";
 		public string BACK_DESC = "Plot twist: a moment of indecision!";
 		public string currentDesc = "";
 		public GUIStyle styler;
@@ -93,6 +93,7 @@ public class DescriptionBox : MonoBehaviour
 				styler.normal.textColor = Color.white;
 				styler.fontSize = 18;
 				styler.normal.background = texture;
+				GUI.skin.box.wordWrap = true;
 				GUI.Box (new Rect (50 + 2 * (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 8, Screen.height - 200, (Screen.width - (Screen.width / 8) - 100) / 3, 150), currentDesc, styler);
 		}
 }

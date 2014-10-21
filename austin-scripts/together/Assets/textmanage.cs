@@ -41,7 +41,7 @@ public class textmanage : MonoBehaviour
 				}
 				lunch = transitions.lunch;
 				classesTaken = transitions.classesTaken;
-		extracurriculars = transitions.extra;
+				extracurriculars = transitions.extra;
 		}
 
 		void Reset_statepath ()
@@ -104,11 +104,11 @@ public class textmanage : MonoBehaviour
 						} else if (scene == "afterschool" && state == 2 && path != 0) {
 								scene = "afterschool2";
 								extracurriculars++;
-				transitions.extra++;
+								transitions.extra++;
 								Reset_statepath ();
 						} else if (scene == "afterschool2" && state == 2 && path != 0 && extracurriculars <= EXTRALIMIT) {
 								transitions.extra++;
-				extracurriculars++;
+								extracurriculars++;
 								Reset_statepath ();
 						} else if (scene == "afterschool2" && extracurriculars > EXTRALIMIT) {
 								scene = "end";
@@ -236,6 +236,7 @@ public class textmanage : MonoBehaviour
 								//Application.LoadLevel ("Battle");
 								//}
 						} else if (state == 1 && path == 1) {
+								transitions.currBattle = "wakeup";
 								Application.LoadLevel ("Battle");
 								SetTransition (0, 0, "breakfast", Resources.Load<Sprite> ("clock"));
 						}
@@ -335,14 +336,17 @@ public class textmanage : MonoBehaviour
 								//winlose = Random.Range (0, 1f);
 						}
 						if (state == 1 && path == 1) {
+								transitions.currBattle = "lecture";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 1, "school", Resources.Load<Sprite> ("chalkboard"));
 						}
 						if (state == 1 && path == 2) {
+								transitions.currBattle = "test";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 2, "school", Resources.Load <Sprite> ("book"));
 						}
 						if (state == 1 && path == 3) {
+								transitions.currBattle = "gym";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 3, "school", Resources.Load<Sprite> ("gym"));
 						}
@@ -463,6 +467,7 @@ public class textmanage : MonoBehaviour
 										transitions.classesTaken++;
 										addedClass = true;
 								}
+								transitions.currBattle = "test";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 1, "school2", Resources.Load <Sprite> ("book"));
 						}
@@ -472,6 +477,7 @@ public class textmanage : MonoBehaviour
 										transitions.classesTaken++;
 										addedClass = true;
 								}
+								transitions.currBattle = "gym";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 2, "school2", Resources.Load<Sprite> ("gym"));
 						}
@@ -481,6 +487,7 @@ public class textmanage : MonoBehaviour
 										transitions.classesTaken++;
 										addedClass = true;
 								}
+								transitions.currBattle = "lecture";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 3, "school2", Resources.Load<Sprite> ("chalkboard"));
 						}
@@ -491,6 +498,7 @@ public class textmanage : MonoBehaviour
 										addedClass = true;
 								}
 								//load lunch
+								transitions.currBattle = "lunch";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 4, "school2", Resources.Load<Sprite> ("lunch"));
 						}
@@ -500,6 +508,7 @@ public class textmanage : MonoBehaviour
 										transitions.classesTaken++;
 										addedClass = true;
 								}				
+								transitions.currBattle = "studying";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 5, "school2", Resources.Load<Sprite> ("book"));
 						}
@@ -568,14 +577,17 @@ public class textmanage : MonoBehaviour
 						}
 
 						if (state == 1 && path == 1) { // club
+								transitions.currBattle = "club";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 1, "afterschool", Resources.Load <Sprite> ("person1"));
 						}
 						if (state == 1 && path == 2) { // friends
+								transitions.currBattle = "friends";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 2, "afterschool", Resources.Load <Sprite> ("person2"));
 						}
 						if (state == 1 && path == 3) { // hw
+								transitions.currBattle = "hw";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 3, "afterschool", Resources.Load <Sprite> ("book"));
 						}
@@ -643,18 +655,22 @@ public class textmanage : MonoBehaviour
 						}
 						
 						if (state == 1 && path == 1) { // club
+								transitions.currBattle = "club";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 1, "afterschool2", Resources.Load <Sprite> ("person1"));
 						}
 						if (state == 1 && path == 2) { // friends
+								transitions.currBattle = "friends";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 2, "afterschool2", Resources.Load <Sprite> ("person2"));
 						}
 						if (state == 1 && path == 3) { // hw
+								transitions.currBattle = "hw";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 3, "afterschool2", Resources.Load <Sprite> ("book"));
 						}
 						if (state == 1 && path == 4) { // party
+								transitions.currBattle = "party";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 4, "afterschool2", Resources.Load <Sprite> ("crowd"));
 						}
@@ -688,6 +704,7 @@ public class textmanage : MonoBehaviour
 								//LOAD BATTLE
 						}
 						if (state == 1 && path == 0) {
+								transitions.currBattle = "sleep";
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 0, "end", Resources.Load<Sprite> ("bed"));
 						}

@@ -55,6 +55,7 @@ public class BattleGUI : MonoBehaviour
 				float announcerWidth = Screen.width - 50;
 				float announcerHeight = 50;	
 				GUI.skin.box.wordWrap = true;
+				GUI.skin.label.wordWrap = true;
 				texture = new Texture2D (16, 16);
 				for (int y = 0; y < texture.height; ++y) {
 						for (int x = 0; x < texture.width; ++x) {
@@ -165,9 +166,100 @@ public class BattleGUI : MonoBehaviour
 				}
 				GUI.enabled = !attackLock;
 				//Handles the menu buttons
+				string phys = "Tackle";
+				string spec1 = "Sip Coffee";
+				string spec2 = "Cold Shower";
+				if (transitions.currBattle == "wakeup") { //This is actually our first wake up battle here
+						phys = "Pound the alarm";
+						spec1 = "Sip Coffee";
+						spec2 = "Cold Shower";
+						DescriptionBox.ATTACK_DESC = "Shut off that alarm!";
+						DescriptionBox.DIE_DESC = "Invigorate yourself with a cuppa joe. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "An icy shower strikes down lethargy. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "lecture") {
+						phys = "Answer";
+						spec1 = "Sip Coffee";
+						spec2 = "Bathroom Break";
+						DescriptionBox.ATTACK_DESC = "Solve that tricky problem on the board.";
+						DescriptionBox.DIE_DESC = "Invigorate yourself with a cuppa joe. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "Splash your face with some water in the bathroom to attain better focus. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "test") {
+						phys = "Tackle";
+						spec1 = "Bonus Question";
+						spec2 = "Extra Time";
+						DescriptionBox.ATTACK_DESC = "Tackle the problem at hand.";
+						DescriptionBox.DIE_DESC = "Solve the bonus question for extra credit. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "The professor has a change of heart and extends the time. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "gym") {
+						phys = "Throw";
+						spec1 = "Hydration";
+						spec2 = "Too Cool For You";
+						DescriptionBox.ATTACK_DESC = "Throw your weight into it!";
+						DescriptionBox.DIE_DESC = "Hydrate yourself and replenish your energy.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "Make heads turn with how fabulous you are. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "lunch") {
+						phys = "Devour";
+						spec1 = "Dessert";
+						spec2 = "Healthy Reminders";
+						DescriptionBox.ATTACK_DESC = "Go ahead, take a bite.";
+						DescriptionBox.DIE_DESC = "Treat yo' self. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "Your body needs food, and it gives you the energy you need. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "studying") {
+						phys = "Flick";
+						spec1 = "Study Buddy";
+						spec2 = "Highlight";
+						DescriptionBox.ATTACK_DESC = "Flick the page to the next section. Progress!";
+						DescriptionBox.DIE_DESC = "Grab a friend who helps you through a tough subject. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "Mark the sections that are most important. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "club") {
+						phys = "Speak Up!";
+						spec1 = "Call Them Out";
+						spec2 = "RAINBOWS";
+						DescriptionBox.ATTACK_DESC = "Make your voice heard!";
+						DescriptionBox.DIE_DESC = "Call out someone for insensitive language. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "Flaunt your pride! Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "friends") {
+						phys = "Banter";
+						spec1 = "Call Them Out";
+						spec2 = "Coming Out";
+						DescriptionBox.ATTACK_DESC = "Make a sassy comeback to make everyone laugh.";
+						DescriptionBox.DIE_DESC = "Call out your friend and educate them about the insensitive use of language. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "You decide to come out to them so you can really be yourself with them. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "hw") {
+						phys = "Answer";
+						spec1 = "Study Buddy";
+						spec2 = "Extra Time";
+						DescriptionBox.ATTACK_DESC = "Solve that tricky homework problem.";
+						DescriptionBox.DIE_DESC = "Grab a friend who helps you through a tough subject. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "The professor has a change of heart and extends the deadline. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "party") {
+						phys = "DANCE";
+						spec1 = "Snappy Comeback";
+						spec2 = "Queering the Binary";
+						DescriptionBox.ATTACK_DESC = "Break out those killer dance moves!";
+						DescriptionBox.DIE_DESC = "Someone insults your fashion choices, and you SHUT THEM DOWN. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "Make everyone re-question their notion of the gender binary. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
+				if (transitions.currBattle == "sleep") {
+						phys = "Throw";
+						spec1 = "Candle Light";
+						spec2 = "Soothing Sound";
+						DescriptionBox.ATTACK_DESC = "Throw down the pillows and get yourself settled in.";
+						DescriptionBox.DIE_DESC = "Bring in a little light and make the room smell nice too. Deals high damage to a single target.\nRequires a grade of 25.";
+						DescriptionBox.SPLOSIONS_DESC = "Music, white noise, whatever helps you sleep. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+				}
 				if (TurnStateMachine.commandSelection == TurnStateMachine.SELECT_NONE
 						|| TurnStateMachine.commandSelection == TurnStateMachine.SELECT_TARGET_ATTACK) {		//If we're not choosing an ability, show the usual buttons.
-						if (GUI.Button (new Rect (buttonX, buttonOneY, buttonWidth, buttonHeight), "Tackle", buttonStyler)) {
+						if (GUI.Button (new Rect (buttonX, buttonOneY, buttonWidth, buttonHeight), phys, buttonStyler)) {
 								TurnStateMachine.commandSelection = TurnStateMachine.SELECT_TARGET_ATTACK;
 						}
 						if (GUI.Button (new Rect (buttonX, buttonTwoY, buttonWidth, buttonHeight), "Abilities", buttonStyler)) {
@@ -177,7 +269,7 @@ public class BattleGUI : MonoBehaviour
 						if (TurnStateMachine.playerMP < TurnStateMachine.DIE_MANA_COST) {
 								GUI.enabled = false;
 						}
-						if (GUI.Button (new Rect (buttonX, buttonOneY, buttonWidth, buttonHeight), "Sip Coffee", buttonStyler)) {
+						if (GUI.Button (new Rect (buttonX, buttonOneY, buttonWidth, buttonHeight), spec1, buttonStyler)) {
 								TurnStateMachine.commandSelection = TurnStateMachine.SELECT_TARGET_DIE;
 						}
 						GUI.enabled = !attackLock;
@@ -185,7 +277,7 @@ public class BattleGUI : MonoBehaviour
 						if (TurnStateMachine.playerMP < TurnStateMachine.SPLOSIONS_MANA_COST) {
 								GUI.enabled = false;
 						}
-						if (GUI.Button (new Rect (buttonX, buttonTwoY, buttonWidth, buttonHeight), "Cold Shower", buttonStyler)) {
+						if (GUI.Button (new Rect (buttonX, buttonTwoY, buttonWidth, buttonHeight), spec2, buttonStyler)) {
 								TurnStateMachine.castSPLOSIONS ();
 						}
 						GUI.enabled = !attackLock;
