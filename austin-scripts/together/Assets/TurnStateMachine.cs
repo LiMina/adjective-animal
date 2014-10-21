@@ -40,11 +40,11 @@ public class TurnStateMachine : MonoBehaviour
 		public int deadEnemyCounter = 0;
 
 		public static string announcerLine;
-		private static string attackLine = "You tackled the problem at hand for 15 damage!";
-		private static string DIELine = "You sipped your coffee, jolting your tiredness awake for 30 damage!";
-		private static string SPLOSIONSLine = "A cold shower snaps 25 damage at all your tiredness!";
-		private static string winLine = "You overcame your adversaries!";
-		private static string loseLine = "You feel terribly overwhelmed. You couldn't handle the pressure...";
+		public static string attackLine = "You tackled the problem at hand for 15 damage!";
+		public static string DIELine = "You sipped your coffee, jolting your tiredness awake for 30 damage!";
+		public static string SPLOSIONSLine = "A cold shower snaps 25 damage at all your tiredness!";
+		public static string winLine = "You overcame your adversaries!";
+		public static string loseLine = "You feel terribly overwhelmed. You couldn't handle the pressure...";
 	
 		// Use this for initialization
 		void Start ()

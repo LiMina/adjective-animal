@@ -176,6 +176,7 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Shut off that alarm!";
 						DescriptionBox.DIE_DESC = "Invigorate yourself with a cuppa joe. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "An icy shower strikes down lethargy. Deals moderate damage to all enemies.\nRequires a grade of 50.";
+						TurnStateMachine.attackLine = "You slam your hand on the alarm for 15 damage!";
 				}
 				if (transitions.currBattle == "lecture") {
 						phys = "Answer";
