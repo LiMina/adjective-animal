@@ -177,6 +177,8 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.DIE_DESC = "Invigorate yourself with a cuppa joe. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "An icy shower strikes down lethargy. Deals moderate damage to all enemies.\nRequires a grade of 50.";
 						TurnStateMachine.attackLine = "You slam your hand on the alarm for 15 damage!";
+						TurnStateMachine.DIELine = "You sipped your coffee, jolting your tiredness awake for 30 damage!";
+						TurnStateMachine.SPLOSIONSLine = "A cold shower snaps 25 damage at all your tiredness!";
 				}
 				if (transitions.currBattle == "lecture") {
 						phys = "Answer";
@@ -185,7 +187,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Solve that tricky problem on the board.";
 						DescriptionBox.DIE_DESC = "Invigorate yourself with a cuppa joe. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "Splash your face with some water in the bathroom to attain better focus. Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You totally dominate that problem for 15 damage!";
+			TurnStateMachine.DIELine = "You sipped your coffee, jolting your tiredness awake for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "A quick bathroom break snaps 25 damage at all your tiredness!";		
+		}
 				if (transitions.currBattle == "test") {
 						phys = "Tackle";
 						spec1 = "Bonus Question";
@@ -193,7 +198,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Tackle the problem at hand.";
 						DescriptionBox.DIE_DESC = "Solve the bonus question for extra credit. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "The professor has a change of heart and extends the time. Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You tackle the problem for 15 damage!";
+			TurnStateMachine.DIELine = "You solve the bonus question for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "Bonus time generates 25 damage to let you complete the exam!";		
+		}
 				if (transitions.currBattle == "gym") {
 						phys = "Throw";
 						spec1 = "Hydration";
@@ -201,7 +209,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Throw your weight into it!";
 						DescriptionBox.DIE_DESC = "Hydrate yourself and replenish your energy.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "Make heads turn with how fabulous you are. Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You throw your weight into your workout for 15 damage!";
+			TurnStateMachine.DIELine = "You replenish yourself with some refreshing water for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "A healthy workout causes others to gawk. 25 damage!";		
+		}
 				if (transitions.currBattle == "lunch") {
 						phys = "Devour";
 						spec1 = "Dessert";
@@ -209,7 +220,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Go ahead, take a bite.";
 						DescriptionBox.DIE_DESC = "Treat yo' self. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "Your body needs food, and it gives you the energy you need. Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You devour a satisfying mouthful of food for 15 damage!";
+			TurnStateMachine.DIELine = "You treat yourself with some delicious dessert for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "A healthy reminder improves your self-esteem and does 25 damage!";		
+		}
 				if (transitions.currBattle == "studying") {
 						phys = "Flick";
 						spec1 = "Study Buddy";
@@ -217,7 +231,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Flick the page to the next section. Progress!";
 						DescriptionBox.DIE_DESC = "Grab a friend who helps you through a tough subject. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "Mark the sections that are most important. Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You make it through to the next section of your textbook for 15 damage!";
+			TurnStateMachine.DIELine = "You have a study session with a classmate for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "Newly highlighted and colored notes for 25 damage!";		
+		}
 				if (transitions.currBattle == "club") {
 						phys = "Speak Up!";
 						spec1 = "Call Them Out";
@@ -225,7 +242,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Make your voice heard!";
 						DescriptionBox.DIE_DESC = "Call out someone for insensitive language. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "Flaunt your pride! Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You make yourself heard for 15 damage!";
+			TurnStateMachine.DIELine = "You shut down insensitive language and show that you don't stand for that kind of talk for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "A boost in your pride does 25 damage to your haters!";		
+		}
 				if (transitions.currBattle == "friends") {
 						phys = "Banter";
 						spec1 = "Call Them Out";
@@ -233,7 +253,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Make a sassy comeback to make everyone laugh.";
 						DescriptionBox.DIE_DESC = "Call out your friend and educate them about the insensitive use of language. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "You decide to come out to them so you can really be yourself with them. Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You are incredibly witty and charming. 15 damage!";
+			TurnStateMachine.DIELine = "You shut down insensitive language and show that you don't stand for that kind of talk for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "A moment of pride and self-acceptance casts 25 damage!";		
+		}
 				if (transitions.currBattle == "hw") {
 						phys = "Answer";
 						spec1 = "Study Buddy";
@@ -241,7 +264,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Solve that tricky homework problem.";
 						DescriptionBox.DIE_DESC = "Grab a friend who helps you through a tough subject. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "The professor has a change of heart and extends the deadline. Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You totally dominate that problem for 15 damage!";
+			TurnStateMachine.DIELine = "You have a study session with a classmate for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "A cold shower snaps 25 damage at all your tiredness!";		
+		}
 				if (transitions.currBattle == "party") {
 						phys = "DANCE";
 						spec1 = "Snappy Comeback";
@@ -249,7 +275,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Break out those killer dance moves!";
 						DescriptionBox.DIE_DESC = "Someone insults your fashion choices, and you SHUT THEM DOWN. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "Make everyone re-question their notion of the gender binary. Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You bust out some amazing moves for 15 damage!";
+			TurnStateMachine.DIELine = "You make a snappy come back at someone because you are FABULOUS for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "You make everyone adjust what they know about the gender binary for 25 damage!";		
+		}
 				if (transitions.currBattle == "sleep") {
 						phys = "Throw";
 						spec1 = "Candle Light";
@@ -257,7 +286,10 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Throw down the pillows and get yourself settled in.";
 						DescriptionBox.DIE_DESC = "Bring in a little light and make the room smell nice too. Deals high damage to a single target.\nRequires a grade of 25.";
 						DescriptionBox.SPLOSIONS_DESC = "Music, white noise, whatever helps you sleep. Deals moderate damage to all enemies.\nRequires a grade of 50.";
-				}
+			TurnStateMachine.attackLine = "You throw some (surprisely hefty) pillows for 15 damage!";
+			TurnStateMachine.DIELine = "You light some candles and brighten the night for 30 damage!";
+			TurnStateMachine.SPLOSIONSLine = "A calming sound track does 25 damage!";		
+		}
 				if (TurnStateMachine.commandSelection == TurnStateMachine.SELECT_NONE
 						|| TurnStateMachine.commandSelection == TurnStateMachine.SELECT_TARGET_ATTACK) {		//If we're not choosing an ability, show the usual buttons.
 						if (GUI.Button (new Rect (buttonX, buttonOneY, buttonWidth, buttonHeight), phys, buttonStyler)) {
