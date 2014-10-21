@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyControl : MonoBehaviour {
 	
 	public int ID;
-	
+	public bool selectedAttack = false;
 	// Use this for initialization
 	void Start () {
 		TurnStateMachine.numEnemies++;
@@ -22,5 +22,15 @@ public class EnemyControl : MonoBehaviour {
 			TurnStateMachine.nextTurnState (); //twice b/c no animation yet.
 			//TurnStateMachine.nextTurn ();
 		}
+	}
+	void OnMouseEnter() {
+		string highlight = transitions.nextImage.name + "_hl";
+		print (highlight);
+		if (TurnStateMachine.commandSelection == TurnStateMachine.SELECT_TARGET_ATTACK || TurnStateMachine.commandSelection == TurnStateMachine.SELECT_TARGET_DIE ) {
+						this.gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> (highlight);
+				}
+	}
+	void OnMouseExit(){
+		this.gameObject.GetComponent<SpriteRenderer>().sprite = transitions.nextImage;
 	}
 }
