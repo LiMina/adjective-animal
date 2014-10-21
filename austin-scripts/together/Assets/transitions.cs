@@ -13,6 +13,7 @@ public class transitions : MonoBehaviour {
 	public static string nextScene;
 	public static bool lunch = false;
 	public static int classesTaken = 0;
+	public static int extra = 0;
 	// Use this for initialization
 	void Start () {
 	
