@@ -20,8 +20,8 @@ public class TurnStateMachine : MonoBehaviour
 		public static readonly int DIE_MANA_COST = 5;
 		public static readonly int SPLOSIONS_MANA_COST = 10;
 		public static int attack = 10;
-		public static int DIEAttack = 10 + (int)(transitions.happiness / 2 + 0.5);
-		public static int SPLOSIONSAttack = 10 + (int)(transitions.happiness / 4 + 0.5);
+		public static int DIEAttack = 10 + (int)(transitions.happiness * 100 / 2 + 0.5);
+		public static int SPLOSIONSAttack = 10 + (int)(transitions.happiness * 100 / 4 + 0.5);
 
 		/**
 	 * Who's turn it is.
@@ -79,8 +79,8 @@ public class TurnStateMachine : MonoBehaviour
 						e.GetComponent<SpriteRenderer> ().sprite = transitions.nextImage;
 				}
 
-				DIEAttack = 10 + (int)(Mathf.Round (transitions.happiness) / 2 + 0.5);
-				SPLOSIONSAttack = 10 + (int)(Mathf.Round (transitions.happiness) / 4 + 0.5);
+				DIEAttack = 10 + (int)(Mathf.Round (transitions.happiness * 100) / 2 + 0.5);
+				SPLOSIONSAttack = 10 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
 		}
 
 		bool CheckAllDead ()
@@ -140,7 +140,7 @@ public class TurnStateMachine : MonoBehaviour
 						return;
 				}
 				
-				if (turnState == 2) {
+				if (whosTurn == 0 && turnState == 2) {
 						if (Input.GetButtonDown ("Fire1")) {
 								TurnStateMachine.nextTurn ();
 								return;

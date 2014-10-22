@@ -32,12 +32,12 @@ public class EnemyControl : MonoBehaviour
 						float random = Random.value;
 						if (this.GetComponent<Stats> ().health > 0) {
 								if (random <= critChance) {
-										TurnStateMachine.setAnnouncerLine ("");
+										TurnStateMachine.setAnnouncerLine ("The enemy attacks!");
 										StartCoroutine (Shake ());
 										currentAttackDamage = this.GetComponent<Stats> ().attack * 2;
 										timeSinceShake = 0;
 								} else if (random <= 1 - missChance) {
-										TurnStateMachine.setAnnouncerLine ("");
+										TurnStateMachine.setAnnouncerLine ("The enemy attacks!");
 										StartCoroutine (Shake ());
 										currentAttackDamage = this.GetComponent<Stats> ().attack;
 										timeSinceShake = 0;
@@ -47,16 +47,20 @@ public class EnemyControl : MonoBehaviour
 								}
 						}
 						TurnStateMachine.nextTurnState ();
-				}
-				if (TurnStateMachine.getTurn () == ID && TurnStateMachine.getTurnState () == 1 && timeSinceShake > 0.5) {
-						TurnStateMachine.playerHP -= currentAttackDamage;
-						if (currentAttackDamage == this.GetComponent<Stats> ().attack * 2) {
-								TurnStateMachine.setAnnouncerLine ("The enemy attacks! Your well-being takes a hit of " + currentAttackDamage + " points! A critical hit!");
-						} else if (currentAttackDamage == this.GetComponent<Stats> ().attack) {
-								TurnStateMachine.setAnnouncerLine ("The enemy attacks! Your well-being takes a hit of " + this.GetComponent<Stats> ().attack + " points!");
+				} else if (TurnStateMachine.getTurn () == ID && TurnStateMachine.getTurnState () == 1 && timeSinceShake > 0.5) {
+						if (Input.GetButtonDown ("Fire1")) {			
+							TurnStateMachine.playerHP -= currentAttackDamage;
+							if (currentAttackDamage == this.GetComponent<Stats> ().attack * 2) {
+									TurnStateMachine.setAnnouncerLine ("A critical hit! Your well-being takes a hit of " + currentAttackDamage + " points!");
+							} else if (currentAttackDamage == this.GetComponent<Stats> ().attack) {
+									TurnStateMachine.setAnnouncerLine ("Your well-being takes a hit of " + this.GetComponent<Stats> ().attack + " points!");
+							}
+							TurnStateMachine.nextTurnState ();
 						}
-						TurnStateMachine.nextTurnState ();
-//>>>>>>> baa7a1f6de228f3582e3cab6fc3214f504ee2b1e
+				} else if (TurnStateMachine.getTurn () == ID && TurnStateMachine.getTurnState () == 2) {
+					if (Input.GetButtonDown ("Fire1")) {
+						TurnStateMachine.nextTurnState();
+					}
 				}
 		}
 
