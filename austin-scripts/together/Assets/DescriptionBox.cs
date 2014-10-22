@@ -75,6 +75,9 @@ public class DescriptionBox : MonoBehaviour
 
 		void OnGUI ()
 		{
+				int cameraOffsetX = (int) (Camera.main.transform.position.x * Screen.width / 10);
+				int cameraOffsetY = (int) (Camera.main.transform.position.y * Screen.height / 10);
+
 				texture = new Texture2D (16, 16);
 				for (int y = 0; y < texture.height; ++y) {
 						for (int x = 0; x < texture.width; ++x) {
@@ -94,6 +97,6 @@ public class DescriptionBox : MonoBehaviour
 				styler.fontSize = 18;
 				styler.normal.background = texture;
 				GUI.skin.box.wordWrap = true;
-				GUI.Box (new Rect (50 + 2 * (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 8, Screen.height - 200, (Screen.width - (Screen.width / 8) - 100) / 3, 150), currentDesc, styler);
+				GUI.Box (new Rect (50 + 2 * (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 8 + cameraOffsetX, Screen.height - 200 + cameraOffsetY, (Screen.width - (Screen.width / 8) - 100) / 3, 150), currentDesc, styler);
 		}
 }
