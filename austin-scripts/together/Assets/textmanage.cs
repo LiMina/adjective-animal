@@ -37,7 +37,7 @@ public class textmanage : MonoBehaviour
 				if (transitions.nextScene != null) {
 						scene = transitions.nextScene;
 				} else {
-						scene = "room";
+						scene = "afterschool";
 				}
 				lunch = transitions.lunch;
 				classesTaken = transitions.classesTaken;
@@ -103,12 +103,12 @@ public class textmanage : MonoBehaviour
 								Reset_statepath ();
 						} else if (scene == "afterschool" && state == 2 && path != 0) {
 								scene = "afterschool2";
-								extracurriculars++;
+								//extracurriculars++;
 								transitions.extra++;
 								Reset_statepath ();
 						} else if (scene == "afterschool2" && state == 2 && path != 0 && extracurriculars <= EXTRALIMIT) {
 								transitions.extra++;
-								extracurriculars++;
+								//extracurriculars++;
 								Reset_statepath ();
 						} else if (scene == "afterschool2" && extracurriculars > EXTRALIMIT) {
 								scene = "end";
@@ -600,7 +600,7 @@ public class textmanage : MonoBehaviour
 						}
 						if (state == 2 && path == 2 && transitions.won) { // hangout won!
 								dialogue = "It was great to catch up with your friends and forget about school for a while.";
-						} else if (state == 2 && path == 3 && !transitions.won) {
+						} else if (state == 2 && path == 2 && !transitions.won) {
 								dialogue = "Your friends ignored you the entire time, even though they invited you, and you felt uncomfortable that they kept making jokes about the queer community. You didn’t feel like you could speak up, though, and was quietly uncomfortable. ";		
 						}
 						if (state == 2 && path == 3 && transitions.won) { // win lecture
