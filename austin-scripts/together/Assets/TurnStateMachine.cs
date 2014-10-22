@@ -3,8 +3,8 @@ using System.Collections;
 
 public class TurnStateMachine : MonoBehaviour
 {
-	public static float critChance = (float) 0.0625;
-	public static float missChance = (float) 0.0625;
+		public static float critChance = (float)0.0625;
+		public static float missChance = (float)0.0625;
 
 		/**
 	 * What action is currently selected. e.g. this changes after you press the attack button and you're choosing a target.
@@ -17,12 +17,11 @@ public class TurnStateMachine : MonoBehaviour
 		//Waiting to choose a target
 		public static readonly int SELECT_TARGET_ATTACK = 101;
 		public static readonly int SELECT_TARGET_DIE = 102;
-
-	public static readonly int DIE_MANA_COST = 5;
-	public static readonly int SPLOSIONS_MANA_COST = 10;
-	public static int attack = 10;
-	public static int DIEAttack = 10 + (int) (transitions.happiness / 2 + 0.5);
-	public static int SPLOSIONSAttack = 10 + (int) (transitions.happiness / 4 + 0.5);
+		public static readonly int DIE_MANA_COST = 5;
+		public static readonly int SPLOSIONS_MANA_COST = 10;
+		public static int attack = 10;
+		public static int DIEAttack = 10 + (int)(transitions.happiness / 2 + 0.5);
+		public static int SPLOSIONSAttack = 10 + (int)(transitions.happiness / 4 + 0.5);
 
 		/**
 	 * Who's turn it is.
@@ -33,7 +32,7 @@ public class TurnStateMachine : MonoBehaviour
 	 * n = n-th enemy's turn
 	 **/
 		private static int whosTurn = 0;
-	/**
+		/**
 	 * The current stage of the turn. Turns consist of up to 3 stages.
 	 * 0 = Selecting an attack
 	 * 1 = Attack is currently animating / in progress
@@ -44,7 +43,6 @@ public class TurnStateMachine : MonoBehaviour
 		public static int playerHP = 100;
 		public static int playerMP = 25;
 		public int deadEnemyCounter = 0;
-
 		public static string announcerLine;
 		public static string critSuffix = " It was a critical hit!";
 		public static string missLine = "Your attack missed!";
@@ -57,15 +55,32 @@ public class TurnStateMachine : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-		playerHP = Mathf.RoundToInt(transitions.wellbeing * 100);
-		playerMP = Mathf.RoundToInt(transitions.grades * 100);
+				playerHP = Mathf.RoundToInt (transitions.wellbeing * 100);
+				playerMP = Mathf.RoundToInt (transitions.grades * 100);
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+				GameObject secondenemy = GameObject.Find ("Enemy2");
+				GameObject firstenemy = GameObject.Find ("Enemy");
+				if (transitions.enemyCount == 2) {
+						foreach (GameObject e in enemies) {
+								print ("more than one enemy");
+								e.SetActive (true);
+						}
+						//secondenemy 
+						secondenemy.transform.position = new Vector3 (-3f, 1.2f, 0f);
+						secondenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
+						firstenemy.transform.position = new Vector3 (3f, 1.2f, 0f);
+						
+				} 
+				if (transitions.enemyCount == 1) {
+						firstenemy.transform.position = new Vector3 (0, 1.2f, 0f);
+						secondenemy.SetActive (false);
+				}
 				foreach (GameObject e in enemies) {
 						e.GetComponent<SpriteRenderer> ().sprite = transitions.nextImage;
 				}
 
-		DIEAttack = 10 + (int) (Mathf.Round(transitions.happiness) / 2 + 0.5);
-		SPLOSIONSAttack = 10 + (int) (Mathf.Round(transitions.happiness) / 4 + 0.5);
+				DIEAttack = 10 + (int)(Mathf.Round (transitions.happiness) / 2 + 0.5);
+				SPLOSIONSAttack = 10 + (int)(Mathf.Round (transitions.happiness) / 4 + 0.5);
 		}
 
 		bool CheckAllDead ()
@@ -79,15 +94,15 @@ public class TurnStateMachine : MonoBehaviour
 						if (deadEnemyCounter == numEnemies) { // THEY'RE ALL DEAD AHHHHHHH
 								announcerLine = winLine;
 								if (getTurnState () == 2) {
-									if (Input.GetButtonDown("Fire1")) {
-											TurnStateMachine.numEnemies = 0;
-											whosTurn = 0;
-											turnState = 0;
-											announcerLine = "";
-											Application.LoadLevel ("dialogue");
-											transitions.won = true;
-									}
-									return true;
+										if (Input.GetButtonDown ("Fire1")) {
+												TurnStateMachine.numEnemies = 0;
+												whosTurn = 0;
+												turnState = 0;
+												announcerLine = "";
+												Application.LoadLevel ("dialogue");
+												transitions.won = true;
+										}
+										return true;
 								}
 								nextTurnState ();
 								nextTurnState ();
@@ -97,15 +112,15 @@ public class TurnStateMachine : MonoBehaviour
 				if (playerHP <= 0) {
 						announcerLine = loseLine;
 						if (getTurnState () == 2) {
-							if (Input.GetButtonDown ("Fire1")) {
-									TurnStateMachine.numEnemies = 0;
-									whosTurn = 0;
-									turnState = 0;
-									announcerLine = "";
-									Application.LoadLevel ("dialogue");
-									transitions.won = false;
-							}
-							return true;
+								if (Input.GetButtonDown ("Fire1")) {
+										TurnStateMachine.numEnemies = 0;
+										whosTurn = 0;
+										turnState = 0;
+										announcerLine = "";
+										Application.LoadLevel ("dialogue");
+										transitions.won = false;
+								}
+								return true;
 						}
 						nextTurnState ();
 						nextTurnState ();
@@ -120,12 +135,13 @@ public class TurnStateMachine : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+				print (numEnemies);
 				if (CheckAllDead ()) {
 						return;
 				}
 				
 				if (turnState == 2) {
-						if (Input.GetButtonDown("Fire1")) {
+						if (Input.GetButtonDown ("Fire1")) {
 								TurnStateMachine.nextTurn ();
 								return;
 						}
@@ -145,13 +161,13 @@ public class TurnStateMachine : MonoBehaviour
 														if (commandSelection == SELECT_TARGET_ATTACK) {		//Do regular attack
 																float random = Random.value;
 																if (random <= critChance) {
-																	e.GetComponent<Stats> ().health -= attack * 2;
-																	announcerLine = attackLine + critSuffix;
+																		e.GetComponent<Stats> ().health -= attack * 2;
+																		announcerLine = attackLine + critSuffix;
 																} else if (random <= 1 - missChance) {
-																	e.GetComponent<Stats> ().health -= attack;
-																	announcerLine = attackLine;
+																		e.GetComponent<Stats> ().health -= attack;
+																		announcerLine = attackLine;
 																} else {
-																	announcerLine = missLine;
+																		announcerLine = missLine;
 																}
 																nextTurnState ();	
 																nextTurnState (); //twice b/c no animation
@@ -159,13 +175,13 @@ public class TurnStateMachine : MonoBehaviour
 														} else if (commandSelection == SELECT_TARGET_DIE) {		//Do DIE ability
 																float random = Random.value;
 																if (random <= critChance) {
-																	e.GetComponent<Stats> ().health -= DIEAttack * 2;
-																	announcerLine = DIELine + critSuffix;
+																		e.GetComponent<Stats> ().health -= DIEAttack * 2;
+																		announcerLine = DIELine + critSuffix;
 																} else if (random <= 1 - missChance) {
-																	e.GetComponent<Stats> ().health -= DIEAttack;
-																	announcerLine = DIELine;
+																		e.GetComponent<Stats> ().health -= DIEAttack;
+																		announcerLine = DIELine;
 																} else {
-																	announcerLine = missLine;
+																		announcerLine = missLine;
 																}
 																playerMP -= DIE_MANA_COST;
 																commandSelection = SELECT_NONE;
@@ -235,13 +251,13 @@ public class TurnStateMachine : MonoBehaviour
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 				foreach (GameObject e in enemies) {
 						if (random <= critChance) {
-							e.GetComponent<Stats> ().health -= SPLOSIONSAttack * 2;
-							announcerLine = SPLOSIONSLine + critSuffix;
+								e.GetComponent<Stats> ().health -= SPLOSIONSAttack * 2;
+								announcerLine = SPLOSIONSLine + critSuffix;
 						} else if (random <= 1 - missChance) {
-							e.GetComponent<Stats> ().health -= SPLOSIONSAttack;
-							announcerLine = SPLOSIONSLine;
+								e.GetComponent<Stats> ().health -= SPLOSIONSAttack;
+								announcerLine = SPLOSIONSLine;
 						} else {
-							announcerLine = missLine;
+								announcerLine = missLine;
 						}
 				}
 
