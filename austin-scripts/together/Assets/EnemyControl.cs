@@ -11,6 +11,10 @@ public class EnemyControl : MonoBehaviour {
 	
 	public int ID = 2;
 	public bool selectedAttack = false;
+
+	private float timeSinceShake = 0;
+	private int currentAttackDamage = 0;
+
 	// Use this for initialization
 	void Start () {
 		TurnStateMachine.numEnemies++;
@@ -19,24 +23,35 @@ public class EnemyControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		timeSinceShake += Time.deltaTime;
 		if (TurnStateMachine.getTurn () == ID && TurnStateMachine.getTurnState () == 0) {
 			float random = Random.value;
 			if (this.GetComponent<Stats>().health > 0) {
 				if (random <= critChance) {
-					TurnStateMachine.playerHP -= this.GetComponent<Stats>().attack * 2;
-					TurnStateMachine.setAnnouncerLine("The enemy attacks! Your well-being takes a hit of " + (this.GetComponent<Stats>().attack * 2) + " points! A critical hit!");
+					TurnStateMachine.setAnnouncerLine("");
 					StartCoroutine( Shake ());
+					currentAttackDamage = this.GetComponent<Stats>().attack * 2;
+					timeSinceShake = 0;
 				} else if (random <= 1 - missChance) {
-					TurnStateMachine.playerHP -= this.GetComponent<Stats>().attack;
-					TurnStateMachine.setAnnouncerLine("The enemy attacks! Your well-being takes a hit of " + this.GetComponent<Stats>().attack + " points!");
+					TurnStateMachine.setAnnouncerLine("");
 					StartCoroutine( Shake ());
+					currentAttackDamage = this.GetComponent<Stats>().attack;
+					timeSinceShake = 0;
 				} else {
 					TurnStateMachine.setAnnouncerLine("The enemy's attack missed!");
+					TurnStateMachine.nextTurnState ();
 				}
 			}
 			TurnStateMachine.nextTurnState ();
-			TurnStateMachine.nextTurnState (); //twice b/c no animation yet.
-			//TurnStateMachine.nextTurn ();
+		}
+		if (TurnStateMachine.getTurn () == ID && TurnStateMachine.getTurnState () == 1 && timeSinceShake > 0.5) {
+			TurnStateMachine.playerHP -= currentAttackDamage;
+			if (currentAttackDamage == this.GetComponent<Stats>().attack * 2) {
+				TurnStateMachine.setAnnouncerLine("The enemy attacks! Your well-being takes a hit of " + currentAttackDamage + " points! A critical hit!");
+			} else if (currentAttackDamage == this.GetComponent<Stats>().attack) {
+				TurnStateMachine.setAnnouncerLine("The enemy attacks! Your well-being takes a hit of " + this.GetComponent<Stats>().attack + " points!");
+			}
+			TurnStateMachine.nextTurnState ();
 		}
 	}
 	void OnMouseEnter() {

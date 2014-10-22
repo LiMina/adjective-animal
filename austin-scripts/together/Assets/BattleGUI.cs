@@ -145,7 +145,7 @@ public class BattleGUI : MonoBehaviour
 
 			
 				GUI.Box (new Rect (25 + cameraOffsetX, 25 + cameraOffsetY, Screen.width - 50, 50), dialogue, promptStyler);
-				if (TurnStateMachine.getTurnState () == 2) {
+				if (TurnStateMachine.getTurnState () != 0) {
 						dialogue = TurnStateMachine.announcerLine;
 				} else if (!attackLock) {
 						dialogue = playerTurnString;
