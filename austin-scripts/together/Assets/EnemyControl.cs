@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class EnemyControl : MonoBehaviour {
+
+	public float critChance = (float) 0.0625;
+	public float missChance = (float) 0.0625;
 	
 	public int ID;
 	public bool selectedAttack = false;
@@ -14,10 +17,18 @@ public class EnemyControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (TurnStateMachine.getTurn () == ID && TurnStateMachine.getTurnState () == 0) {
+			float random = Random.value;
 			if (this.GetComponent<Stats>().health > 0) {
-				TurnStateMachine.playerHP -= this.GetComponent<Stats>().attack;
+				if (random <= critChance) {
+					TurnStateMachine.playerHP -= this.GetComponent<Stats>().attack * 2;
+					TurnStateMachine.setAnnouncerLine("The enemy attacks! Your well-being takes a hit of " + (this.GetComponent<Stats>().attack * 2) + " points! A critical hit!");
+				} else if (random <= 1 - missChance) {
+					TurnStateMachine.playerHP -= this.GetComponent<Stats>().attack;
+					TurnStateMachine.setAnnouncerLine("The enemy attacks! Your well-being takes a hit of " + this.GetComponent<Stats>().attack + " points!");
+				} else {
+					TurnStateMachine.setAnnouncerLine("The enemy's attack missed!");
+				}
 			}
-			TurnStateMachine.setAnnouncerLine("Your well-being takes a hit of " + this.GetComponent<Stats>().attack + " points!");
 			TurnStateMachine.nextTurnState ();
 			TurnStateMachine.nextTurnState (); //twice b/c no animation yet.
 			//TurnStateMachine.nextTurn ();
