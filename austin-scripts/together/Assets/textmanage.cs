@@ -269,32 +269,35 @@ public class textmanage : MonoBehaviour
 								}
 								
 						}
-						if (state == 0 && (path == 1 || path == 2)) {
+						if (state == 0 && path == 1) {
 								if (!stats_upped) {
-										//transitions.wellbeing = 1f;
-										transitions.grades += 0.5f;
+										transitions.wellbeing = 0.20f;
+										stats_upped = true;
+								}
+								dialogue = "Sounds good! A good breakfast gives you plenty of energy to tackle the day. Your well-being increased.";
+						}
+						if (state == 0 &&  path == 2) {
+								if (!stats_upped) {
 										transitions.happiness += 0.1f;
 										stats_upped = true;
 								}
-								dialogue = "Sounds good! A good breakfast makes you feel more prepared for school. Your grades increased.";
+								dialogue = "Your favorite cereal! You're so glad you bought this. Your happiness increased.";
 						}
 						if (state == 0 && path == 3) {
 								if (!stats_upped) {
-										transitions.wellbeing = 1f;
-										//transitions.grades += 0.5f;
-										transitions.happiness += 0.1f;
+										transitions.grades += 0.1f;
 										stats_upped = true;
 								}
-								dialogue = "Okay, that's cool; dinner for breakfast is great! Your sense of well-being increased.";			
+								dialogue = "Okay, that's cool; dinner for breakfast is great! While it sits in the microwave, you spend some time looking over your notes. Your grades increased.";			
 						}
 						if (state == 0 && path == 4) {
 								if (!stats_upped) {
-										transitions.wellbeing += 0.2f;
-										transitions.grades += 0.25f;
-										transitions.happiness += 0.2f;
+										transitions.wellbeing += 0.1f;
+										transitions.grades += 0.05f;
+										transitions.happiness -= 0.05f;
 										stats_upped = true;
 								}
-								dialogue = "Whatever floats your boat! Your grades and well-being increased...?";
+								dialogue = "Whatever floats your boat! It's not very appetizing, but you feel rejuvenated and alert. Your happiness decreased. Your well-being and grades increased.\n...What was in that?";
 						}
 				
 				} else if (scene == "school") {
