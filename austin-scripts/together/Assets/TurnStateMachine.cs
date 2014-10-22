@@ -51,6 +51,8 @@ public class TurnStateMachine : MonoBehaviour
 		public static string SPLOSIONSLine = "A cold shower snaps away your drowsiness, giving you a literal wake-up call!";
 		public static string winLine = "You overcame your adversaries!";
 		public static string loseLine = "You feel terribly overwhelmed. You couldn't handle the pressure...";
+
+		private bool ending = false;
 	
 		// Use this for initialization
 		void Start ()
@@ -92,20 +94,45 @@ public class TurnStateMachine : MonoBehaviour
 								deadEnemyCounter++;
 						}
 						if (deadEnemyCounter == numEnemies) { // THEY'RE ALL DEAD AHHHHHHH
-								announcerLine = winLine;
+								if (!ending && getTurnState () != 0) { // Finish the message for your last attack before continuing to the end message
+									if (Input.GetButtonDown ("Fire1")) {
+										ending = true;
+										nextTurn ();
+									}
+									return true;
+								}
 								if (getTurnState () == 2) {
 										if (Input.GetButtonDown ("Fire1")) {
 												TurnStateMachine.numEnemies = 0;
 												whosTurn = 0;
 												turnState = 0;
 												announcerLine = "";
+												ending = false;
 												Application.LoadLevel ("dialogue");
 												transitions.won = true;
+												if (transitions.currBattle == "wakeup") { // Post battle effects for waking up
+													transitions.happiness += 0.1f;
+												}
 										}
 										return true;
 								}
-								nextTurnState ();
-								nextTurnState ();
+								if (transitions.currBattle != "wakeup") // To catch extra cases
+									announcerLine = winLine;
+								if (transitions.currBattle == "wakeup") { // Extra win line for waking up
+									if (getTurnState () == 0) {
+										announcerLine = winLine + " You feel great having started the day off right!";
+										nextTurnState ();
+									} else if (getTurnState () == 1) {
+										if (Input.GetButtonDown ("Fire1")) {
+											announcerLine = "Your happiness has increased!";
+											nextTurnState ();
+										}
+									}
+								}
+								if (transitions.currBattle != "wakeup") { // To catch extra cases
+									nextTurnState ();
+									nextTurnState ();
+								}
 								return true;
 						}
 				}
@@ -136,7 +163,8 @@ public class TurnStateMachine : MonoBehaviour
 		void Update ()
 		{
 				print (numEnemies);
-				if (CheckAllDead ()) {
+				if (whosTurn == 0) {
+					if (CheckAllDead ())
 						return;
 				}
 				

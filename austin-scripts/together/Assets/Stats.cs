@@ -22,7 +22,10 @@ public class Stats : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		if (textmanage.scene == "school") {
+		if (transitions.currBattle == "wakeup") {
+			health = 50;
+			attack = 10;
+		} else if (textmanage.scene == "school") {
 			health = 120;
 			attack = 10;
 		}
