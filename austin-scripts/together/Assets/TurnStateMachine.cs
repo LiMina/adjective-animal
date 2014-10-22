@@ -3,8 +3,8 @@ using System.Collections;
 
 public class TurnStateMachine : MonoBehaviour
 {
-	public static float critChance = 0.0625;
-	public static float missChance = 0.0625;
+	public static float critChance = (float) 0.0625;
+	public static float missChance = (float) 0.0625;
 
 		/**
 	 * What action is currently selected. e.g. this changes after you press the attack button and you're choosing a target.
@@ -139,7 +139,7 @@ public class TurnStateMachine : MonoBehaviour
 																return;
 														}
 														if (commandSelection == SELECT_TARGET_ATTACK) {		//Do regular attack
-																int random = Random.value;
+																float random = Random.value;
 																if (random <= critChance) {
 																	e.GetComponent<Stats> ().health -= 30;
 																	announcerLine = attackLine + critSuffix;
