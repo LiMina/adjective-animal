@@ -6,8 +6,8 @@ public class EnemyControl : MonoBehaviour {
 	public float critChance = (float) 0.0625;
 	public float missChance = (float) 0.0625;
 
-	public float camDuration = 0.3f;
-	public float camMagnitude = 0.3f;
+	public float camDuration = 0.5f;
+	public float camMagnitude = 0.1f;
 	
 	public int ID = 2;
 	public bool selectedAttack = false;

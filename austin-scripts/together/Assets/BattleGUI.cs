@@ -56,6 +56,10 @@ public class BattleGUI : MonoBehaviour
 				float announcerHeight = 50;	
 				GUI.skin.box.wordWrap = true;
 				GUI.skin.label.wordWrap = true;
+
+				int cameraOffsetX = (int) (Camera.main.transform.position.x * Screen.width / 10);
+				int cameraOffsetY = (int) (Camera.main.transform.position.y * Screen.height / 10);
+
 				texture = new Texture2D (16, 16);
 				for (int y = 0; y < texture.height; ++y) {
 						for (int x = 0; x < texture.width; ++x) {
@@ -140,7 +144,7 @@ public class BattleGUI : MonoBehaviour
 			}*/
 
 			
-				GUI.Box (new Rect (25, 25, Screen.width - 50, 50), dialogue, promptStyler);
+				GUI.Box (new Rect (25 + cameraOffsetX, 25 + cameraOffsetY, Screen.width - 50, 50), dialogue, promptStyler);
 				if (TurnStateMachine.getTurnState () == 2) {
 						dialogue = TurnStateMachine.announcerLine;
 				} else if (!attackLock) {
@@ -150,14 +154,14 @@ public class BattleGUI : MonoBehaviour
 				}
 
 				//HP/MP display
-				GUI.Box (new Rect (boxOneX, boxY, boxWidth, boxHeight), "", styler); 
-				GUI.Label (new Rect (statX, HPTextY, statWidth, statHeight),
+				GUI.Box (new Rect (boxOneX + cameraOffsetX, boxY + cameraOffsetY, boxWidth, boxHeight), "", styler); 
+				GUI.Label (new Rect (statX + cameraOffsetX, HPTextY + cameraOffsetY, statWidth, statHeight),
 		           "Well-being : " + TurnStateMachine.playerHP + "/" + Mathf.RoundToInt(transitions.wellbeing * 100), textcolor);
-				GUI.Label (new Rect (statX, MPTextY, statWidth, statHeight),
+				GUI.Label (new Rect (statX + cameraOffsetX, MPTextY + cameraOffsetY, statWidth, statHeight),
 		           "Grades : " + TurnStateMachine.playerMP + "/" + Mathf.RoundToInt(transitions.grades * 100), textcolor);
 	
 				//Handles whether or not the buttons are locked (due to currently choosing a target)
-				GUI.Box (new Rect (boxTwoX, boxY, boxWidth, boxHeight), "", styler);
+				GUI.Box (new Rect (boxTwoX + cameraOffsetX, boxY + cameraOffsetY, boxWidth, boxHeight), "", styler);
 				if (TurnStateMachine.getTurn () == 0 && !TurnStateMachine.isCommandTargeting () && TurnStateMachine.getTurnState () != 2) {
 						attackLock = false;
 				} else {	
@@ -291,17 +295,17 @@ public class BattleGUI : MonoBehaviour
 		}
 				if (TurnStateMachine.commandSelection == TurnStateMachine.SELECT_NONE
 						|| TurnStateMachine.commandSelection == TurnStateMachine.SELECT_TARGET_ATTACK) {		//If we're not choosing an ability, show the usual buttons.
-						if (GUI.Button (new Rect (buttonX, buttonOneY, buttonWidth, buttonHeight), phys, buttonStyler)) {
+						if (GUI.Button (new Rect (buttonX + cameraOffsetX, buttonOneY + cameraOffsetY, buttonWidth, buttonHeight), phys, buttonStyler)) {
 								TurnStateMachine.commandSelection = TurnStateMachine.SELECT_TARGET_ATTACK;
 						}
-						if (GUI.Button (new Rect (buttonX, buttonTwoY, buttonWidth, buttonHeight), "Abilities", buttonStyler)) {
+						if (GUI.Button (new Rect (buttonX + cameraOffsetX, buttonTwoY + cameraOffsetY, buttonWidth, buttonHeight), "Abilities", buttonStyler)) {
 								TurnStateMachine.commandSelection = TurnStateMachine.SELECT_ABILITY;
 						}
 				} else {	//Otherwise show the ability menu
 						if (TurnStateMachine.playerMP < TurnStateMachine.DIE_MANA_COST) {
 								GUI.enabled = false;
 						}
-						if (GUI.Button (new Rect (buttonX, buttonOneY, buttonWidth, buttonHeight), spec1, buttonStyler)) {
+						if (GUI.Button (new Rect (buttonX + cameraOffsetX, buttonOneY + cameraOffsetY, buttonWidth, buttonHeight), spec1, buttonStyler)) {
 								TurnStateMachine.commandSelection = TurnStateMachine.SELECT_TARGET_DIE;
 						}
 						GUI.enabled = !attackLock;
@@ -309,12 +313,12 @@ public class BattleGUI : MonoBehaviour
 						if (TurnStateMachine.playerMP < TurnStateMachine.SPLOSIONS_MANA_COST) {
 								GUI.enabled = false;
 						}
-						if (GUI.Button (new Rect (buttonX, buttonTwoY, buttonWidth, buttonHeight), spec2, buttonStyler)) {
+						if (GUI.Button (new Rect (buttonX + cameraOffsetX, buttonTwoY + cameraOffsetY, buttonWidth, buttonHeight), spec2, buttonStyler)) {
 								TurnStateMachine.castSPLOSIONS ();
 						}
 						GUI.enabled = !attackLock;
 
-						if (GUI.Button (new Rect (buttonX, backButtonY, buttonWidth, buttonHeight), "Back", buttonStyler)) {
+						if (GUI.Button (new Rect (buttonX + cameraOffsetX, backButtonY + cameraOffsetY, buttonWidth, buttonHeight), "Back", buttonStyler)) {
 								TurnStateMachine.commandSelection = TurnStateMachine.SELECT_NONE;
 						}
 				}
