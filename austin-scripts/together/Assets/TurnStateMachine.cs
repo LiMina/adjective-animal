@@ -18,8 +18,11 @@ public class TurnStateMachine : MonoBehaviour
 		public static readonly int SELECT_TARGET_ATTACK = 101;
 		public static readonly int SELECT_TARGET_DIE = 102;
 
-	public static readonly int DIE_MANA_COST = 25;
-	public static readonly int SPLOSIONS_MANA_COST = 50;
+	public static readonly int DIE_MANA_COST = 5;
+	public static readonly int SPLOSIONS_MANA_COST = 10;
+	public static int attack = 10;
+	public static int DIEAttack = 10 + (int) (transitions.happiness / 2 + 0.5);
+	public static int SPLOSIONSAttack = 10 + (int) (transitions.happiness / 4 + 0.5);
 
 		/**
 	 * Who's turn it is.
@@ -43,23 +46,26 @@ public class TurnStateMachine : MonoBehaviour
 		public int deadEnemyCounter = 0;
 
 		public static string announcerLine;
-		public static string critSuffix = "It was a critical hit!";
+		public static string critSuffix = " It was a critical hit!";
 		public static string missLine = "Your attack missed!";
-		public static string attackLine = "You tackled the problem at hand for 15 damage!";
-		public static string DIELine = "You sipped your coffee, jolting your tiredness awake for 30 damage!";
-		public static string SPLOSIONSLine = "A cold shower snaps 25 damage at all your tiredness!";
+		public static string attackLine = "You tackled the problem at hand!";
+		public static string DIELine = "You sipped your coffee, jolting your tiredness awake!";
+		public static string SPLOSIONSLine = "A cold shower snaps away your drowsiness, giving you a literal wake-up call!";
 		public static string winLine = "You overcame your adversaries!";
 		public static string loseLine = "You feel terribly overwhelmed. You couldn't handle the pressure...";
 	
 		// Use this for initialization
 		void Start ()
 		{
-		playerHP = Mathf.CeilToInt(transitions.wellbeing * 100);
-		playerMP = Mathf.CeilToInt(transitions.grades * 100);
+		playerHP = Mathf.RoundToInt(transitions.wellbeing * 100);
+		playerMP = Mathf.RoundToInt(transitions.grades * 100);
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 				foreach (GameObject e in enemies) {
 						e.GetComponent<SpriteRenderer> ().sprite = transitions.nextImage;
 				}
+
+		DIEAttack = 10 + (int) (Mathf.Round(transitions.happiness) / 2 + 0.5);
+		SPLOSIONSAttack = 10 + (int) (Mathf.Round(transitions.happiness) / 4 + 0.5);
 		}
 
 		bool CheckAllDead ()
@@ -78,7 +84,6 @@ public class TurnStateMachine : MonoBehaviour
 											whosTurn = 0;
 											turnState = 0;
 											announcerLine = "";
-											transitions.wellbeing = ((float)(playerHP)) / 100f;
 											Application.LoadLevel ("dialogue");
 											transitions.won = true;
 									}
@@ -115,7 +120,6 @@ public class TurnStateMachine : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				print (transitions.nextImage);
 				if (CheckAllDead ()) {
 						return;
 				}
@@ -141,10 +145,10 @@ public class TurnStateMachine : MonoBehaviour
 														if (commandSelection == SELECT_TARGET_ATTACK) {		//Do regular attack
 																float random = Random.value;
 																if (random <= critChance) {
-																	e.GetComponent<Stats> ().health -= 30;
+																	e.GetComponent<Stats> ().health -= attack * 2;
 																	announcerLine = attackLine + critSuffix;
 																} else if (random <= 1 - missChance) {
-																	e.GetComponent<Stats> ().health -= 15;
+																	e.GetComponent<Stats> ().health -= attack;
 																	announcerLine = attackLine;
 																} else {
 																	announcerLine = missLine;
@@ -153,11 +157,19 @@ public class TurnStateMachine : MonoBehaviour
 																nextTurnState (); //twice b/c no animation
 																//TurnStateMachine.nextTurn ();
 														} else if (commandSelection == SELECT_TARGET_DIE) {		//Do DIE ability
-																e.GetComponent<Stats> ().health -= 30;
+																float random = Random.value;
+																if (random <= critChance) {
+																	e.GetComponent<Stats> ().health -= DIEAttack * 2;
+																	announcerLine = DIELine + critSuffix;
+																} else if (random <= 1 - missChance) {
+																	e.GetComponent<Stats> ().health -= DIEAttack;
+																	announcerLine = DIELine;
+																} else {
+																	announcerLine = missLine;
+																}
 																playerMP -= DIE_MANA_COST;
 																commandSelection = SELECT_NONE;
 
-																announcerLine = DIELine;
 																nextTurnState ();	
 																nextTurnState (); //twice b/c no animation
 																//TurnStateMachine.nextTurn ();
@@ -218,12 +230,21 @@ public class TurnStateMachine : MonoBehaviour
 		public static void castSPLOSIONS ()
 		{
 				playerMP -= SPLOSIONS_MANA_COST;
+				float random = Random.value;
+
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 				foreach (GameObject e in enemies) {
-						e.GetComponent<Stats> ().health -= 25;
+						if (random <= critChance) {
+							e.GetComponent<Stats> ().health -= SPLOSIONSAttack * 2;
+							announcerLine = SPLOSIONSLine + critSuffix;
+						} else if (random <= 1 - missChance) {
+							e.GetComponent<Stats> ().health -= SPLOSIONSAttack;
+							announcerLine = SPLOSIONSLine;
+						} else {
+							announcerLine = missLine;
+						}
 				}
 
-				announcerLine = SPLOSIONSLine;
 				nextTurnState ();	
 				nextTurnState (); //twice b/c no animation
 				commandSelection = SELECT_NONE;
