@@ -3,6 +3,9 @@ using System.Collections;
 
 public class TurnStateMachine : MonoBehaviour
 {
+	public static float critChance = 0.0625;
+	public static float missChance = 0.0625;
+
 		/**
 	 * What action is currently selected. e.g. this changes after you press the attack button and you're choosing a target.
 	 **/
@@ -40,6 +43,8 @@ public class TurnStateMachine : MonoBehaviour
 		public int deadEnemyCounter = 0;
 
 		public static string announcerLine;
+		public static string critSuffix = "It was a critical hit!";
+		public static string missLine = "Your attack missed!";
 		public static string attackLine = "You tackled the problem at hand for 15 damage!";
 		public static string DIELine = "You sipped your coffee, jolting your tiredness awake for 30 damage!";
 		public static string SPLOSIONSLine = "A cold shower snaps 25 damage at all your tiredness!";
@@ -134,10 +139,16 @@ public class TurnStateMachine : MonoBehaviour
 																return;
 														}
 														if (commandSelection == SELECT_TARGET_ATTACK) {		//Do regular attack
-																e.GetComponent<Stats> ().health -= 15;
-																Debug.Log (e.GetComponent<EnemyControl> ().ID + " " + e.GetComponent<Stats> ().health);
-
-																announcerLine = attackLine;
+																int random = Random.value;
+																if (random <= critChance) {
+																	e.GetComponent<Stats> ().health -= 30;
+																	announcerLine = attackLine + critSuffix;
+																} else if (random <= 1 - missChance) {
+																	e.GetComponent<Stats> ().health -= 15;
+																	announcerLine = attackLine;
+																} else {
+																	announcerLine = missLine;
+																}
 																nextTurnState ();	
 																nextTurnState (); //twice b/c no animation
 																//TurnStateMachine.nextTurn ();
