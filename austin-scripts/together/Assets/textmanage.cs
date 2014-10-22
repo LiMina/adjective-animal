@@ -37,7 +37,7 @@ public class textmanage : MonoBehaviour
 				if (transitions.nextScene != null) {
 						scene = transitions.nextScene;
 				} else {
-						scene = "afterschool";
+						scene = "room";
 				}
 				lunch = transitions.lunch;
 				classesTaken = transitions.classesTaken;
@@ -62,12 +62,13 @@ public class textmanage : MonoBehaviour
 				//inScene = true;
 		}
 
-		void SetTransition (int state, int path, string scene, Sprite nextImage)
+		void SetTransition (int state, int path, string scene, Sprite nextImage, int enemyCount = 1)
 		{
 				transitions.nextState = state;
 				transitions.nextPath = path;
 				transitions.nextScene = scene;
 				transitions.nextImage = nextImage;
+		transitions.enemyCount = enemyCount;
 		}
 
 		void Update ()
@@ -238,7 +239,7 @@ public class textmanage : MonoBehaviour
 						} else if (state == 1 && path == 1) {
 								transitions.currBattle = "wakeup";
 								Application.LoadLevel ("Battle");
-								SetTransition (0, 0, "breakfast", Resources.Load<Sprite> ("clock"));
+								SetTransition (0, 0, "breakfast", Resources.Load<Sprite> ("clock"),1);
 						}
 						
 							
@@ -338,7 +339,7 @@ public class textmanage : MonoBehaviour
 						if (state == 1 && path == 1) {
 								transitions.currBattle = "lecture";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 1, "school", Resources.Load<Sprite> ("chalkboard"));
+								SetTransition (2, 1, "school", Resources.Load<Sprite> ("chalkboard"),2);
 						}
 						if (state == 1 && path == 2) {
 								transitions.currBattle = "test";
