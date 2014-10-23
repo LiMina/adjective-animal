@@ -209,7 +209,7 @@ public class textmanage : MonoBehaviour
 				 */
 				if (scene == "room") {
 						if (state == 0 && path == 0) {
-								dialogue = "WAKE UP!!!!!";
+								dialogue = "...WAKE UP!!!!!";
 						} else if (state == 1 && path == 0) {
 								dialogue = "You roll over, groan and hit your alarm clock";		
 						} else if (state == 2 && path == 0) {
@@ -225,7 +225,7 @@ public class textmanage : MonoBehaviour
 								dialogue = "Really?";
 						
 						} else if (state == 0 && path == 1) { // option 1
-								dialogue = "Sighing, you push yourself out of bed and stand shakily while you blink blearily. AN ENEMY APPEARED!";
+								dialogue = "Sighing, you try to sit up while you blink blearily. You don't want to be late to class again, right?\nCarpe Diem!";
 								//load Battle
 								//StartCoroutine (Wait (BATTLETIMEDELAY));
 								
@@ -274,21 +274,21 @@ public class textmanage : MonoBehaviour
 										transitions.wellbeing = 0.20f;
 										stats_upped = true;
 								}
-								dialogue = "Sounds good! A good breakfast gives you plenty of energy to tackle the day. Your well-being increased.";
+								dialogue = "Bacon? The internet approves.\nYour well-being increased.";
 						}
 						if (state == 0 &&  path == 2) {
 								if (!stats_upped) {
 										transitions.happiness += 0.1f;
 										stats_upped = true;
 								}
-								dialogue = "Your favorite cereal! You're so glad you bought this. Your happiness increased.";
+								dialogue = "Your favorite cereal! You're so glad you bought this.\nYour happiness increased.";
 						}
 						if (state == 0 && path == 3) {
 								if (!stats_upped) {
 										transitions.grades += 0.1f;
 										stats_upped = true;
 								}
-								dialogue = "Okay, that's cool; dinner for breakfast is great! While it sits in the microwave, you spend some time looking over your notes. Your grades increased.";			
+								dialogue = "Okay, that's cool; dinner for breakfast is great! While it sits in the microwave, you spend some time looking over your notes.\nYour grades increased.";			
 						}
 						if (state == 0 && path == 4) {
 								if (!stats_upped) {
@@ -297,7 +297,7 @@ public class textmanage : MonoBehaviour
 										transitions.happiness -= 0.05f;
 										stats_upped = true;
 								}
-								dialogue = "Whatever floats your boat! It's not very appetizing, but you feel rejuvenated and alert. Your happiness decreased. Your well-being and grades increased.\n...What was in that?";
+								dialogue = "You quickly eat it before it starts moving ...again. It's not very appetizing, but you feel rejuvenated and alert.\nYour happiness decreased. Your well-being and grades increased.\n...What was in that?";
 						}
 				
 				} else if (scene == "school") {
@@ -318,21 +318,21 @@ public class textmanage : MonoBehaviour
 				
 						}
 						if (state == 0 && path == 1) {
-								dialogue = "Alright, this class should be okay, right? AN ENEMY APPEARED!";
+								dialogue = "8 AM classes are the worst. but you should be okay, right?";
 								//LOAD BATTLE
 								//StartCoroutine (Wait (BATTLETIMEDELAY));
 								//winlose = Random.Range (0, 1f);
 								//SetTransition (1, 1, "school", Resources.Load<Sprite> ("clock"));
 						}
 						if (state == 0 && path == 2) {
-								dialogue = "Well, you studied...right? AN ENEMY APPEARED!";
+								dialogue = "Well, you studied...right?";
 								//LOAD BATTLE
 								//StartCoroutine (Wait (BATTLETIMEDELAY));
 								//winlose = Random.Range (0, 1f);
 								//SetTransition (1, 2, "school", Resources.Load<Sprite> ("clock"));
 						}
 						if (state == 0 && path == 3) {
-								dialogue = "Hope you’re ready to get psyched first thing in the morning! AN ENEMY APPEARED!";
+								dialogue = "You told yourself you would start hitting the gym more often. Are you ready to feel the burn?";
 								//LOAD BATLE
 								//StartCoroutine (Wait (BATTLETIMEDELAY));
 								//SetTransition (1, 3, "school", Resources.Load<Sprite> ("clock"));
@@ -360,17 +360,17 @@ public class textmanage : MonoBehaviour
 						if (state == 2 && path == 1 && transitions.won) { // win lecture
 								dialogue = "You made it through the class! Alright, what are you doing next?";
 						} else if (state == 2 && path == 1 && !transitions.won) {
-								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. ";
+								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. What's next?";
 						}
 						if (state == 2 && path == 2 && transitions.won) { // test win{
 								dialogue = "Aww yiss, you aced it! Ready for the rest of the day? ";
 						} else if (state == 2 && path == 2 && !transitions.won) {
-								dialogue = "Wow, you really didn’t study, did you? What a shame. What’s next?";		
+								dialogue = "Wow, you really didn’t study, but curves, am I right? What’s next?";		
 						}
 						if (state == 2 && path == 3 && transitions.won) {// gym win
 								dialogue = "You feel rejuvenated and a bit tired, but ready for the next thing in your day.";
 						} else if (state == 2 && path == 3 && !transitions.won) {
-								dialogue = "You were completely uncoordinated and your classmates glared at you as you struggled to keep up. Too bad you still have the rest of the day to go. ";		
+								dialogue = "You were completely uncoordinated and you got some odd looks. Too bad you still have the rest of the day to go.";		
 						}
 
 									
@@ -414,50 +414,95 @@ public class textmanage : MonoBehaviour
 						}
 						if (!lunch) {
 								if (state == 0 && path == 1) {
-										dialogue = "Are you ready for this? AN ENEMY APPEARED!";
+										float random = Random.value;
+										if (random <= 0.5) {
+											dialogue = "Isn't it weird that some midterms aren't actually in the middle of the semester?";
+										} else {
+											dialogue = "You're worried today's the day the professor makes 'C' the answer to every question.";
+										}
 										//LOAD BATTLE
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 2) {
-										dialogue = "Get pumped! AN ENEMY APPEARED!";
+										float random = Random.value;
+										if (random <= 0.5) {
+											dialogue = "Are you really working out now? Hope you're ready to be sweaty for the whole day.";
+										} else {
+											dialogue = "Sometimes you wonder how effect walking on the treadmill is.";
+										}
 										//LOAD BATTLE
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 3) {
-										dialogue = "How do you feel about this subject? AN ENEMY APPEARED!";
+										float random = Random.value;
+										if (random <= 0.5) {
+											dialogue = "Sometimes you feel like your professor should be teaching meditation instead of mathematics.";
+										} else {
+											dialogue = "Should you sit in the back and fall asleep? Or in the front and fall asleep?";
+										}
 										//LOAD BATTLE
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 4) {
-										dialogue = "So, what's on the menu? AN ENEMY APPEARED!";
+										float random = Random.value;
+										if (random <= 0.5) {
+											dialogue = "You remind yourself to eat right!";
+										} else {
+											dialogue = "Healthy body, healthy mind.";
+										}
 										//LOAD BATTLE
 										//lunch = true;
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 5) {
-										dialogue = "Time to break out those books! AN ENEMY APPEARED!";
+										float random = Random.value;
+										if (random <= 0.5) {
+											dialogue = "Don't you wish you could just absorb the book via osmosis?";
+										} else {
+											dialogue = "Sometimes it feels like you're reading the same line over and over again. Sometimes it feels like you're reading the same line over and over again.";
+										}
 										//LOAD BATTLE
 										//winlose = Random.Range (0, 1f);
 								}
 						}
 						if (lunch) {
 								if (state == 0 && path == 1) {
-										dialogue = "Are you ready for this? AN ENEMY APPEARED!";
+										float random = Random.value;
+										if (random <= 0.5) {
+											dialogue = "Isn't it weird that some midterms aren't actually in the middle of the semester?";
+										} else {
+											dialogue = "You're worried today's the day the professor makes 'C' the answer to every question.";
+										}
 										//LOAD BATTLE
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 2) {
-										dialogue = "Get pumped! AN ENEMY APPEARED!";
+										float random = Random.value;
+										if (random <= 0.5) {
+											dialogue = "Are you really working out now? Hope you're ready to be sweaty for the whole day.";
+										} else {
+											dialogue = "Sometimes you wonder how effect walking on the treadmill is.";
+										}
 										//LOAD BATTLE
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 3) {
-										dialogue = "How do you feel about this subject? AN ENEMY APPEARED!";
+										float random = Random.value;
+										if (random <= 0.5) {
+											dialogue = "Sometimes you feel like your professor should be teaching meditation instead of mathematics.";
+										} else {
+											dialogue = "Should you sit in the back and fall asleep? Or in the front and fall asleep?";
+										}
 										//LOAD BATTLE
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 4) {
-										dialogue = "Time to break out those books! AN ENEMY APPEARED!";
+										float random = Random.value;
+										if (random <= 0.5) {
+											dialogue = "Don't you wish you could just absorb the book via osmosis?";
+										} else {
+											dialogue = "Sometimes it feels like you're reading the same line over and over again. Sometimes it feels like you're reading the same line over and over again.";
+										}
 										//LOAD BATTLE
 										//winlose = Random.Range (0, 1f);
 								}
@@ -520,19 +565,18 @@ public class textmanage : MonoBehaviour
 
 						if (state == 2 && path == 1 && transitions.won) { // won test!
 								dialogue = "Aww yiss, you aced it! Ready for the rest of the day?";
-					
 						} else if (state == 2 && path == 1 && !transitions.won) {
-								dialogue = "Wow, you really didn’t study, did you? What a shame. What’s next?";
+								dialogue = "Wow, you really didn’t study, but curves, am I right? What’s next?";
 						}
 						if (state == 2 && path == 2 && transitions.won) {// gym won!
 								dialogue = "You feel rejuvenated and a bit tired, but ready for the next thing in your day.";
 						} else if (state == 2 && path == 2 && !transitions.won) {
-								dialogue = "You were completely uncoordinated and your classmates glared at you as you struggled to keep up. Too bad you still have the rest of the day to go. ";		
+								dialogue = "You were completely uncoordinated and you got some odd looks. Too bad you still have the rest of the day to go.";		
 						}
 						if (state == 2 && path == 3 && transitions.won) { // win lecture
 								dialogue = "You made it through the class! Alright, what are you doing next?";
 						} else if (state == 2 && path == 3 && !transitions.won) {
-								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. ";
+								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. What's next?";
 						}
 						if (state == 2 && path == 4 && transitions.won) { // lunch win!
 								dialogue = "That was a great lunch! You had a delicious meal, and it was a beautiful day. Time to go! ";
@@ -554,7 +598,7 @@ public class textmanage : MonoBehaviour
 								choosingOption = true;
 								dialogue = "You made it through the day! What are you doing after school?";
 				
-								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Club", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Club Meeting", buttonStyler)) {
 										clickedbutton = 1;
 								}
 								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Hanging out with friends", buttonStyler)) {
@@ -565,17 +609,17 @@ public class textmanage : MonoBehaviour
 								}
 						}
 						if (state == 0 && path == 1) {
-								dialogue = "Not all clubs are made equal - how do you like yours? AN ENEMY APPEARED!";
+								dialogue = "You hear some new members are joining today and you're excited to meet them!";
 								//LOAD BATTLE
 								//winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 2) {
-								dialogue = "Cool, your friends are free! Are you ready to socialize? AN ENEMY APPEARED!";
+								dialogue = "Cool, your friends are free! You're super excited to see them!";
 								//LOAD BATTLE
 								//winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 3) {
-								dialogue = "Ugh, you do have to get it done... AN ENEMY APPEARED!";
+								dialogue = "Ugh, necessary evils...";
 								//LOAD BATTLE
 								//winlose = Random.Range (0, 1f);
 						}
@@ -597,18 +641,18 @@ public class textmanage : MonoBehaviour
 						}
 
 						if (state == 2 && path == 1 && transitions.won) { // won club!
-								dialogue = "The club meeting was awesome - everyone listened to what you had to say, and you feel really excited for your next meeting.";
+								dialogue = "The club meeting was awesome - everyone had a good time, and you feel really excited for your next meeting.";
 				
 						} else if (state == 2 && path == 1 && !transitions.won) {
-								dialogue = "The club meeting was a mess. No one wanted to listen to you and the club is going in a direction that you never wanted it to go. Very disappointing.";
+								dialogue = "The club meeting was a mess. You were pretty awkward. Actually, everyone was pretty awkward.";
 						}
 						if (state == 2 && path == 2 && transitions.won) { // hangout won!
 								dialogue = "It was great to catch up with your friends and forget about school for a while.";
 						} else if (state == 2 && path == 2 && !transitions.won) {
-								dialogue = "Your friends ignored you the entire time, even though they invited you, and you felt uncomfortable that they kept making jokes about the queer community. You didn’t feel like you could speak up, though, and was quietly uncomfortable. ";		
+								dialogue = "It was nice seeing your friends; you just wish they would let you speak up a little more.";		
 						}
 						if (state == 2 && path == 3 && transitions.won) { // win lecture
-								dialogue = "All right, easy homework! You’re done with it now and don’t have to worry about it for the rest of the night. ";
+								dialogue = "All right, easy homework! You’re done with this assignment and will have more free time.";
 						} else if (state == 2 && path == 3 && !transitions.won) {
 								dialogue = "Your homework was impossibly hard and no one else knows how to do it (or won’t help you).";
 						}
@@ -638,22 +682,22 @@ public class textmanage : MonoBehaviour
 				
 						}
 						if (state == 0 && path == 1) {
-								dialogue = "Sometimes, large groups of people are hard to handle. Are you prepared? AN ENEMY APPEARED!";
+								dialogue = "You hear some new members are joining today and you're excited to meet them!";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 2) {
-								dialogue = "Hey, your friends asked you to go out with them! AN ENEMY APPEARED!";
+								dialogue = "Cool, your friends are free! You're super excited to see them!";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 3) {
-								dialogue = "It's too bad, but homework has to get done eventually. AN ENEMY APPEARED!";
+								dialogue = "Ugh, necessary evils...";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 4) {
-								dialogue = "You got invited to a party! Time to crack up the music and break out those dance moves! AN ENEMY APPEARED!";
+								dialogue = "You got invited to a party! The party don't start 'til you walk in!";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
 						}
@@ -681,30 +725,30 @@ public class textmanage : MonoBehaviour
 						
 
 						if (state == 2 && path == 1 && transitions.won) { // won club!
-								dialogue = "The club meeting was awesome - everyone listened to what you had to say, and you feel really excited for your next meeting.";
-				
+								dialogue = "The club meeting was awesome - everyone had a good time, and you feel really excited for your next meeting.";
+							
 						} else if (state == 2 && path == 1 && !transitions.won) {
-								dialogue = "The club meeting was a mess. No one wanted to listen to you and the club is going in a direction that you never wanted it to go. Very disappointing.";
+								dialogue = "The club meeting was a mess. You were pretty awkward. Actually, everyone was pretty awkward.";
 						}
 						if (state == 2 && path == 2 && transitions.won) { // hangout won!
 								dialogue = "It was great to catch up with your friends and forget about school for a while.";
 						} else if (state == 2 && path == 2 && !transitions.won) {
-								dialogue = "Your friends ignored you the entire time, even though they invited you, and you felt uncomfortable that they kept making jokes about the queer community. You didn’t feel like you could speak up, though, and was quietly uncomfortable. ";		
+								dialogue = "It was nice seeing your friends; you just wish they would let you speak up a little more.";
 						}
 						if (state == 2 && path == 4 && transitions.won) { // win party
-								dialogue = "The party had great music and you just might have hooked up with this really hot person. You even got their number!";
+								dialogue = "The party had great music and you met a lot of cool people!";
 						} else if (state == 2 && path == 4 && !transitions.won) {
-								dialogue = "It was a horrible mess of people - you could barely move at all and got crushed in the crowd towards the front, and had your hearing blasted out by the speakers. Your ears are still ringing from the music...";
+								dialogue = "It was a horrible mess of people - you could barely move at all and got crushed in the crowd.";
 						}
 						if (state == 2 && path == 3 && transitions.won) { // win lecture
-								dialogue = "All right, easy homework! You’re done with it now and don’t have to worry about it for the rest of the night. ";
+								dialogue = "All right, easy homework! You’re done with this assignment and will have more free time.";
 						} else if (state == 2 && path == 3 && !transitions.won) {
 								dialogue = "Your homework was impossibly hard and no one else knows how to do it (or won’t help you).";
 						}
 			
 				} else if (scene == "end") {
 						if (state == 0 && path == 0) {
-								dialogue = "Phew. It’s been a long day. Time to go to bed and try to sleep. AN ENEMY APPEARED";
+								dialogue = "Phew. It’s been a long day. Time to go to bed and try to sleep.";
 								//LOAD BATTLE
 						}
 						if (state == 1 && path == 0) {

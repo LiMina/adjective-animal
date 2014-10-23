@@ -179,42 +179,42 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Shut off that alarm!";
 						DescriptionBox.DIE_DESC = "Invigorate yourself with a cuppa joe. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
 						DescriptionBox.SPLOSIONS_DESC = "An icy shower strikes down lethargy. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-						TurnStateMachine.attackLine = "You slam your hand on the alarm!";
-						TurnStateMachine.DIELine = "You sipped your coffee, jolting your tiredness awake!";
-						TurnStateMachine.SPLOSIONSLine = "A cold shower snaps away your drowsiness, giving you a literal wake-up call!";
+						TurnStateMachine.attackLine = "You slam your hand on the alarm! Today's not the day to wake up to Miley Cyrus.";
+						TurnStateMachine.DIELine = "You feel your fingers twitching as the caffeine hits your system. That's normal, right?";
+						TurnStateMachine.SPLOSIONSLine = "The cold shower wakes you up, and your singing wakes up everyone else.";
 				}
 				if (transitions.currBattle == "lecture") {
-						phys = "Answer";
-						spec1 = "Sip Coffee";
-						spec2 = "Bathroom Break";
-						DescriptionBox.ATTACK_DESC = "Solve that tricky problem on the board.";
-						DescriptionBox.DIE_DESC = "Invigorate yourself with a cuppa joe. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
-						DescriptionBox.SPLOSIONS_DESC = "Splash your face with some water in the bathroom to attain better focus. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-			TurnStateMachine.attackLine = "You totally dominate that problem!";
-			TurnStateMachine.DIELine = "You sipped your coffee and feel your focus sharpen, sharply!";
-			TurnStateMachine.SPLOSIONSLine = "A quick bathroom break leaves you feeling refreshed and ready!";		
+						phys = "Take Notes";
+						spec1 = "More Coffee";
+						spec2 = "Raise hand";
+						DescriptionBox.ATTACK_DESC = "Scribble down some notes.";
+						DescriptionBox.DIE_DESC = "A double-whip, low-fat, soy, mocha frappa-lappa-chino. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
+						DescriptionBox.SPLOSIONS_DESC = "Break the awkward silence by being the one to answer the professor's question. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
+			TurnStateMachine.attackLine = "You copy down the slides word-for-word. Didn't hear the lecturer, but that's okay.";
+			TurnStateMachine.DIELine = "You have yet another coffee, but you can totally stop anytime you want!";
+			TurnStateMachine.SPLOSIONSLine = "You solved the question! You got 99 problems but this won't be one!";		
 		}
 				if (transitions.currBattle == "test") {
 						phys = "Tackle";
 						spec1 = "Bonus Question";
-						spec2 = "Extra Time";
+						spec2 = "Cheat Sheet";
 						DescriptionBox.ATTACK_DESC = "Tackle the problem at hand.";
 						DescriptionBox.DIE_DESC = "Solve the bonus question for extra credit. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
-						DescriptionBox.SPLOSIONS_DESC = "The professor has a change of heart and extends the time. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-			TurnStateMachine.attackLine = "You tackle the problem!";
-			TurnStateMachine.DIELine = "You solve the bonus question!";
-			TurnStateMachine.SPLOSIONSLine = "Bonus time allows you to double check all your answers!";		
+						DescriptionBox.SPLOSIONS_DESC = "Whip out your meticulously prepared cheat sheet. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
+			TurnStateMachine.attackLine = "Take-down! Figuratively, of course. If only you could solve all your problems by tackling.";
+			TurnStateMachine.DIELine = "You solve the bonus question! Now you can afford to get more questions wrong!";
+			TurnStateMachine.SPLOSIONSLine = "You found what you needed in the corner of your cheat sheet. You put away your magnifying glass.";		
 		}
 				if (transitions.currBattle == "gym") {
 						phys = "Throw";
 						spec1 = "Hydration";
 						spec2 = "Too Cool For You";
 						DescriptionBox.ATTACK_DESC = "Throw your weight into it!";
-						DescriptionBox.DIE_DESC = "Hydrate yourself and replenish your energy.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
+						DescriptionBox.DIE_DESC = "Hydrate yourself with a cool drink.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
 						DescriptionBox.SPLOSIONS_DESC = "Make heads turn with how fabulous you are. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-			TurnStateMachine.attackLine = "You throw your weight into your workout!";
-			TurnStateMachine.DIELine = "You replenish yourself with some refreshing water!";
-			TurnStateMachine.SPLOSIONSLine = "A healthy workout causes others to gawk!";		
+			TurnStateMachine.attackLine = "You throw your weight into your workout, but you don't throw your weights. Because that's dangerous.";
+			TurnStateMachine.DIELine = "You refresh yourself with an energy drink! How come you never sweat colors like in Gatorade commercials?";
+			TurnStateMachine.SPLOSIONSLine = "You rock your favorite shirt and feel the eyes of jealous on-lookers.";		
 		}
 				if (transitions.currBattle == "lunch") {
 						phys = "Devour";
@@ -224,8 +224,8 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.DIE_DESC = "Treat yo' self. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
 						DescriptionBox.SPLOSIONS_DESC = "Your body needs food, and it gives you the energy you need. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
 			TurnStateMachine.attackLine = "You devour a satisfying mouthful of food!";
-			TurnStateMachine.DIELine = "You treat yourself with some delicious dessert!";
-			TurnStateMachine.SPLOSIONSLine = "A healthy reminder improves your self-esteem!";		
+			TurnStateMachine.DIELine = "Looks like you CAN have your cake and eat it too!";
+			TurnStateMachine.SPLOSIONSLine = "A healthy meal is good for your body and your self-esteem!";		
 		}
 				if (transitions.currBattle == "studying") {
 						phys = "Flick";
@@ -233,43 +233,43 @@ public class BattleGUI : MonoBehaviour
 						spec2 = "Highlight";
 						DescriptionBox.ATTACK_DESC = "Flick the page to the next section. Progress!";
 						DescriptionBox.DIE_DESC = "Grab a friend who helps you through a tough subject. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
-						DescriptionBox.SPLOSIONS_DESC = "Mark the sections that are most important. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-			TurnStateMachine.attackLine = "You make it through to the next section of your textbook!";
-			TurnStateMachine.DIELine = "You have a study session with a classmate!";
-			TurnStateMachine.SPLOSIONSLine = "Newly highlighted and colored notes!";		
+						DescriptionBox.SPLOSIONS_DESC = "Good thing you bought that pack of 20 different colored highlighters. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
+			TurnStateMachine.attackLine = "Slowly but surely, you make your way through the textbook!";
+			TurnStateMachine.DIELine = "Two heads are better than one! Unless you end up watching internet cat videos.";
+			TurnStateMachine.SPLOSIONSLine = "Not sure if highlighting each line in a different color is useful, but it looks awesome!";		
 		}
 				if (transitions.currBattle == "club") {
-						phys = "Speak Up!";
-						spec1 = "Call Them Out";
+						phys = "Socialize!";
+						spec1 = "Hold Discussion";
 						spec2 = "RAINBOWS";
-						DescriptionBox.ATTACK_DESC = "Make your voice heard!";
-						DescriptionBox.DIE_DESC = "Call out someone for insensitive language. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
+						DescriptionBox.ATTACK_DESC = "Do a bit of mingling.";
+						DescriptionBox.DIE_DESC = "Politely point out some problematic language. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
 						DescriptionBox.SPLOSIONS_DESC = "Flaunt your pride! Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-			TurnStateMachine.attackLine = "You make yourself heard!";
-			TurnStateMachine.DIELine = "You shut down insensitive language and show that you don't stand for that kind of talk!";
+			TurnStateMachine.attackLine = "You talk with old friends and make some new ones.";
+			TurnStateMachine.DIELine = "People agree that this kind of language should be avoided.";
 			TurnStateMachine.SPLOSIONSLine = "A boost in your pride blows away the haters!";		
 		}
 				if (transitions.currBattle == "friends") {
 						phys = "Banter";
-						spec1 = "Call Them Out";
+						spec1 = "Criticism";
 						spec2 = "Coming Out";
 						DescriptionBox.ATTACK_DESC = "Make a sassy comeback to make everyone laugh.";
-						DescriptionBox.DIE_DESC = "Call out your friend and educate them about the insensitive use of language. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
-						DescriptionBox.SPLOSIONS_DESC = "You decide to come out to them so you can really be yourself with them. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-			TurnStateMachine.attackLine = "You are incredibly witty and charming!";
-			TurnStateMachine.DIELine = "You shut down insensitive language and show that you don't stand for that kind of talk!";
+						DescriptionBox.DIE_DESC = "Point out some insensitive language. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
+						DescriptionBox.SPLOSIONS_DESC = "You decide to come out so you can really be yourself around them. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
+			TurnStateMachine.attackLine = "You are incredibly witty and charming! And smart! And popular! You are just the best.";
+			TurnStateMachine.DIELine = "Your friends are willing to listen.";
 			TurnStateMachine.SPLOSIONSLine = "A moment of pride and self-acceptance!";		
 		}
 				if (transitions.currBattle == "hw") {
 						phys = "Answer";
 						spec1 = "Study Buddy";
-						spec2 = "Extra Time";
+						spec2 = "Extra Credit";
 						DescriptionBox.ATTACK_DESC = "Solve that tricky homework problem.";
 						DescriptionBox.DIE_DESC = "Grab a friend who helps you through a tough subject. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
-						DescriptionBox.SPLOSIONS_DESC = "The professor has a change of heart and extends the deadline. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-			TurnStateMachine.attackLine = "You totally dominate that problem!";
-			TurnStateMachine.DIELine = "You have a study session with a classmate!";
-			TurnStateMachine.SPLOSIONSLine = "A few extra hours to really make your work shine!";		
+						DescriptionBox.SPLOSIONS_DESC = "Spend a little more time for a few more points. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
+			TurnStateMachine.attackLine = "You solved the question! You got 99 problems but this won't be one!";
+			TurnStateMachine.DIELine = "Two heads are better than one! Unless you end up watching internet owl videos.";
+			TurnStateMachine.SPLOSIONSLine = "Extra points! That means you can slack off on your next homework!";		
 		}
 				if (transitions.currBattle == "party") {
 						phys = "DANCE";
@@ -278,19 +278,19 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.ATTACK_DESC = "Break out those killer dance moves!";
 						DescriptionBox.DIE_DESC = "Someone insults your fashion choices, and you SHUT THEM DOWN. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
 						DescriptionBox.SPLOSIONS_DESC = "Make everyone re-question their notion of the gender binary. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-			TurnStateMachine.attackLine = "You bust out some amazing moves!";
-			TurnStateMachine.DIELine = "You make a snappy come back at someone because you are FABULOUS!";
-			TurnStateMachine.SPLOSIONSLine = "You make everyone adjust what they know about the gender binary!";		
+			TurnStateMachine.attackLine = "UNTS UNTS UNTS UNTS";
+			TurnStateMachine.DIELine = "You make a snappy come back at someone because you are FABULOUS! Snappier than a crocodile!";
+			TurnStateMachine.SPLOSIONSLine = "You break down those gender binaries like a wrecking ball!";		
 		}
 				if (transitions.currBattle == "sleep") {
 						phys = "Throw";
 						spec1 = "Candle Light";
-						spec2 = "Soothing Sound";
+						spec2 = "Soothing Sounds";
 						DescriptionBox.ATTACK_DESC = "Throw down the pillows and get yourself settled in.";
 						DescriptionBox.DIE_DESC = "Bring in a little light and make the room smell nice too. Deals high damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
 						DescriptionBox.SPLOSIONS_DESC = "Music, white noise, whatever helps you sleep. Deals moderate damage to all enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
-			TurnStateMachine.attackLine = "You throw some (surprisely hefty) pillows!";
-			TurnStateMachine.DIELine = "You light some candles and brighten the night!";
+			TurnStateMachine.attackLine = "It's time for a throw-down! A relaxing, soothing throw-down.";
+			TurnStateMachine.DIELine = "You bring in a little light, because your big one won't fit through the door.";
 			TurnStateMachine.SPLOSIONSLine = "A calming sound track makes you feel like you're sinking into your bed!";		
 		}
 				if (TurnStateMachine.commandSelection == TurnStateMachine.SELECT_NONE
