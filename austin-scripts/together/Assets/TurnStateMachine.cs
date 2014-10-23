@@ -81,8 +81,8 @@ public class TurnStateMachine : MonoBehaviour
 						e.GetComponent<SpriteRenderer> ().sprite = transitions.nextImage;
 				}
 
-				DIEAttack = 10 + (int)(Mathf.Round (transitions.happiness * 100) / 2 + 0.5);
-				SPLOSIONSAttack = 10 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
+				DIEAttack = 15 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
+				SPLOSIONSAttack = 20 + (int)(Mathf.Round (transitions.happiness * 100) / 2 + 0.5);
 		}
 
 		bool CheckAllDead ()
