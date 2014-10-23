@@ -18,10 +18,10 @@ public class TurnStateMachine : MonoBehaviour
 		public static readonly int SELECT_TARGET_ATTACK = 101;
 		public static readonly int SELECT_TARGET_DIE = 102;
 		public static readonly int DIE_MANA_COST = 5;
-		public static readonly int SPLOSIONS_MANA_COST = 10;
+		public static readonly int SPLOSIONS_MANA_COST = 15;
 		public static int attack = 10;
-		public static int DIEAttack = 10 + (int)(transitions.happiness * 100 / 2 + 0.5);
-		public static int SPLOSIONSAttack = 10 + (int)(transitions.happiness * 100 / 4 + 0.5);
+		public static int DIEAttack = 15 + (int)(transitions.happiness * 100 / 4 + 0.5);
+		public static int SPLOSIONSAttack = 20 + (int)(transitions.happiness * 100 / 2 + 0.5);
 
 		/**
 	 * Who's turn it is.
