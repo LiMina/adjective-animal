@@ -14,8 +14,10 @@ public class CreationScreen : MonoBehaviour {
 	string[] haircolor = {"Black", "Brown", "Red", "Blond(e)", "White"};
 	string[] hairstyle = {"Buzzcut", "Bob", "K-Pop Star Hair", "Straight and Long", "Skrillex Sidecut"};
 	string[] favcolor = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Indigo", "Black", "White"};
+	string[] operatingsystem = {"Windows", "OS X", "Linux"};
 	public int lineNum = 0;
-	public string dialogue = "Create a character." //"Whoops. There are some things you can't control in life."
+	public string dialogue = "Create a character." //"There are some things you can't control in life. Look, we're just trying to make a point, okay?"
+	//if operatingsytemNum = 2 {dialogue = "There are some things you can't control in life. Except your operating system. Go you.";}
 
 	// Use this for initialization
 	void Start () {
