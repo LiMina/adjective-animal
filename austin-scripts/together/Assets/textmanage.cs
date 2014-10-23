@@ -271,7 +271,7 @@ public class textmanage : MonoBehaviour
 						}
 						if (state == 0 && path == 1) {
 								if (!stats_upped) {
-										transitions.wellbeing = 0.20f;
+										transitions.wellbeing += 0.20f;
 										stats_upped = true;
 								}
 								dialogue = "Bacon? The internet approves.\nYour well-being increased.";
@@ -342,7 +342,7 @@ public class textmanage : MonoBehaviour
 						if (state == 1 && path == 1) {
 								transitions.currBattle = "lecture";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 1, "school", Resources.Load<Sprite> ("chalkboard"),2);
+								SetTransition (2, 1, "school", Resources.Load<Sprite> ("chalkboard"));
 						}
 						if (state == 1 && path == 2) {
 								transitions.currBattle = "test";
@@ -352,7 +352,7 @@ public class textmanage : MonoBehaviour
 						if (state == 1 && path == 3) {
 								transitions.currBattle = "gym";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 3, "school", Resources.Load<Sprite> ("gym"));
+								SetTransition (2, 3, "school", Resources.Load<Sprite> ("gym"), 2);
 						}
 						/*
 						 * win lose states

@@ -23,11 +23,17 @@ public class Stats : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (transitions.currBattle == "wakeup") {
+			health = 60;
+			attack = 10;
+		} else if (textmanage.scene == "school" && transitions.currBattle == "lecture") {
+			health = 70;
+			attack = 10;
+		} else if (textmanage.scene == "school" && transitions.currBattle == "test") {
+			health = 100;
+			attack = 5;
+		} else if (textmanage.scene == "school" && transitions.currBattle == "gym") {
 			health = 50;
-			attack = 10;
-		} else if (textmanage.scene == "school") {
-			health = 120;
-			attack = 10;
+			attack = 5;
 		}
 	}
 	

@@ -145,7 +145,7 @@ public class BattleGUI : MonoBehaviour
 
 			
 				GUI.Box (new Rect (25 + cameraOffsetX, 25 + cameraOffsetY, Screen.width - 50, 50), dialogue, promptStyler);
-				if (TurnStateMachine.getTurnState () != 0) {
+				if (TurnStateMachine.getTurnState () != 0 || !TurnStateMachine.showedSpecialEffect) {
 						dialogue = TurnStateMachine.announcerLine;
 				} else if (!attackLock) {
 						dialogue = playerTurnString;
@@ -162,7 +162,7 @@ public class BattleGUI : MonoBehaviour
 	
 				//Handles whether or not the buttons are locked (due to currently choosing a target)
 				GUI.Box (new Rect (boxTwoX + cameraOffsetX, boxY + cameraOffsetY, boxWidth, boxHeight), "", styler);
-				if (TurnStateMachine.getTurn () == 0 && !TurnStateMachine.isCommandTargeting () && TurnStateMachine.getTurnState () != 2) {
+				if (TurnStateMachine.getTurn () == 0 && !TurnStateMachine.isCommandTargeting () && TurnStateMachine.getTurnState () != 2 && TurnStateMachine.showedSpecialEffect) {
 						attackLock = false;
 				} else {	
 						attackLock = true;
@@ -181,7 +181,7 @@ public class BattleGUI : MonoBehaviour
 			DescriptionBox.SPLOSIONS_DESC = "An icy shower strikes down lethargy. Deals HIGH damage to ALL enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
 						TurnStateMachine.attackLine = "You slam your hand on the alarm! Today's not the day to wake up to Miley Cyrus.";
 						TurnStateMachine.DIELine = "You feel your fingers twitching as the caffeine hits your system. That's normal, right?";
-						TurnStateMachine.SPLOSIONSLine = "The cold shower wakes you up, and your singing wakes up everyone else.";
+						TurnStateMachine.SPLOSIONSLine = "The cold shower wakes you up ...and your singing wakes up everyone else.";
 				}
 				if (transitions.currBattle == "lecture") {
 						phys = "Take Notes";
@@ -191,7 +191,7 @@ public class BattleGUI : MonoBehaviour
 						DescriptionBox.DIE_DESC = "A double-whip, low-fat, soy, mocha frappa-lappa-chino. Deals MODERATE damage to a single target.\nRequires a grade of " + TurnStateMachine.DIE_MANA_COST + ".";
 			DescriptionBox.SPLOSIONS_DESC = "Break the awkward silence by being the one to answer the professor's question. Deals HIGH damage to ALL enemies.\nRequires a grade of " + TurnStateMachine.SPLOSIONS_MANA_COST + ".";
 			TurnStateMachine.attackLine = "You copy down the slides word-for-word. Didn't hear the lecturer, but that's okay.";
-			TurnStateMachine.DIELine = "You have yet another coffee, but you can totally stop anytime you want!";
+			TurnStateMachine.DIELine = "You're having yet another coffee...but you can totally stop anytime you want! You just don't want to.";
 			TurnStateMachine.SPLOSIONSLine = "You solved the question! You got 99 problems but this won't be one!";		
 		}
 				if (transitions.currBattle == "test") {
