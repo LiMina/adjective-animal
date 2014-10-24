@@ -55,8 +55,7 @@ public class TurnStateMachine : MonoBehaviour
 		public static bool showedSpecialEffect = false;
 		private static int turnsLeft = -1;
 		private static bool poison = false;
-
-	static public TurnStateMachine instance;
+		static public TurnStateMachine instance;
 	
 		// Use this for initialization
 		void Start ()
@@ -64,37 +63,38 @@ public class TurnStateMachine : MonoBehaviour
 				playerHP = Mathf.RoundToInt (transitions.wellbeing * 100);
 				playerMP = Mathf.RoundToInt (transitions.grades * 100);
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-		GameObject secondenemy = GameObject.Find ("Enemy2");
-		GameObject firstenemy = GameObject.Find ("Enemy");
-		GameObject thirdenemy = GameObject.Find ("Enemy3");
-		if (transitions.enemyCount == 3) {
-			foreach (GameObject e in enemies) {
-				//print ("more than one enemy");
-				e.SetActive (true);
-			}
-			secondenemy.transform.position = new Vector3 (-3f, 1.2f, 0f);
-			secondenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
-			firstenemy.transform.position = new Vector3 (0f, 1.2f, 0f);
-			thirdenemy.transform.position = new Vector3 (3f, 1.2f, 0f);
-			thirdenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
+				GameObject secondenemy = GameObject.Find ("Enemy2");
+				GameObject firstenemy = GameObject.Find ("Enemy");
+				GameObject thirdenemy = GameObject.Find ("Enemy3");
+				if (transitions.enemyCount == 3) {
+						foreach (GameObject e in enemies) {
+								//print ("more than one enemy");
+								e.SetActive (true);
+						}
+						secondenemy.transform.position = new Vector3 (-3f, 1.2f, 0f);
+						secondenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
+						firstenemy.transform.position = new Vector3 (0f, 1.2f, 0f);
+						thirdenemy.transform.position = new Vector3 (3f, 1.2f, 0f);
+						thirdenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
 			
-		}
-		if (transitions.enemyCount == 2) {
-			/*foreach (GameObject e in enemies) {
+				}
+				if (transitions.enemyCount == 2) {
+						/*foreach (GameObject e in enemies) {
 								print ("more than one enemy");
 								e.SetActive (true);
 						}*/
-			thirdenemy.SetActive (false);
-			//secondenemy 
-			secondenemy.transform.position = new Vector3 (-3f, 1.2f, 0f);
-			secondenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
-			firstenemy.transform.position = new Vector3 (3f, 1.2f, 0f);
+						thirdenemy.SetActive (false);
+						//secondenemy 
+						secondenemy.transform.position = new Vector3 (-3f, 1.2f, 0f);
+						secondenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
+						firstenemy.transform.position = new Vector3 (3f, 1.2f, 0f);
 			
-		} 
-		if (transitions.enemyCount == 1) {
-			firstenemy.transform.position = new Vector3 (0, 1.2f, 0f);
-			secondenemy.SetActive (false);
-		}
+				} 
+				if (transitions.enemyCount == 1) {
+						firstenemy.transform.position = new Vector3 (0, 1.2f, 0f);
+						secondenemy.SetActive (false);
+						thirdenemy.SetActive (false);
+				}
 				foreach (GameObject e in enemies) {
 						e.GetComponent<SpriteRenderer> ().sprite = transitions.nextImage;
 				}
@@ -129,14 +129,14 @@ public class TurnStateMachine : MonoBehaviour
 												if (transitions.currBattle == "wakeup") {
 														transitions.happiness = Mathf.Min (1, transitions.happiness + 0.1f);
 												} else if (textmanage.scene == "school" && transitions.currBattle == "lecture") {
-														transitions.grades = Mathf.Min(1, transitions.grades + 0.1f);
+														transitions.grades = Mathf.Min (1, transitions.grades + 0.1f);
 												} else if (textmanage.scene == "school" && transitions.currBattle == "test") {
 														transitions.happiness = Mathf.Min (1, transitions.happiness + 0.1f);
 												} else if (textmanage.scene == "school" && transitions.currBattle == "gym") {
 														transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.1f);
 														transitions.happiness = Mathf.Min (1, transitions.happiness + 0.05f);
 												} else if (textmanage.scene == "school2" && transitions.currBattle == "lecture") {
-														transitions.grades = Mathf.Min(1, transitions.grades + 0.1f);
+														transitions.grades = Mathf.Min (1, transitions.grades + 0.1f);
 												} else if (textmanage.scene == "school2" && transitions.currBattle == "gym") {
 														transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.1f);
 														transitions.happiness = Mathf.Min (1, transitions.happiness + 0.05f);
@@ -144,12 +144,12 @@ public class TurnStateMachine : MonoBehaviour
 														transitions.happiness = Mathf.Min (1, transitions.happiness + 0.1f);
 												} else if (textmanage.scene == "school2" && transitions.currBattle == "studying") {
 														transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.1f);
-														transitions.grades = Mathf.Min(1, transitions.grades + 0.05f);
+														transitions.grades = Mathf.Min (1, transitions.grades + 0.05f);
 												} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
 														transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.25f);
 												}
-						           }
-					return true;
+										}
+										return true;
 								}
 								if (transitions.currBattle != "wakeup" && textmanage.scene != "school" && textmanage.scene != "school2") // To catch extra cases
 										announcerLine = winLine;
@@ -196,53 +196,53 @@ public class TurnStateMachine : MonoBehaviour
 										}
 								} else if (textmanage.scene == "school2" && transitions.currBattle == "lecture") {
 										if (getTurnState () == 0) {
-											announcerLine = winLine + " You're awake and have pages of notes!";
-											nextTurnState ();
-										} else if (getTurnState () == 1) {
-											if (Input.GetButtonDown ("Fire1")) {
-												announcerLine = "Your grades have increased!";
+												announcerLine = winLine + " You're awake and have pages of notes!";
 												nextTurnState ();
-											}
+										} else if (getTurnState () == 1) {
+												if (Input.GetButtonDown ("Fire1")) {
+														announcerLine = "Your grades have increased!";
+														nextTurnState ();
+												}
 										}
 								} else if (textmanage.scene == "school2" && transitions.currBattle == "gym") {
 										if (getTurnState () == 0) {
-											announcerLine = winLine + " Yeah yeah! You feel pumped!";
-											nextTurnState ();
-										} else if (getTurnState () == 1) {
-											if (Input.GetButtonDown ("Fire1")) {
-												announcerLine = "Your well-being has increased! Your happiness has increased!";
+												announcerLine = winLine + " Yeah yeah! You feel pumped!";
 												nextTurnState ();
-											}
+										} else if (getTurnState () == 1) {
+												if (Input.GetButtonDown ("Fire1")) {
+														announcerLine = "Your well-being has increased! Your happiness has increased!";
+														nextTurnState ();
+												}
 										}
 								} else if (textmanage.scene == "school2" && transitions.currBattle == "test") {
 										if (getTurnState () == 0) {
-											announcerLine = winLine + " Grades will be out later, but for now you feel great!";
-											nextTurnState ();
-										} else if (getTurnState () == 1) {
-											if (Input.GetButtonDown ("Fire1")) {
-												announcerLine = "Your happiness has increased!";
+												announcerLine = winLine + " Grades will be out later, but for now you feel great!";
 												nextTurnState ();
-											}
+										} else if (getTurnState () == 1) {
+												if (Input.GetButtonDown ("Fire1")) {
+														announcerLine = "Your happiness has increased!";
+														nextTurnState ();
+												}
 										}
 								} else if (textmanage.scene == "school2" && transitions.currBattle == "studying") {
 										if (getTurnState () == 0) {
-											announcerLine = winLine + " With some studying done, you feel a little less stressed!";
-											nextTurnState ();
-										} else if (getTurnState () == 1) {
-											if (Input.GetButtonDown ("Fire1")) {
-												announcerLine = "Your well-being has increased! You grades have increased!";
+												announcerLine = winLine + " With some studying done, you feel a little less stressed!";
 												nextTurnState ();
-											}
+										} else if (getTurnState () == 1) {
+												if (Input.GetButtonDown ("Fire1")) {
+														announcerLine = "Your well-being has increased! You grades have increased!";
+														nextTurnState ();
+												}
 										}
 								} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
 										if (getTurnState () == 0) {
-											announcerLine = winLine + " It's important to eat well! You feel awesome!";
-											nextTurnState ();
-										} else if (getTurnState () == 1) {
-											if (Input.GetButtonDown ("Fire1")) {
-												announcerLine = "Your well-being has increased greatly!";
+												announcerLine = winLine + " It's important to eat well! You feel awesome!";
 												nextTurnState ();
-											}
+										} else if (getTurnState () == 1) {
+												if (Input.GetButtonDown ("Fire1")) {
+														announcerLine = "Your well-being has increased greatly!";
+														nextTurnState ();
+												}
 										}
 								}
 								if (transitions.currBattle != "wakeup" && textmanage.scene != "school" && textmanage.scene != "school2") { // To catch extra cases
@@ -268,13 +268,13 @@ public class TurnStateMachine : MonoBehaviour
 												transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.05f);
 										} else if (transitions.currBattle == "lecture") {
 												transitions.grades = Mathf.Max (0, transitions.grades - 0.05f);
-										} else if ( transitions.currBattle == "test") {
+										} else if (transitions.currBattle == "test") {
 												transitions.grades = Mathf.Max (0, transitions.grades - 0.05f);
 												transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
 										} else if (transitions.currBattle == "gym") {
 												transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
 										} else if (transitions.currBattle == "studying") {
-												transitions.happiness = Mathf.Max(0, transitions.happiness - 0.1f);
+												transitions.happiness = Mathf.Max (0, transitions.happiness - 0.1f);
 										} else if (transitions.currBattle == "lunch") {
 												transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
 										}
@@ -320,6 +320,10 @@ public class TurnStateMachine : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+		GameObject[] enemies1 = GameObject.FindGameObjectsWithTag ("Enemy");
+		foreach (GameObject e in enemies1) {
+			e.GetComponent<SpriteRenderer> ().sprite = transitions.nextImage;
+		}
 				GameObject.Find ("bg").GetComponent<SpriteRenderer> ().sprite = transitions.bg;	
 				/** Start of battle effects */
 				if (!showedSpecialEffect) {
@@ -337,22 +341,22 @@ public class TurnStateMachine : MonoBehaviour
 								DIEAttack = 5 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
 								SPLOSIONSAttack = 10 + (int)(Mathf.Round (transitions.happiness * 100) / 2 + 0.5);
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "gym") {
-							announcerLine = "Ultimately, it all comes down to effort and hard work... Attacks are stronger, Abilities are weakened!";
-							attack = 21 + (int)(Mathf.Round (transitions.happiness * 100) / 5 + 0.5);
-							DIEAttack = 0 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
-							SPLOSIONSAttack = 5 + (int)(Mathf.Round (transitions.happiness * 100) / 2 + 0.5);
+								announcerLine = "Ultimately, it all comes down to effort and hard work... Attacks are stronger, Abilities are weakened!";
+								attack = 21 + (int)(Mathf.Round (transitions.happiness * 100) / 5 + 0.5);
+								DIEAttack = 0 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
+								SPLOSIONSAttack = 5 + (int)(Mathf.Round (transitions.happiness * 100) / 2 + 0.5);
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "test") {
-							turnsLeft = 4;
-							announcerLine = "You sure hope you can finish the test within the time limit... Finish the battle in " + turnsLeft + " turns!";
+								turnsLeft = 4;
+								announcerLine = "You sure hope you can finish the test within the time limit... Finish the battle in " + turnsLeft + " turns!";
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
-							announcerLine = "You're really starving. If only you could eat the same time each day... Lose well-being each turn!";
-							poison = true;
+								announcerLine = "You're really starving. If only you could eat the same time each day... Lose well-being each turn!";
+								poison = true;
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "studying") {
-							announcerLine = "Aw crud, this is your worst subject. More reason to study I guess... Abilities cost more grade to use!";
-							DIE_MANA_COST = 15;
-							SPLOSIONS_MANA_COST = 25;
+								announcerLine = "Aw crud, this is your worst subject. More reason to study I guess... Abilities cost more grade to use!";
+								DIE_MANA_COST = 15;
+								SPLOSIONS_MANA_COST = 25;
 						} else {
-							showedSpecialEffect = true;
+								showedSpecialEffect = true;
 						}
 						if (Input.GetButtonDown ("Fire1")) {
 								showedSpecialEffect = true;
@@ -397,8 +401,8 @@ public class TurnStateMachine : MonoBehaviour
 																		announcerLine = missLine;
 																}
 																if (poison) {
-																	announcerLine += " You lost 5 well-being from hunger!";
-																	playerHP = Mathf.Max(1, playerHP - 5);
+																		announcerLine += " You lost 5 well-being from hunger!";
+																		playerHP = Mathf.Max (1, playerHP - 5);
 																}
 																nextTurnState ();	
 																nextTurnState (); //twice b/c no animation
@@ -418,8 +422,8 @@ public class TurnStateMachine : MonoBehaviour
 																playerMP -= DIE_MANA_COST;
 																commandSelection = SELECT_NONE;
 																if (poison) {
-																	announcerLine += " You lost 5 well-being from hunger!";
-																	playerHP = Mathf.Max(1, playerHP - 5);
+																		announcerLine += " You lost 5 well-being from hunger!";
+																		playerHP = Mathf.Max (1, playerHP - 5);
 																}
 																nextTurnState ();	
 																nextTurnState (); //twice b/c no animation
@@ -524,7 +528,7 @@ public class TurnStateMachine : MonoBehaviour
 								e.GetComponent<Stats> ().health -= SPLOSIONSAttack * 2;
 								announcerLine = SPLOSIONSLine + critSuffix;
 								StartCoroutine ("attackedAnimation", e);
-			} else if (random <= 1 - missChance) {
+						} else if (random <= 1 - missChance) {
 								e.GetComponent<Stats> ().health -= SPLOSIONSAttack;
 								announcerLine = SPLOSIONSLine;
 								StartCoroutine ("attackedAnimation", e);
@@ -532,13 +536,13 @@ public class TurnStateMachine : MonoBehaviour
 								announcerLine = missLine;
 						}
 				}
-			if (poison) {
-				announcerLine += " You lost 5 well-being from hunger!";
-				playerHP = Mathf.Max(1, playerHP - 5);
-			}
-			nextTurnState ();	
-			nextTurnState (); //twice b/c no animation
-					commandSelection = SELECT_NONE;
-			}
+				if (poison) {
+						announcerLine += " You lost 5 well-being from hunger!";
+						playerHP = Mathf.Max (1, playerHP - 5);
+				}
+				nextTurnState ();	
+				nextTurnState (); //twice b/c no animation
+				commandSelection = SELECT_NONE;
+		}
 }
 
