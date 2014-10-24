@@ -179,21 +179,54 @@ public class TurnStateMachine : MonoBehaviour
 						}
 				}
 				if (playerHP <= 0 || turnsLeft == 0) {
-						if (turnsLeft == 0) {
-							announcerLine = "Out of time! " + loseLine;
-						} else {
-							announcerLine = loseLine;
+						if (turnsLeft != 0) {
+							if (!ending) {
+								ending = true;
+								turnsLeft = -1;
+							}
 						}
 						if (getTurnState () == 2) {
-								if (Input.GetButtonDown ("Fire1")) {
-										resetTurnStateMachine();
-										Application.LoadLevel ("dialogue");
-										transitions.won = false;
+							if (Input.GetButtonDown ("Fire1")) {
+								resetTurnStateMachine();
+								Application.LoadLevel ("dialogue");
+								transitions.won = false;
+								if (transitions.currBattle == "wakeup") { // Post battle effects for waking up
+									transitions.wellbeing -= 0.05f;
+								} else if (transitions.currBattle == "lecture") {
+									transitions.grades -= 0.05f;
+								} else if (textmanage.scene == "school" && transitions.currBattle == "test") {
+									transitions.grades -= 0.05f;
+									transitions.wellbeing -= 0.1f;
+								} else if (textmanage.scene == "school" && transitions.currBattle == "gym") {
+									transitions.wellbeing -= 0.1f;
 								}
-								return true;
+							}
+							return true;
 						}
-						nextTurnState ();
-						nextTurnState ();
+			
+						if (getTurnState () == 1) {
+							if (Input.GetButtonDown ("Fire1")) {
+								if (transitions.currBattle == "wakeup") {
+									announcerLine = "Your well-being decreased!";
+								} else if (transitions.currBattle == "lecture") {
+									announcerLine = "Your grades has decreased!";
+								} else if (textmanage.scene == "school" && transitions.currBattle == "test") {
+									announcerLine = "Your grades has decreased! Your well-being has decreased!";
+								} else if (textmanage.scene == "school" && transitions.currBattle == "gym") {
+									announcerLine = "Your well-being has decreased!";
+								}
+								nextTurnState ();
+							}
+						}
+						if (getTurnState () == 0) {
+							if (turnsLeft == 0) {
+								announcerLine = "Out of time! " + loseLine;
+							} else {
+								announcerLine = loseLine;
+							}
+							nextTurnState ();
+						}
+			
 						return true;
 						
 						
