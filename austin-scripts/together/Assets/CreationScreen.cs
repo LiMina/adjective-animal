@@ -17,7 +17,13 @@ public class CreationScreen : MonoBehaviour {
 	static string[] operatingsystem = {"Windows", "OS X", "Linux"};
 	public int lineNum = 0;
 	public string dialogue = "Create a character."; //"There are some things you can't control in life. Look, we're just trying to make a point, okay?"
-	//if operatingsytemNum = 2 {dialogue = "There are some things you can't control in life. Except your operating system. Go you.";}
+	//if(operatingsytemNum = 2){dialogue = "There are some things you can't control in life. Except your operating system. Go you.";}
+	/*
+	if((sexNum == 0 && genderNum == 0 && orientationNum == 0) || (sexNum == 1 && genderNum == 1 && orientationNum == 0)) {
+		//prevents player from being a heterosexual cisgender male or a heterosexual cisgender female
+		}
+		
+	*/
 
 	// Use this for initialization
 	void Start () {
