@@ -32,7 +32,7 @@ public class BattleGUI : MonoBehaviour
 		{
 				textcolor = new GUIStyle (GUI.skin.label);
 				textcolor.fontSize = fontSize;
-				textcolor.normal.textColor = Color.white;
+				textcolor.normal.textColor = Color.black;
 				float boxHeight = 150;
 				float boxWidth = (Screen.width - (Screen.width / 8) - 100) / 3;
 				float boxY = Screen.height - 200;
@@ -75,7 +75,7 @@ public class BattleGUI : MonoBehaviour
 				texture.Apply ();
 		
 				styler = new GUIStyle (GUI.skin.box);
-				styler.normal.textColor = Color.white;
+				styler.normal.textColor = Color.black;
 				styler.fontSize = 18;
 				styler.normal.background = texture;
 
@@ -95,7 +95,7 @@ public class BattleGUI : MonoBehaviour
 				promptTexture.Apply ();
 		
 				promptStyler = new GUIStyle (GUI.skin.box);
-				promptStyler.normal.textColor = Color.white;
+				promptStyler.normal.textColor = Color.black;
 				promptStyler.fontSize = 18;
 				promptStyler.normal.background = promptTexture;
 

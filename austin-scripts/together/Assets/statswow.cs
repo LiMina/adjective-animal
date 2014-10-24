@@ -41,7 +41,7 @@ public class statswow : MonoBehaviour {
 	}
 	void OnGUI(){
 		textcolor = new GUIStyle (GUI.skin.label);
-		textcolor.normal.textColor = Color.white;
+		textcolor.normal.textColor = Color.black;
 		/*For the stats bg*/
 		texture = new Texture2D (128, 128);
 		for (int y = 0; y < texture.height; ++y) {
@@ -74,7 +74,7 @@ public class statswow : MonoBehaviour {
 		}
 		statsTexture.Apply();
 		statsStyle = new GUIStyle (GUI.skin.box);
-		statsStyle.normal.textColor = Color.white;
+		statsStyle.normal.textColor = Color.black;
 		statsStyle.fontSize = 14;
 		statsStyle.normal.background = statsTexture;
 		/* bars themselves */
@@ -92,7 +92,7 @@ public class statswow : MonoBehaviour {
 		}
 		barTexture.Apply();
 		barStyle = new GUIStyle (GUI.skin.box);
-		barStyle.normal.textColor = Color.white;
+		barStyle.normal.textColor = Color.black;
 		barStyle.normal.background = barTexture;
 
 		GUI.Box (new Rect (10, 10, 180, 100),"", styler);

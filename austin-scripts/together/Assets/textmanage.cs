@@ -167,7 +167,7 @@ public class textmanage : MonoBehaviour
 				texture.Apply ();
 
 				styler = new GUIStyle (GUI.skin.box);
-				styler.normal.textColor = Color.white;
+				styler.normal.textColor = Color.black;
 				styler.normal.background = texture;
 
 				/* For buttons */
