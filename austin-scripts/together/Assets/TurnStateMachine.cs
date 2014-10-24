@@ -205,6 +205,7 @@ public class TurnStateMachine : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+		GameObject.Find ("bg").GetComponent<SpriteRenderer> ().sprite = transitions.bg;	
 				/** Start of battle effects */
 				if (!showedSpecialEffect) {
 					if (transitions.currBattle == "wakeup") {

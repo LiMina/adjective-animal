@@ -73,6 +73,7 @@ public class textmanage : MonoBehaviour
 
 		void Update ()
 		{
+		GameObject.Find ("bg").GetComponent<SpriteRenderer> ().sprite = transitions.bg;	
 				//Camera camera = (Camera) GameObject.Find ("Main Camera");
 				Camera.main.backgroundColor = new Color (163f / 255f, 203f / 255f, 204f / 255f, 1f);
 				print (transitions.nextScene);
@@ -208,6 +209,7 @@ public class textmanage : MonoBehaviour
 				 *ROOOOOMMM SCEEEENNNNEEEE
 				 */
 				if (scene == "room") {
+			transitions.bg = Resources.Load<Sprite> ("processed_bedroom");
 						if (state == 0 && path == 0) {
 								dialogue = "...WAKE UP!!!!!";
 						} else if (state == 1 && path == 0) {
@@ -248,6 +250,7 @@ public class textmanage : MonoBehaviour
 				 * SCHOOL SCENE WOW!
 				 */
 				else if (scene == "breakfast") {
+			transitions.bg = Resources.Load<Sprite> ("processed_breakfast");
 						if (state == 0 && path == 0) {
 								dialogue = "Climbing down the stairs, you find your way to the kitchen, make some food, and shovel some of it into your mouth.";
 						}
@@ -301,6 +304,7 @@ public class textmanage : MonoBehaviour
 						}
 				
 				} else if (scene == "school") {
+			transitions.bg = Resources.Load<Sprite> ("processed_background3");
 						if (state == 0 && path == 0) {
 								stats_upped = false;
 								choosingOption = true;
@@ -318,6 +322,7 @@ public class textmanage : MonoBehaviour
 				
 						}
 						if (state == 0 && path == 1) {
+				transitions.bg = Resources.Load<Sprite> ("processed_lecture");
 								dialogue = "8 AM classes are the worst. but you should be okay, right?";
 								//LOAD BATTLE
 								//StartCoroutine (Wait (BATTLETIMEDELAY));
@@ -325,6 +330,7 @@ public class textmanage : MonoBehaviour
 								//SetTransition (1, 1, "school", Resources.Load<Sprite> ("clock"));
 						}
 						if (state == 0 && path == 2) {
+				transitions.bg = Resources.Load<Sprite> ("processed_lecturehall");
 								dialogue = "Well, you studied...right?";
 								//LOAD BATTLE
 								//StartCoroutine (Wait (BATTLETIMEDELAY));
@@ -332,6 +338,7 @@ public class textmanage : MonoBehaviour
 								//SetTransition (1, 2, "school", Resources.Load<Sprite> ("clock"));
 						}
 						if (state == 0 && path == 3) {
+				transitions.bg = Resources.Load<Sprite> ("processed_gym");
 								dialogue = "You told yourself you would start hitting the gym more often. Are you ready to feel the burn?";
 								//LOAD BATLE
 								//StartCoroutine (Wait (BATTLETIMEDELAY));
@@ -378,6 +385,16 @@ public class textmanage : MonoBehaviour
 						/* SCHOOL 2 */
 			
 						if (state == 0 && path == 0) {
+				if(transitions.classesTaken == 0){
+					transitions.bg = Resources.Load<Sprite> ("processed_background1");
+				} else if(transitions.classesTaken == 1){
+					transitions.bg = Resources.Load<Sprite> ("processed_background4");
+				} else if(transitions.classesTaken == 2){
+					transitions.bg = Resources.Load<Sprite> ("processed_background5");
+				}
+				else if(transitions.classesTaken == 3){
+					transitions.bg = Resources.Load<Sprite> ("processed_background6");
+				}
 								choosingOption = true;
 								dialogue = "Where are you going next?";
 				
@@ -414,6 +431,7 @@ public class textmanage : MonoBehaviour
 						}
 						if (!lunch) {
 								if (state == 0 && path == 1) {
+					transitions.bg = Resources.Load<Sprite> ("processed_lecturehall");
 										float random = Random.value;
 										if (random <= 0.5) {
 											dialogue = "Isn't it weird that some midterms aren't actually in the middle of the semester?";
@@ -424,6 +442,7 @@ public class textmanage : MonoBehaviour
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 2) {
+					transitions.bg = Resources.Load<Sprite> ("processed_gym");
 										float random = Random.value;
 										if (random <= 0.5) {
 											dialogue = "Are you really working out now? Hope you're ready to be sweaty for the whole day.";
@@ -434,6 +453,7 @@ public class textmanage : MonoBehaviour
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 3) {
+					transitions.bg = Resources.Load<Sprite> ("processed_lecture");
 										float random = Random.value;
 										if (random <= 0.5) {
 											dialogue = "Sometimes you feel like your professor should be teaching meditation instead of mathematics.";
@@ -444,6 +464,7 @@ public class textmanage : MonoBehaviour
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 4) {
+					transitions.bg = Resources.Load<Sprite> ("processed_pieology");
 										float random = Random.value;
 										if (random <= 0.5) {
 											dialogue = "You remind yourself to eat right!";
@@ -467,6 +488,7 @@ public class textmanage : MonoBehaviour
 						}
 						if (lunch) {
 								if (state == 0 && path == 1) {
+					transitions.bg = Resources.Load<Sprite> ("processed_lecturehall");
 										float random = Random.value;
 										if (random <= 0.5) {
 											dialogue = "Isn't it weird that some midterms aren't actually in the middle of the semester?";
@@ -477,6 +499,7 @@ public class textmanage : MonoBehaviour
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 2) {
+					transitions.bg = Resources.Load<Sprite> ("processed_gym");
 										float random = Random.value;
 										if (random <= 0.5) {
 											dialogue = "Are you really working out now? Hope you're ready to be sweaty for the whole day.";
@@ -487,6 +510,7 @@ public class textmanage : MonoBehaviour
 										//winlose = Random.Range (0, 1f);
 								}
 								if (state == 0 && path == 3) {
+					transitions.bg = Resources.Load<Sprite> ("processed_lecture");
 										float random = Random.value;
 										if (random <= 0.5) {
 											dialogue = "Sometimes you feel like your professor should be teaching meditation instead of mathematics.";
@@ -593,7 +617,7 @@ public class textmanage : MonoBehaviour
 		/* AFTER SCHOOL */
 		
 		else if (scene == "afterschool") {
-			
+			transitions.bg = Resources.Load<Sprite> ("processed_sunset");
 						if (state == 0 && path == 0) {
 								choosingOption = true;
 								dialogue = "You made it through the day! What are you doing after school?";
@@ -609,11 +633,13 @@ public class textmanage : MonoBehaviour
 								}
 						}
 						if (state == 0 && path == 1) {
+				transitions.bg = Resources.Load<Sprite> ("processed_clubroom");
 								dialogue = "You hear some new members are joining today and you're excited to meet them!";
 								//LOAD BATTLE
 								//winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 2) {
+				transitions.bg = Resources.Load<Sprite> ("processed_frands");
 								dialogue = "Cool, your friends are free! You're super excited to see them!";
 								//LOAD BATTLE
 								//winlose = Random.Range (0, 1f);
@@ -664,6 +690,7 @@ public class textmanage : MonoBehaviour
 		else if (scene == "afterschool2") {
 			
 						if (state == 0 && path == 0) {
+				transitions.bg = Resources.Load<Sprite> ("processed_sunset2");
 								choosingOption = true;
 								dialogue = "What are you going to do now?";
 				
@@ -682,11 +709,13 @@ public class textmanage : MonoBehaviour
 				
 						}
 						if (state == 0 && path == 1) {
+				transitions.bg = Resources.Load<Sprite> ("processed_clubroom");
 								dialogue = "You hear some new members are joining today and you're excited to meet them!";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 2) {
+				transitions.bg = Resources.Load<Sprite> ("processed_frands");
 								dialogue = "Cool, your friends are free! You're super excited to see them!";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
@@ -747,6 +776,7 @@ public class textmanage : MonoBehaviour
 						}
 			
 				} else if (scene == "end") {
+			transitions.bg = Resources.Load<Sprite> ("processed_room");
 						if (state == 0 && path == 0) {
 								dialogue = "Phew. It’s been a long day. Time to go to bed and try to sleep.";
 								//LOAD BATTLE
@@ -756,6 +786,9 @@ public class textmanage : MonoBehaviour
 								Application.LoadLevel ("Battle");
 								SetTransition (2, 0, "end", Resources.Load<Sprite> ("bed"));
 						}
+			if(state == 2 && path == 0){
+				dialogue = "Congratulations on surviving another day in Hard Mode. See you tomorrow.";
+			}
 				}
 		}
 
