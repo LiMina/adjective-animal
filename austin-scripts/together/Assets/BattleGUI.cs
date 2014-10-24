@@ -58,7 +58,7 @@ public class BattleGUI : MonoBehaviour
 				GUI.skin.label.wordWrap = true;
 
 				int cameraOffsetX = (int) (Camera.main.transform.position.x * Screen.width / 10);
-				int cameraOffsetY = (int) (Camera.main.transform.position.y * Screen.height / 10);
+		int cameraOffsetY = (int) (Camera.main.transform.position.y * Screen.height / 10);
 
 				texture = new Texture2D (16, 16);
 				for (int y = 0; y < texture.height; ++y) {
