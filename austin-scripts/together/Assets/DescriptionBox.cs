@@ -93,7 +93,7 @@ public class DescriptionBox : MonoBehaviour
 				texture.Apply ();
 		
 				styler = new GUIStyle (GUI.skin.box);
-				styler.normal.textColor = Color.white;
+				styler.normal.textColor = Color.black;
 				styler.fontSize = 18;
 				styler.normal.background = texture;
 				GUI.skin.box.wordWrap = true;
