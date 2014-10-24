@@ -39,7 +39,7 @@ public class textmanage : MonoBehaviour
 				if (transitions.nextScene != null) {
 						scene = transitions.nextScene;
 				} else {
-						scene = "room";
+						scene = "afterschool2";
 				}
 				lunch = transitions.lunch;
 				classesTaken = transitions.classesTaken;
