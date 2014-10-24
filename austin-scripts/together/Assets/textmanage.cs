@@ -756,7 +756,7 @@ public class textmanage : MonoBehaviour
 						if (state == 1 && path == 4) { // party
 								transitions.currBattle = "party";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 4, "afterschool2", Resources.Load <Sprite> ("crowd"));
+								SetTransition (2, 4, "afterschool2", Resources.Load <Sprite> ("person1"),3);
 						}
 						
 

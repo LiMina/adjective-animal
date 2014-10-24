@@ -63,23 +63,37 @@ public class TurnStateMachine : MonoBehaviour
 				playerHP = Mathf.RoundToInt (transitions.wellbeing * 100);
 				playerMP = Mathf.RoundToInt (transitions.grades * 100);
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-				GameObject secondenemy = GameObject.Find ("Enemy2");
-				GameObject firstenemy = GameObject.Find ("Enemy");
-				if (transitions.enemyCount == 2) {
-						foreach (GameObject e in enemies) {
+		GameObject secondenemy = GameObject.Find ("Enemy2");
+		GameObject firstenemy = GameObject.Find ("Enemy");
+		GameObject thirdenemy = GameObject.Find ("Enemy3");
+		if (transitions.enemyCount == 3) {
+			foreach (GameObject e in enemies) {
+				//print ("more than one enemy");
+				e.SetActive (true);
+			}
+			secondenemy.transform.position = new Vector3 (-3f, 1.2f, 0f);
+			secondenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
+			firstenemy.transform.position = new Vector3 (0f, 1.2f, 0f);
+			thirdenemy.transform.position = new Vector3 (3f, 1.2f, 0f);
+			thirdenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
+			
+		}
+		if (transitions.enemyCount == 2) {
+			/*foreach (GameObject e in enemies) {
 								print ("more than one enemy");
 								e.SetActive (true);
-						}
-						//secondenemy 
-						secondenemy.transform.position = new Vector3 (-3f, 1.2f, 0f);
-						secondenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
-						firstenemy.transform.position = new Vector3 (3f, 1.2f, 0f);
-						
-				} 
-				if (transitions.enemyCount == 1) {
-						firstenemy.transform.position = new Vector3 (0, 1.2f, 0f);
-						secondenemy.SetActive (false);
-				}
+						}*/
+			thirdenemy.SetActive (false);
+			//secondenemy 
+			secondenemy.transform.position = new Vector3 (-3f, 1.2f, 0f);
+			secondenemy.transform.localScale = new Vector3 (0.4f, 0.4f, 0.4f);
+			firstenemy.transform.position = new Vector3 (3f, 1.2f, 0f);
+			
+		} 
+		if (transitions.enemyCount == 1) {
+			firstenemy.transform.position = new Vector3 (0, 1.2f, 0f);
+			secondenemy.SetActive (false);
+		}
 				foreach (GameObject e in enemies) {
 						e.GetComponent<SpriteRenderer> ().sprite = transitions.nextImage;
 				}
