@@ -18,9 +18,12 @@ public class BattleGUI : MonoBehaviour
 		public Texture2D buttonTexture;
 		public Texture2D buttonHoverTexture;
 
+		private GameObject turnStateMachine;
+
 		void Start ()
 		{
 				dialogue = playerTurnString;
+				turnStateMachine = GameObject.FindGameObjectWithTag ("TurnStateMachine");
 		}
 
 		void Update ()
@@ -314,7 +317,7 @@ public class BattleGUI : MonoBehaviour
 								GUI.enabled = false;
 						}
 						if (GUI.Button (new Rect (buttonX + cameraOffsetX, buttonTwoY + cameraOffsetY, buttonWidth, buttonHeight), spec2, buttonStyler)) {
-								TurnStateMachine.castSPLOSIONS ();
+								turnStateMachine.GetComponent<TurnStateMachine>().castSPLOSIONS ();
 						}
 						GUI.enabled = !attackLock;
 

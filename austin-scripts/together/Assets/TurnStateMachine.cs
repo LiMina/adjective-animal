@@ -421,7 +421,7 @@ public class TurnStateMachine : MonoBehaviour
 				announcerLine = s;
 		}
 
-		public static void castSPLOSIONS ()
+		public void castSPLOSIONS ()
 		{
 				playerMP -= SPLOSIONS_MANA_COST;
 				float random = Random.value;
@@ -431,11 +431,11 @@ public class TurnStateMachine : MonoBehaviour
 						if (random <= critChance) {
 								e.GetComponent<Stats> ().health -= SPLOSIONSAttack * 2;
 								announcerLine = SPLOSIONSLine + critSuffix;
-				//instance.StartCoroutine ("attackedAnimation", new object[1]{e});
+								StartCoroutine ("attackedAnimation", e);
 			} else if (random <= 1 - missChance) {
 								e.GetComponent<Stats> ().health -= SPLOSIONSAttack;
 								announcerLine = SPLOSIONSLine;
-				//instance.StartCoroutine ("attackedAnimation", new object[1]{e});
+								StartCoroutine ("attackedAnimation", e);
 						} else {
 								announcerLine = missLine;
 						}
