@@ -39,7 +39,7 @@ public class textmanage : MonoBehaviour
 				if (transitions.nextScene != null) {
 						scene = transitions.nextScene;
 				} else {
-						scene = "room";
+						scene = "end";
 				}
 				lunch = transitions.lunch;
 				classesTaken = transitions.classesTaken;
@@ -215,7 +215,7 @@ public class textmanage : MonoBehaviour
 				 *ROOOOOMMM SCEEEENNNNEEEE
 				 */
 				if (scene == "room") {
-						transitions.bg = Resources.Load<Sprite> ("processed_bedroom");
+						transitions.bg = Resources.Load<Sprite> ("processed_bedroom2");
 						if (state == 0 && path == 0) {
 								dialogue = "...WAKE UP!!!!!";
 						} else if (state == 1 && path == 0) {
@@ -256,11 +256,13 @@ public class textmanage : MonoBehaviour
 				 * SCHOOL SCENE WOW!
 				 */
 				else if (scene == "breakfast") {
-						transitions.bg = Resources.Load<Sprite> ("processed_breakfast");
+						
 						if (state == 0 && path == 0) {
+				transitions.bg = Resources.Load<Sprite> ("processed_stairs");
 								dialogue = "Climbing down the stairs, you find your way to the kitchen, make some food, and shovel some of it into your mouth.";
 						}
 						if (state == 1 && path == 0) {
+				transitions.bg = Resources.Load<Sprite> ("processed_breakfast");
 								choosingOption = true;
 								dialogue = "What do you eat? ";
 								
@@ -697,7 +699,7 @@ public class textmanage : MonoBehaviour
 								choosingOption = true;
 								dialogue = "What are you going to do now?";
 				
-								if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Club", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Club Meeting", buttonStyler)) {
 										clickedbutton = 1;
 								}
 								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Hanging out with friends", buttonStyler)) {
@@ -724,11 +726,13 @@ public class textmanage : MonoBehaviour
 								winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 3) {
+				transitions.bg = Resources.Load<Sprite> ("processed_room");
 								dialogue = "Ugh, necessary evils...";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 4) {
+				transitions.bg = Resources.Load<Sprite> ("processed_nightstreet");
 								dialogue = "You got invited to a party! The party don't start 'til you walk in!";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
@@ -779,8 +783,8 @@ public class textmanage : MonoBehaviour
 						}
 			
 				} else if (scene == "end") {
-						transitions.bg = Resources.Load<Sprite> ("processed_room");
 						if (state == 0 && path == 0) {
+				transitions.bg = Resources.Load<Sprite> ("processed_bedroom3");
 								dialogue = "Phew. It’s been a long day. Time to go to bed and try to sleep.";
 								//LOAD BATTLE
 						}
