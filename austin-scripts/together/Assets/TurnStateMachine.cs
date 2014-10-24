@@ -265,18 +265,18 @@ public class TurnStateMachine : MonoBehaviour
 										Application.LoadLevel ("dialogue");
 										transitions.won = false;
 										if (transitions.currBattle == "wakeup") { // Post battle effects for waking up
-												transitions.wellbeing = Mathf.Max (.01, transitions.wellbeing - 0.05f);
+												transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.05f);
 										} else if (transitions.currBattle == "lecture") {
 												transitions.grades = Mathf.Max (0, transitions.grades - 0.05f);
 										} else if ( transitions.currBattle == "test") {
 												transitions.grades = Mathf.Max (0, transitions.grades - 0.05f);
-												transitions.wellbeing = Mathf.Max (.01, transitions.wellbeing - 0.1f);
+												transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
 										} else if (transitions.currBattle == "gym") {
-												transitions.wellbeing = Mathf.Max (.01, transitions.wellbeing - 0.1f);
+												transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
 										} else if (transitions.currBattle == "studying") {
 												transitions.happiness = Mathf.Max(0, transitions.happiness - 0.1f);
 										} else if (transitions.currBattle == "lunch") {
-												transitions.wellbeing = Mathf.Max (.01, transitions.wellbeing - 0.1f);
+												transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
 										}
 								}
 								return true;
