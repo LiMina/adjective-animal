@@ -346,7 +346,7 @@ public class TurnStateMachine : MonoBehaviour
 								DIEAttack = 0 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
 								SPLOSIONSAttack = 5 + (int)(Mathf.Round (transitions.happiness * 100) / 2 + 0.5);
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "test") {
-								turnsLeft = 4;
+								turnsLeft = 5;
 								announcerLine = "You sure hope you can finish the test within the time limit... Finish the battle in " + turnsLeft + " turns!";
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
 								announcerLine = "You're really starving. If only you could eat the same time each day... Lose well-being each turn!";

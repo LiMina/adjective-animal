@@ -658,12 +658,12 @@ public class textmanage : MonoBehaviour
 						if (state == 1 && path == 1) { // club
 								transitions.currBattle = "club";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 1, "afterschool", Resources.Load <Sprite> ("person1"));
+								SetTransition (2, 1, "afterschool", Resources.Load <Sprite> ("person1"), 2);
 						}
 						if (state == 1 && path == 2) { // friends
 								transitions.currBattle = "friends";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 2, "afterschool", Resources.Load <Sprite> ("person2"));
+								SetTransition (2, 2, "afterschool", Resources.Load <Sprite> ("person2"), 3);
 						}
 						if (state == 1 && path == 3) { // hw
 								transitions.currBattle = "hw";
@@ -741,12 +741,12 @@ public class textmanage : MonoBehaviour
 						if (state == 1 && path == 1) { // club
 								transitions.currBattle = "club";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 1, "afterschool2", Resources.Load <Sprite> ("person1"));
+								SetTransition (2, 1, "afterschool2", Resources.Load <Sprite> ("person1"), 2);
 						}
 						if (state == 1 && path == 2) { // friends
 								transitions.currBattle = "friends";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 2, "afterschool2", Resources.Load <Sprite> ("person2"));
+								SetTransition (2, 2, "afterschool2", Resources.Load <Sprite> ("person2"), 3);
 						}
 						if (state == 1 && path == 3) { // hw
 								transitions.currBattle = "hw";
@@ -756,7 +756,7 @@ public class textmanage : MonoBehaviour
 						if (state == 1 && path == 4) { // party
 								transitions.currBattle = "party";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 4, "afterschool2", Resources.Load <Sprite> ("person1"),3);
+								SetTransition (2, 4, "afterschool2", Resources.Load <Sprite> ("person1"), 3);
 						}
 						
 
