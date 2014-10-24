@@ -621,7 +621,7 @@ public class textmanage : MonoBehaviour
 		else if (scene == "afterschool") {
 						
 						if (state == 0 && path == 0) {
-				transitions.bg = Resources.Load<Sprite> ("processed_sunset");
+				transitions.bg = Resources.Load<Sprite> ("processed_sunset1");
 								choosingOption = true;
 								dialogue = "You made it through the day! What are you doing after school?";
 				
