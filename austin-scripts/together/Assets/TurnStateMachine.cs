@@ -320,10 +320,10 @@ public class TurnStateMachine : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-		GameObject[] enemies1 = GameObject.FindGameObjectsWithTag ("Enemy");
+		/*GameObject[] enemies1 = GameObject.FindGameObjectsWithTag ("Enemy");
 		foreach (GameObject e in enemies1) {
 			e.GetComponent<SpriteRenderer> ().sprite = transitions.nextImage;
-		}
+		}*/
 				GameObject.Find ("bg").GetComponent<SpriteRenderer> ().sprite = transitions.bg;	
 				/** Start of battle effects */
 				if (!showedSpecialEffect) {
