@@ -52,7 +52,7 @@ public class TurnStateMachine : MonoBehaviour
 		public static string winLine = "You overcame your adversaries!";
 		public static string loseLine = "You feel terribly overwhelmed. You couldn't handle the pressure...";
 
-		private static bool ending = false;
+		public static bool ending = false;
 		public static bool showedSpecialEffect = false;
 		private static int turnsLeft = -1;
 	

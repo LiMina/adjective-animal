@@ -162,7 +162,7 @@ public class BattleGUI : MonoBehaviour
 	
 				//Handles whether or not the buttons are locked (due to currently choosing a target)
 				GUI.Box (new Rect (boxTwoX + cameraOffsetX, boxY + cameraOffsetY, boxWidth, boxHeight), "", styler);
-				if (TurnStateMachine.getTurn () == 0 && !TurnStateMachine.isCommandTargeting () && TurnStateMachine.getTurnState () != 2 && TurnStateMachine.showedSpecialEffect) {
+				if (TurnStateMachine.getTurn () == 0 && !TurnStateMachine.isCommandTargeting () && TurnStateMachine.getTurnState () != 2 && TurnStateMachine.showedSpecialEffect && !TurnStateMachine.ending) {
 						attackLock = false;
 				} else {	
 						attackLock = true;
