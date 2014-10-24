@@ -552,7 +552,7 @@ public class textmanage : MonoBehaviour
 								}
 								transitions.currBattle = "gym";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 2, "school2", Resources.Load<Sprite> ("gym"));
+								SetTransition (2, 2, "school2", Resources.Load<Sprite> ("gym"), 2);
 								set = false;
 						}
 						if (state == 1 && path == 3) { // lecture
@@ -586,7 +586,7 @@ public class textmanage : MonoBehaviour
 								}				
 								transitions.currBattle = "studying";
 								Application.LoadLevel ("Battle");
-								SetTransition (2, 5, "school2", Resources.Load<Sprite> ("book"));
+								SetTransition (2, 5, "school2", Resources.Load<Sprite> ("book"), 2);
 								set = false;
 						}
 

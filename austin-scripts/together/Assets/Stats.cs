@@ -22,6 +22,7 @@ public class Stats : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		float random = Random.value;
 		if (transitions.currBattle == "wakeup") {
 			health = 60;
 			attack = 10;
@@ -34,6 +35,46 @@ public class Stats : MonoBehaviour {
 		} else if (textmanage.scene == "school" && transitions.currBattle == "gym") {
 			health = 50;
 			attack = 5;
+		} else if (textmanage.scene == "school2" && transitions.currBattle == "lecture") {
+			if (random <= 0.33)
+				health = 80;
+			else if (random <= 0.66)
+				health = 90;
+			else
+				health = 100;
+			attack = 12;
+		} else if (textmanage.scene == "school2" && transitions.currBattle == "gym") {
+			if (random <= 0.33)
+				health = 50;
+			else if (random <= 0.66)
+				health = 55;
+			else
+				health = 60;
+			attack = 8;
+		} else if (textmanage.scene == "school2" && transitions.currBattle == "test") {
+			if (random <= 0.33)
+				health = 100;
+			else if (random <= 0.66)
+				health = 120;
+			else
+				health = 140;
+			attack = 10;
+		} else if (textmanage.scene == "school2" && transitions.currBattle == "studying") {
+			if (random <= 0.33)
+				health = 60;
+			else if (random <= 0.66)
+				health = 65;
+			else
+				health = 70;
+			attack = 9;
+		} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
+			if (random <= 0.33)
+				health = 70;
+			else if (random <= 0.66)
+				health = 75;
+			else
+				health = 80;
+			attack = 10;
 		}
 	}
 	
