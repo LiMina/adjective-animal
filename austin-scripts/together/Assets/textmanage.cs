@@ -503,7 +503,7 @@ public class textmanage : MonoBehaviour
 										if (rand <= 0.5) {
 											dialogue = "Are you really working out now? Hope you're ready to be sweaty for the whole day.";
 										} else {
-											dialogue = "Sometimes you wonder how effect walking on the treadmill is.";
+											dialogue = "Sometimes you wonder how effective walking on the treadmill is.";
 										}
 										//LOAD BATTLE
 										//winlose = Random.Range (0, 1f);
