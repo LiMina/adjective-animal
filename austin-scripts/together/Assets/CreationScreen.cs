@@ -5,6 +5,8 @@ public class CreationScreen : MonoBehaviour {
 	public GUIStyle styler;
 	public Texture2D texture;
 	public GUIStyle buttonStyler;
+	public GUIStyle labelStyler;
+	public GUIStyle optionStyler;
 	public Texture2D buttonTexture;
 	public Texture2D buttonHoverTexture;
 	public int fontSize = 18;
@@ -38,7 +40,6 @@ public class CreationScreen : MonoBehaviour {
 			orientationNum = (int)Mathf.Round(Random.Range (0, orientation.Length-1));
 			}
 		hairNum = (int)Mathf.Round(Random.Range (0, haircolor.Length-1));
-		Debug.Log (sex[sexNum] + ", " + gender[genderNum] + ", " + orientation[orientationNum] + ", " + haircolor[hairNum]);
 		}
 
 	// Use this for initialization
@@ -48,6 +49,9 @@ public class CreationScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetMouseButtonDown(0) && endCreation){
+			lineNum++;
+		}
 	
 	}
 	
@@ -107,18 +111,126 @@ public class CreationScreen : MonoBehaviour {
 		buttonStyler.normal.background = buttonTexture;
 		buttonStyler.hover.background = buttonHoverTexture;
 		
+		labelStyler = new GUIStyle (GUI.skin.label);
+		labelStyler.fontSize = 25;
+		
+		optionStyler = new GUIStyle (GUI.skin.button);
+		optionStyler.normal.textColor = Color.black;
+		optionStyler.fontSize = 25;
+		optionStyler.normal.background = buttonTexture;
+		optionStyler.hover.background = buttonHoverTexture;
+		
 		//Options
 		
-		GUI.Label (new Rect(80, 50, Screen.width/2, 25), "Test");
+		GUI.Label (new Rect(85, Screen.height/10, Screen.width/2, 35), "Sex:", labelStyler);
+		GUI.Label (new Rect(85, Screen.height/10 + 50, Screen.width/2, 35), "Gender:", labelStyler);
+		GUI.Label (new Rect(85, Screen.height/10 + 100, Screen.width/2, 35), "Sexual Orientation:", labelStyler);
+		GUI.Label (new Rect(85, Screen.height/10 + 150, Screen.width/2, 35), "Hair Color:", labelStyler);
+		GUI.Label (new Rect(85, Screen.height/10 + 200, Screen.width/2, 35), "Hair Style:", labelStyler);
+		GUI.Label (new Rect(85, Screen.height/10 + 250, Screen.width/2, 35), "Favorite Color:", labelStyler);
+		GUI.Label (new Rect(85, Screen.height/10 + 300, Screen.width/2, 35), "Operating System:", labelStyler);
 		
 		//Buttons
+		if(lineNum == 0){
+			dialogue = "Create a character.";
+			}
+		if(lineNum > 0){
+			GUI.enabled = false;
+		}
+		
+		if(!endCreation){
+		
+		if(GUI.Button (new Rect(85, Screen.height/10 + 360, Screen.width - 170, 35), "Confirm", optionStyler)){
+			lineNum++;
+		}
+		
+		if(GUI.Button (new Rect(Screen.width/2, Screen.height/10, Screen.width/2 - 85, 35), sex[sexSelectIteration], optionStyler)){
+			if(sexSelectIteration < sex.Length - 1){
+				sexSelectIteration++;
+				}
+			else{
+				sexSelectIteration = 0;
+				}
+			}
+		if(GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 50, Screen.width/2 - 85, 35), gender[genderSelectIteration], optionStyler)){
+			if(genderSelectIteration < gender.Length - 1){
+				genderSelectIteration++;
+				}
+			else{
+				genderSelectIteration = 0;
+				}
+			}
+		if(GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 100, Screen.width/2 - 85, 35), orientation[orientationSelectIteration], optionStyler)){
+			if(orientationSelectIteration < orientation.Length - 1){
+				orientationSelectIteration++;
+				}
+			else{
+				orientationSelectIteration = 0;
+				}
+			}
+		if(GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 150, Screen.width/2 - 85, 35), haircolor[hairColorSelectIteration], optionStyler)){
+			if(hairColorSelectIteration < haircolor.Length - 1){
+				hairColorSelectIteration++;
+			}
+			else{
+				hairColorSelectIteration = 0;
+			}
+		}
+		if(GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 200, Screen.width/2 - 85, 35), hairstyle[hairStyleSelectIteration], optionStyler)){
+			if(hairStyleSelectIteration < hairstyle.Length - 1){
+				hairStyleSelectIteration++;
+			}
+			else{
+				hairStyleSelectIteration = 0;
+			}
+		}
+		if(GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 250, Screen.width/2 - 85, 35), favcolor[favColorSelectIteration], optionStyler)){
+			if(favColorSelectIteration < favcolor.Length - 1){
+				favColorSelectIteration++;
+			}
+			else{
+				favColorSelectIteration = 0;
+			}
+		}
+		if(GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 300, Screen.width/2 - 85, 35), operatingsystem[operatingSystemSelectIteration], optionStyler)){
+			if(operatingSystemSelectIteration < operatingsystem.Length - 1){
+				operatingSystemSelectIteration++;
+			}
+			else{
+				operatingSystemSelectIteration = 0;
+			}
+		}
+		}
+		else{
+			GUI.Button (new Rect(Screen.width/2, Screen.height/10, Screen.width/2 - 85, 35), sex[sexNum], optionStyler);
+			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 50, Screen.width/2 - 85, 35), gender[genderNum], optionStyler);
+			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 100, Screen.width/2 - 85, 35), orientation[orientationNum], optionStyler);
+			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 150, Screen.width/2 - 85, 35), haircolor[hairNum], optionStyler);
+			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 200, Screen.width/2 - 85, 35), hairstyle[hairStyleSelectIteration], optionStyler);
+			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 250, Screen.width/2 - 85, 35), favcolor[favColorSelectIteration], optionStyler);
+			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 300, Screen.width/2 - 85, 35), operatingsystem[operatingSystemSelectIteration], optionStyler);
+		}
 		
 		//Bottom Box
+		if(lineNum > 0){
+			GUI.enabled = true;
+			}
 		GUI.Box (new Rect (80, Screen.height - 120, Screen.width - 160, 100), dialogue, styler);
 		if(lineNum == 1){
+			dialogue = "Are you sure?";
+			if(GUI.Button (new Rect(85, Screen.height - 85, Screen.width - 170, 25), "Yes", buttonStyler)){
+				FinalChecker (sexSelectIteration, genderSelectIteration, orientationSelectIteration, hairColorSelectIteration);
+				lineNum++;
+				}
+			if(GUI.Button (new Rect(85, Screen.height - 55, Screen.width - 170, 25), "No", buttonStyler)){
+				lineNum = 0;
+				}
+			}
+		if(lineNum == 2){
+			endCreation = true;
 			dialogue = "There are some things you can't control in life.";
 			}
-		else if(lineNum == 2){
+		else if(lineNum == 3){
 			if(operatingSystemSelectIteration == 2){
 				dialogue = "Your operating system is not one of those things. Go you.";
 			}
@@ -126,8 +238,12 @@ public class CreationScreen : MonoBehaviour {
 				dialogue = "Look, we're just trying to make a point, okay?";
 			}
 		}
-		else {
-			Debug.Log("something");
+		else if (lineNum == 4) {
+			dialogue = "So, are you ready to start the game?";
 			}
+		else if (lineNum == 5) {
+			Application.LoadLevel("dialogue");
+			}
+		else{}
 	}
 }
