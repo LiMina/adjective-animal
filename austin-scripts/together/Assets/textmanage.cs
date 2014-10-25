@@ -796,6 +796,9 @@ public class textmanage : MonoBehaviour
 						if (state == 2 && path == 0) {
 								dialogue = "Congratulations on surviving another day in Hard Mode. See you tomorrow.";
 						}
+					if (state == 3 && path == 0) {
+				Application.LoadLevel ("ending");
+			}
 				}
 		}
 
