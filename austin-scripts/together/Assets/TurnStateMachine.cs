@@ -164,6 +164,24 @@ public class TurnStateMachine : MonoBehaviour
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
 							transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.25f);
 							tranStatChange(0,0,1);
+						} else if (transitions.currBattle == "club") {
+							transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.3f);
+							transitions.grades = Mathf.Min (1, transitions.grades + 0.1f);
+							tranStatChange(0,1,1);
+						} else if (transitions.currBattle == "friends") {
+							transitions.happiness = Mathf.Min (1, transitions.happiness + 0.2f);
+							tranStatChange(1,0,0);
+						} else if (transitions.currBattle == "hw") {
+							transitions.grades = Mathf.Min (1, transitions.grades + 0.2f);
+							tranStatChange(0,1,0);
+						} else if (transitions.currBattle == "party") {
+							transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.3f);
+							transitions.happiness = Mathf.Min (1, transitions.happiness + 0.1f);
+							tranStatChange(1,0,1);
+						} else if (transitions.currBattle == "sleep") {
+							transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.3f);
+							transitions.happiness = Mathf.Min (1, transitions.happiness + 0.2f);
+							transitions.grades = Mathf.Min (1, transitions.grades + 0.2f);
 						}
 					}
 					return true;
@@ -253,13 +271,59 @@ public class TurnStateMachine : MonoBehaviour
 					}
 				} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
 					if (getTurnState () == 0) {
-						announcerLine = winLine + " It's important to eat well! You feel awesome!";
+						announcerLine = winLine + " Eating well is key to a healthy body. You feel awesome!";
 						nextTurnState ();
 					} else if (getTurnState () == 1) {
 						if (Input.GetButtonDown ("Fire1")) {
 							announcerLine = "Your well-being has increased greatly!";
 							nextTurnState ();
 						}
+					}
+				} else if (transitions.currBattle == "club") {
+					if (getTurnState () == 0) {
+						announcerLine = winLine + " After a great meeting, you've met many new people!";
+						nextTurnState ();
+					} else if (getTurnState () == 1) {
+						if (Input.GetButtonDown ("Fire1")) {
+							announcerLine = "Your well-being has increased greatly! Your grades have increased!";
+							nextTurnState ();
+						}
+					}
+				} else if (transitions.currBattle == "friends") {
+					if (getTurnState () == 0) {
+						announcerLine = winLine + " You had a great time with your friends!";
+						nextTurnState ();
+					} else if (getTurnState () == 1) {
+						if (Input.GetButtonDown ("Fire1")) {
+							announcerLine = "Your happiness has increased greatly!";
+							nextTurnState ();
+						}
+					}
+				} else if (transitions.currBattle == "hw") {
+					if (getTurnState () == 0) {
+						announcerLine = winLine + " Seems like you really do understand the material!";
+						nextTurnState ();
+					} else if (getTurnState () == 1) {
+						if (Input.GetButtonDown ("Fire1")) {
+							announcerLine = "Your grades have increased greatly!";
+							nextTurnState ();
+						}
+					}
+				} else if (transitions.currBattle == "party") {
+					if (getTurnState () == 0) {
+						announcerLine = winLine + " What an awesome party!";
+						nextTurnState ();
+					} else if (getTurnState () == 1) {
+						if (Input.GetButtonDown ("Fire1")) {
+							announcerLine = "Your well-being has increased greatly! Your happiness has increased!";
+							nextTurnState ();
+						}
+					}
+				} else if (transitions.currBattle == "sleep") {
+					if (getTurnState () == 0) {
+						announcerLine = winLine + " ...And drift off to sleep.";
+						nextTurnState ();
+						nextTurnState ();
 					}
 				}
 				if (transitions.currBattle != "wakeup" && textmanage.scene != "school" && textmanage.scene != "school2") { // To catch extra cases
@@ -295,10 +359,25 @@ public class TurnStateMachine : MonoBehaviour
 						transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
 						tranStatChange(0,0,-1);
 					} else if (transitions.currBattle == "studying") {
-						transitions.happiness = Mathf.Max (0, transitions.happiness - 0.1f);
+						transitions.happiness = Mathf.Max (0, transitions.happiness - 0.05f);
 						tranStatChange(-1,0,0);
 					} else if (transitions.currBattle == "lunch") {
 						transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
+						tranStatChange(0,0,-1);
+					} else if (transitions.currBattle == "club") {
+						transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
+						tranStatChange(0,0,-1);
+					} else if (transitions.currBattle == "friends") {
+						transitions.happiness = Mathf.Max (0, transitions.happiness - 0.05f);
+						tranStatChange(-1,0,0);
+					} else if (transitions.currBattle == "hw") {
+						transitions.grades = Mathf.Max (0, transitions.grades - 0.05f);
+						tranStatChange(0,-1,0);
+					} else if (transitions.currBattle == "party") {
+						transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
+						tranStatChange(0,0,-1);
+					} else if (transitions.currBattle == "sleep") {
+						transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.15f);
 						tranStatChange(0,0,-1);
 					}
 				}
@@ -318,6 +397,16 @@ public class TurnStateMachine : MonoBehaviour
 					} else if (transitions.currBattle == "studying") {
 						announcerLine = "Your happiness has decreased!";
 					} else if (transitions.currBattle == "lunch") {
+						announcerLine = "Your well-being has decreased!";
+					} else if (transitions.currBattle == "club") {
+						announcerLine = "Your well-being has decreased!";
+					} else if (transitions.currBattle == "friends") {
+						announcerLine = "Your happiness has decreased!";
+					} else if (transitions.currBattle == "hw") {
+						announcerLine = "Your grades have decreased!";
+					} else if (transitions.currBattle == "party") {
+						announcerLine = "Your well-being has decreased!";
+					} else if (transitions.currBattle == "sleep") {
 						announcerLine = "Your well-being has decreased!";
 					}
 					nextTurnState ();
