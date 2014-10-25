@@ -15,6 +15,9 @@ public class CreationScreen : MonoBehaviour {
 	public int genderNum = 0;
 	public int orientationNum = 0;
 	public int hairNum = 0;
+	public int hairStyleNum = 0;
+	public int colorNum = 0;
+	public int OSNum = 0;
 	public int sexSelectIteration = 0;
 	public int genderSelectIteration = 0;
 	public int orientationSelectIteration = 0;
@@ -25,7 +28,7 @@ public class CreationScreen : MonoBehaviour {
 	static string[] sex = {"Male", "Female", "Intersex"};
 	static string[] gender = {"Male", "Female", "Nonbinary"};
 	static string[] orientation = {"Heterosexual", "Homosexual", "Bisexual", "Pansexual", "Polysexual", "Grey-Asexual", "Demisexual", "Asexual"};
-	static string[] haircolor = {"Black", "Brown", "Red", "Blond(e)", "White", "Green", "Blue", "Purple", "Colorful Highlights"};
+	static string[] haircolor = {"Black", "Brown", "Red", "Blond(e)", "White", "Green", "Blue", "Purple", "Colorful Highlights", "A New Color Every Week"};
 	static string[] hairstyle = {"Buzzcut", "Straight and Long", "Pompadour", "Bob", "K-Pop Star Hair", "Fauxhawk", "Skrillex Sidecut", "Too Curly to Manage", "Gravity-Defying"};
 	static string[] favcolor = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Indigo", "Black", "White"};
 	static string[] operatingsystem = {"Windows", "OS X", "Linux"};
@@ -40,6 +43,18 @@ public class CreationScreen : MonoBehaviour {
 			orientationNum = (int)Mathf.Round(Random.Range (0, orientation.Length-1));
 			}
 		hairNum = (int)Mathf.Round(Random.Range (0, haircolor.Length-1));
+		hairStyleNum = (int)Mathf.Round (Random.Range (0, hairstyle.Length-1));
+		colorNum = (int)Mathf.Round (Random.Range (0, favcolor.Length-1));
+		if(operatingSystemSelectIteration == 0){
+			OSNum = 1;
+			}
+		else if(operatingSystemSelectIteration == 1){
+			OSNum = 0;
+			}
+		else if(operatingSystemSelectIteration == 2){
+			OSNum = 2;
+			}
+		else{}
 		}
 
 	// Use this for initialization
@@ -208,9 +223,9 @@ public class CreationScreen : MonoBehaviour {
 			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 50, Screen.width/2 - 85, 35), gender[genderNum], optionStyler);
 			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 100, Screen.width/2 - 85, 35), orientation[orientationNum], optionStyler);
 			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 150, Screen.width/2 - 85, 35), haircolor[hairNum], optionStyler);
-			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 200, Screen.width/2 - 85, 35), hairstyle[hairStyleSelectIteration], optionStyler);
+			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 200, Screen.width/2 - 85, 35), hairstyle[hairStyleNum], optionStyler);
 			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 250, Screen.width/2 - 85, 35), favcolor[favColorSelectIteration], optionStyler);
-			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 300, Screen.width/2 - 85, 35), operatingsystem[operatingSystemSelectIteration], optionStyler);
+			GUI.Button (new Rect(Screen.width/2, Screen.height/10 + 300, Screen.width/2 - 85, 35), operatingsystem[OSNum], optionStyler);
 		}
 		
 		//Bottom Box
@@ -236,11 +251,11 @@ public class CreationScreen : MonoBehaviour {
 			dialogue = "There are just some things that you can't control in life, y'know?";
 			}
 		else if(lineNum == 4){
-			if(operatingSystemSelectIteration == 2){
+			if(OSNum == 2){
 				dialogue = "Your operating system is not one of those things. Go you.";
 			}
 			else{
-				dialogue = "Look, we're just trying to make a point, okay?";
+				dialogue = "Look, we're just trying to make a point.";
 			}
 		}
 		else if (lineNum == 5) {
