@@ -355,6 +355,18 @@ public class TurnStateMachine : MonoBehaviour
 								announcerLine = "Aw crud, this is your worst subject. More reason to study I guess... Abilities cost more grade to use!";
 								DIE_MANA_COST = 15;
 								SPLOSIONS_MANA_COST = 25;
+						} else if (transitions.currBattle == "club") {
+								announcerLine = "The room is packed and buzzing with energy... Attacks either hit critically or miss!";
+								critChance = 0.6f;
+								missChance = 0.4f;
+						}  else if (transitions.currBattle == "friends") {
+								announcerLine = "It's always great being with friends... Happiness is maxed out for your attacks!";
+								attack = 6 + (int)(100 / 5 + 0.5);
+								DIEAttack = 15 + (int)(100 / 4 + 0.5);
+								SPLOSIONSAttack = 20 + (int)(100 / 2 + 0.5);
+						}  else if (transitions.currBattle == "hw") {
+								announcerLine = "Homework is so stressful an- Ow! A paper cut... Fight with only half your well-being!";
+								playerHP = Mathf.RoundToInt (transitions.wellbeing * 100 / 2);
 						} else {
 								showedSpecialEffect = true;
 						}
@@ -503,6 +515,7 @@ public class TurnStateMachine : MonoBehaviour
 				ending = false;
 				showedSpecialEffect = false;
 				critChance = 0.0625f;
+				missChance = 0f;
 				turnsLeft = -1;
 				attack = 6 + (int)(Mathf.Round (transitions.happiness * 100) / 5 + 0.5);
 				DIEAttack = 15 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
@@ -510,6 +523,7 @@ public class TurnStateMachine : MonoBehaviour
 				DIE_MANA_COST = 5;
 				SPLOSIONS_MANA_COST = 15;
 				poison = false;
+				playerHP = Mathf.RoundToInt (transitions.wellbeing * 100);
 		}
 	
 		public static void setAnnouncerLine (string s)

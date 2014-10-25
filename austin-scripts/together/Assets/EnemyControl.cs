@@ -29,6 +29,13 @@ public class EnemyControl : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+		if (textmanage.scene == "afterschool" && transitions.currBattle == "club") {
+			critChance = 0.5f;
+			missChance = 0.5f;
+		} else {
+			critChance = 0.0625f;
+			missChance = 0.0625f;
+		}
 		/** First check if I'm dead. */
 		if (TurnStateMachine.getTurn () == ID && this.GetComponent<Stats> ().health <= 0) {
 			TurnStateMachine.nextTurn ();

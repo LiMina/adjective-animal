@@ -75,6 +75,30 @@ public class Stats : MonoBehaviour {
 			else
 				health = 80;
 			attack = 10;
+		} else if (transitions.currBattle == "club") {
+			if (random <= 0.33)
+				health = 40;
+			else if (random <= 0.66)
+				health = 45;
+			else
+				health = 50;
+			attack = 10;
+		} else if (transitions.currBattle == "friends") {
+			if (random <= 0.33)
+				health = 150;
+			else if (random <= 0.66)
+				health = 160;
+			else
+				health = 170;
+			attack = 8;
+		} else if (transitions.currBattle == "hw") {
+			if (random <= 0.33)
+				health = 110;
+			else if (random <= 0.66)
+				health = 130;
+			else
+				health = 150;
+			attack = 6;
 		}
 	}
 	
