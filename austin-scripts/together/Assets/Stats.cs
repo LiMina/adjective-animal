@@ -82,14 +82,14 @@ public class Stats : MonoBehaviour {
 				health = 45;
 			else
 				health = 50;
-			attack = 10;
+			attack = 12;
 		} else if (transitions.currBattle == "friends") {
 			if (random <= 0.33)
-				health = 150;
+				health = 180;
 			else if (random <= 0.66)
-				health = 160;
+				health = 190;
 			else
-				health = 170;
+				health = 200;
 			attack = 8;
 		} else if (transitions.currBattle == "hw") {
 			if (random <= 0.33)
@@ -98,7 +98,7 @@ public class Stats : MonoBehaviour {
 				health = 130;
 			else
 				health = 150;
-			attack = 6;
+			attack = 8;
 		}
 	}
 	

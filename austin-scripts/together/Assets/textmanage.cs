@@ -15,7 +15,7 @@ public class textmanage : MonoBehaviour
 		public float winlose = 0.0f;
 		public int extracurriculars = 0;
 		public int CLASSLIMIT = 2;
-		public int EXTRALIMIT = 2;
+		public int EXTRALIMIT = 0;
 		public bool waitActive = false;
 		public float BATTLETIMEDELAY = 2.0f;
 		public bool wait_called = false;
@@ -784,7 +784,7 @@ public class textmanage : MonoBehaviour
 			
 				} else if (scene == "end") {
 						if (state == 0 && path == 0) {
-				transitions.bg = Resources.Load<Sprite> ("processed_bedroom3");
+								transitions.bg = Resources.Load<Sprite> ("processed_bedroom3");
 								dialogue = "Phew. It’s been a long day. Time to go to bed and try to sleep.";
 								//LOAD BATTLE
 						}
