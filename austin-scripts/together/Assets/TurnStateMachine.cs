@@ -58,6 +58,8 @@ public class TurnStateMachine : MonoBehaviour
 	static public TurnStateMachine instance;
 	public bool showInstructions = true;
 	// Use this for initialization
+
+
 	void Start ()
 	{
 		playerHP = Mathf.RoundToInt (transitions.wellbeing * 100);
@@ -103,7 +105,11 @@ public class TurnStateMachine : MonoBehaviour
 		DIEAttack = 15 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
 		SPLOSIONSAttack = 20 + (int)(Mathf.Round (transitions.happiness * 100) / 2 + 0.5);
 	}
-	
+	void tranStatChange(int hap = 0, int grad = 0, int wellbeing = 0){
+		transitions.hap = hap;
+		transitions.grad = grad;
+		transitions.well = wellbeing;
+		}
 	bool CheckAllDead ()
 	{
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
@@ -128,25 +134,36 @@ public class TurnStateMachine : MonoBehaviour
 						/** Post-battle win effects. */
 						if (transitions.currBattle == "wakeup") {
 							transitions.happiness = Mathf.Min (1, transitions.happiness + 0.1f);
+
+							tranStatChange(1,0,0);
+
 						} else if (textmanage.scene == "school" && transitions.currBattle == "lecture") {
 							transitions.grades = Mathf.Min (1, transitions.grades + 0.1f);
+							tranStatChange(0,1,0);
 						} else if (textmanage.scene == "school" && transitions.currBattle == "test") {
 							transitions.happiness = Mathf.Min (1, transitions.happiness + 0.1f);
+							tranStatChange(1,0,0);
 						} else if (textmanage.scene == "school" && transitions.currBattle == "gym") {
 							transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.1f);
 							transitions.happiness = Mathf.Min (1, transitions.happiness + 0.05f);
+							tranStatChange(1,0,1);
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "lecture") {
 							transitions.grades = Mathf.Min (1, transitions.grades + 0.1f);
+							tranStatChange(0,1,0);
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "gym") {
 							transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.1f);
 							transitions.happiness = Mathf.Min (1, transitions.happiness + 0.05f);
+							tranStatChange(1,0,1);
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "test") {
 							transitions.happiness = Mathf.Min (1, transitions.happiness + 0.1f);
+							tranStatChange(1,0,0);
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "studying") {
 							transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.1f);
 							transitions.grades = Mathf.Min (1, transitions.grades + 0.05f);
+							tranStatChange(0,1,1);
 						} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
 							transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.25f);
+							tranStatChange(0,0,1);
 						}
 					}
 					return true;
@@ -266,17 +283,23 @@ public class TurnStateMachine : MonoBehaviour
 					transitions.won = false;
 					if (transitions.currBattle == "wakeup") { // Post battle effects for waking up
 						transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.05f);
+						tranStatChange(0,0,-1);
 					} else if (transitions.currBattle == "lecture") {
 						transitions.grades = Mathf.Max (0, transitions.grades - 0.05f);
+						tranStatChange(0,-1,0);
 					} else if (transitions.currBattle == "test") {
 						transitions.grades = Mathf.Max (0, transitions.grades - 0.05f);
 						transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
+						tranStatChange(0,-1,-1);
 					} else if (transitions.currBattle == "gym") {
 						transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
+						tranStatChange(0,0,-1);
 					} else if (transitions.currBattle == "studying") {
 						transitions.happiness = Mathf.Max (0, transitions.happiness - 0.1f);
+						tranStatChange(-1,0,0);
 					} else if (transitions.currBattle == "lunch") {
 						transitions.wellbeing = Mathf.Max (.01f, transitions.wellbeing - 0.1f);
+						tranStatChange(0,0,-1);
 					}
 				}
 				return true;

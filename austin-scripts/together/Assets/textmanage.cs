@@ -30,6 +30,45 @@ public class textmanage : MonoBehaviour
 		public bool set = false;
 		//Sprite clock;
 		// Use this for initialization
+
+		void showStatChange (bool activate)
+		{
+				if (activate) { // make stats appear.
+						GameObject.Find ("grades").GetComponent<SpriteRenderer> ().enabled = true;
+						GameObject.Find ("happiness").GetComponent<SpriteRenderer> ().enabled = true;
+						GameObject.Find ("wellbeing").GetComponent<SpriteRenderer> ().enabled = true;
+						if (transitions.grad == 1) {
+								GameObject.Find ("grades").GetComponent<SpriteRenderer> ().sprite = Resources.Load <Sprite>("gradesplus");
+						} else if (transitions.grad == -1) {
+				GameObject.Find ("grades").GetComponent<SpriteRenderer> ().sprite = Resources.Load <Sprite>("gradesminus");
+						} else if (transitions.grad == 0) {
+								GameObject.Find ("grades").GetComponent<SpriteRenderer> ().enabled = false;
+						}
+
+						if (transitions.hap == 1) {
+				GameObject.Find ("happiness").GetComponent<SpriteRenderer> ().sprite = Resources.Load <Sprite>("happinessplus");
+						} else if (transitions.hap== -1) {
+				GameObject.Find ("happiness").GetComponent<SpriteRenderer> ().sprite = Resources.Load <Sprite>("happinessminus");
+						} else if (transitions.hap == 0) {
+								GameObject.Find ("happiness").GetComponent<SpriteRenderer> ().enabled = false;
+						}
+
+						if (transitions.well == 1) {
+				GameObject.Find ("wellbeing").GetComponent<SpriteRenderer> ().sprite = Resources.Load <Sprite>("wellbeingplus");
+						} else if (transitions.well == -1) {
+				GameObject.Find ("wellbeing").GetComponent<SpriteRenderer> ().sprite = Resources.Load <Sprite>("wellbeingminus");
+						} else if (transitions.well == 0) {
+								GameObject.Find ("wellbeing").GetComponent<SpriteRenderer> ().enabled = false;
+						}
+
+				} else {
+						GameObject.Find ("grades").GetComponent<SpriteRenderer> ().enabled = false;
+						GameObject.Find ("happiness").GetComponent<SpriteRenderer> ().enabled = false;
+						GameObject.Find ("wellbeing").GetComponent<SpriteRenderer> ().enabled = false;
+				}
+		
+		}
+
 		void Start ()
 		{
 				//styler = ;
@@ -217,6 +256,7 @@ public class textmanage : MonoBehaviour
 				if (scene == "room") {
 						transitions.bg = Resources.Load<Sprite> ("processed_bedroom2");
 						if (state == 0 && path == 0) {
+				showStatChange(false);
 								dialogue = "...WAKE UP!!!!!";
 						} else if (state == 1 && path == 0) {
 								dialogue = "You roll over, groan and hit your alarm clock.";		
@@ -258,11 +298,13 @@ public class textmanage : MonoBehaviour
 				else if (scene == "breakfast") {
 						
 						if (state == 0 && path == 0) {
-				transitions.bg = Resources.Load<Sprite> ("processed_stairs");
+				showStatChange(true);
+								transitions.bg = Resources.Load<Sprite> ("processed_stairs");
 								dialogue = "Climbing down the stairs, you find your way to the kitchen, make some food, and shovel some of it into your mouth.";
 						}
 						if (state == 1 && path == 0) {
-				transitions.bg = Resources.Load<Sprite> ("processed_breakfast");
+				showStatChange(false);
+								transitions.bg = Resources.Load<Sprite> ("processed_breakfast");
 								choosingOption = true;
 								dialogue = "What do you eat? ";
 								
@@ -283,22 +325,34 @@ public class textmanage : MonoBehaviour
 						if (state == 0 && path == 1) {
 								if (!stats_upped) {
 										transitions.wellbeing += 0.20f;
+					transitions.well = 1;
+					transitions.grad = 0;
+					transitions.hap = 0;
 										stats_upped = true;
 								}
+				showStatChange(true);
 								dialogue = "Bacon? The internet approves.\nYour well-being increased.";
 						}
 						if (state == 0 && path == 2) {
 								if (!stats_upped) {
 										transitions.happiness += 0.1f;
+					transitions.well = 0;
+					transitions.grad = 0;
+					transitions.hap = 1;
 										stats_upped = true;
 								}
+				showStatChange(true);
 								dialogue = "Your favorite cereal! You're so glad you bought this.\nYour happiness increased.";
 						}
 						if (state == 0 && path == 3) {
 								if (!stats_upped) {
 										transitions.grades += 0.1f;
 										stats_upped = true;
+					transitions.well = 0;
+					transitions.grad = 0;
+					transitions.hap = 1;
 								}
+				showStatChange(true);
 								dialogue = "Okay, that's cool; dinner for breakfast is great! While it sits in the microwave, you spend some time looking over your notes.\nYour grades increased.";			
 						}
 						if (state == 0 && path == 4) {
@@ -306,15 +360,20 @@ public class textmanage : MonoBehaviour
 										transitions.wellbeing += 0.1f;
 										transitions.grades += 0.05f;
 										transitions.happiness -= 0.05f;
+					transitions.well = 1;
+					transitions.grad = 1;
+					transitions.hap = -1;
 										stats_upped = true;
 								}
+				showStatChange(true);
 								dialogue = "You quickly eat it before it starts moving ...again. It's not very appetizing, but you feel rejuvenated and alert.\nYour happiness decreased. Your well-being and grades increased.\n...What was in that?";
 						}
 				
 				} else if (scene == "school") {
 						
 						if (state == 0 && path == 0) {
-				transitions.bg = Resources.Load<Sprite> ("processed_background3");
+				showStatChange(false);
+								transitions.bg = Resources.Load<Sprite> ("processed_background3");
 								stats_upped = false;
 								choosingOption = true;
 								dialogue = "Welcome to the start of your day. What do you have first?";
@@ -374,16 +433,21 @@ public class textmanage : MonoBehaviour
 						 * win lose states
 						 */
 						if (state == 2 && path == 1 && transitions.won) { // win lecture
+				showStatChange(true);
 								dialogue = "You made it through the class! Alright, what are you doing next?";
 						} else if (state == 2 && path == 1 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. What's next?";
 						}
 						if (state == 2 && path == 2 && transitions.won) { // test win{
+				showStatChange(true);
 								dialogue = "Aww yiss, you aced it! Ready for the rest of the day? ";
 						} else if (state == 2 && path == 2 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "Wow, you really didn’t study, but curves, am I right? What’s next?";		
 						}
 						if (state == 2 && path == 3 && transitions.won) {// gym win
+				showStatChange(true);
 								dialogue = "You feel rejuvenated and a bit tired, but ready for the next thing in your day.";
 						} else if (state == 2 && path == 3 && !transitions.won) {
 								dialogue = "You were completely uncoordinated and you got some odd looks. Too bad you still have the rest of the day to go.";		
@@ -392,8 +456,9 @@ public class textmanage : MonoBehaviour
 									
 				} else if (scene == "school2") {
 						/* SCHOOL 2 */
-			
+
 						if (state == 0 && path == 0) {
+				showStatChange(false);
 								if (transitions.classesTaken == 0) {
 										transitions.bg = Resources.Load<Sprite> ("processed_background1");
 								} else if (transitions.classesTaken == 1) {
@@ -405,9 +470,9 @@ public class textmanage : MonoBehaviour
 								}
 								choosingOption = true;
 								if (transitions.classesTaken != 3) {
-									dialogue = "Where are you going next?";
+										dialogue = "Where are you going next?";
 								} else {
-									dialogue = "You're almost done with school. What's the last thing you have today?";
+										dialogue = "You're almost done with school. What's the last thing you have today?";
 								}
 				
 								if (!lunch) {
@@ -596,27 +661,37 @@ public class textmanage : MonoBehaviour
 
 
 						if (state == 2 && path == 1 && transitions.won) { // won test!
+				showStatChange(true);
 								dialogue = "Aww yiss, you aced it! Ready for the rest of the day?";
 						} else if (state == 2 && path == 1 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "Wow, you really didn’t study, but curves, am I right? What’s next?";
 						}
 						if (state == 2 && path == 2 && transitions.won) {// gym won!
+				showStatChange(true);
 								dialogue = "You feel rejuvenated and a bit tired, but ready for the next thing in your day.";
 						} else if (state == 2 && path == 2 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "You were completely uncoordinated and you got some odd looks. Too bad you still have the rest of the day to go.";		
 						}
 						if (state == 2 && path == 3 && transitions.won) { // win lecture
+				showStatChange(true);
 								dialogue = "You made it through the class! Alright, what are you doing next?";
 						} else if (state == 2 && path == 3 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "Well, the professor called you out when you fell asleep in class, and you couldn’t answer anything about the lecture. What's next?";
 						}
 						if (state == 2 && path == 4 && transitions.won) { // lunch win!
+				showStatChange(true);
 								dialogue = "That was a great lunch! You had a delicious meal, and it was a beautiful day. Time to go! ";
 						} else if (state == 2 && path == 4 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "You couldn’t decide what to eat and then when you bought something, it was horrible and you didn’t have enough time to finish anyways. You’re still hungry, but you have to go. ";
 						} else if (state == 2 && path == 5 && transitions.won) { // study win!
+				showStatChange(true);
 								dialogue = "You really figured out what you weren’t understanding in class, and the concepts turned out to be much easier than you thought they would be. You feel confident that you’ll do well in this class. ";
 						} else if (state == 2 && path == 5 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "Nothing makes sense in this course, and you fell asleep while reading your textbook and got woken up by the librarian asking if you were okay. No. Not really. ";
 						}
 						//classesTaken++;
@@ -627,7 +702,8 @@ public class textmanage : MonoBehaviour
 		else if (scene == "afterschool") {
 						
 						if (state == 0 && path == 0) {
-				transitions.bg = Resources.Load<Sprite> ("processed_sunset1");
+				showStatChange(false);
+								transitions.bg = Resources.Load<Sprite> ("processed_sunset1");
 								choosingOption = true;
 								dialogue = "You made it through the day! What's the first thing you're doing after school?";
 				
@@ -676,19 +752,25 @@ public class textmanage : MonoBehaviour
 						}
 
 						if (state == 2 && path == 1 && transitions.won) { // won club!
+				showStatChange(true);
 								dialogue = "The club meeting was awesome - everyone had a good time, and you feel really excited for your next meeting.";
 				
 						} else if (state == 2 && path == 1 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "The club meeting was a mess. You were pretty awkward. Actually, everyone was pretty awkward.";
 						}
 						if (state == 2 && path == 2 && transitions.won) { // hangout won!
+				showStatChange(true);
 								dialogue = "It was great to catch up with your friends and forget about school for a while.";
 						} else if (state == 2 && path == 2 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "It was nice seeing your friends; you just wish they would let you speak up a little more.";		
 						}
 						if (state == 2 && path == 3 && transitions.won) { // win lecture
+				showStatChange(true);
 								dialogue = "All right, easy homework! You’re done with this assignment and will have more free time.";
 						} else if (state == 2 && path == 3 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "Your homework was impossibly hard and no one else knows how to do it (or won’t help you).";
 						}
 						//extracurriculars++;
@@ -699,6 +781,7 @@ public class textmanage : MonoBehaviour
 		else if (scene == "afterschool2") {
 			
 						if (state == 0 && path == 0) {
+				showStatChange(false);
 								transitions.bg = Resources.Load<Sprite> ("processed_sunset2");
 								choosingOption = true;
 								dialogue = "How will you spend the rest of your night before going to bed?";
@@ -730,13 +813,13 @@ public class textmanage : MonoBehaviour
 								winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 3) {
-				transitions.bg = Resources.Load<Sprite> ("processed_room");
+								transitions.bg = Resources.Load<Sprite> ("processed_room");
 								dialogue = "Ugh, necessary evils...";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
 						}
 						if (state == 0 && path == 4) {
-				transitions.bg = Resources.Load<Sprite> ("processed_nightstreet");
+								transitions.bg = Resources.Load<Sprite> ("processed_nightstreet");
 								dialogue = "You got invited to a party! The party don't start 'til you walk in!";
 								//LOAD BATTLE
 								winlose = Random.Range (0, 1f);
@@ -765,24 +848,32 @@ public class textmanage : MonoBehaviour
 						
 
 						if (state == 2 && path == 1 && transitions.won) { // won club!
+				showStatChange(true);
 								dialogue = "The club meeting was awesome - everyone had a good time, and you feel really excited for your next meeting.";
 							
 						} else if (state == 2 && path == 1 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "The club meeting was a mess. You were pretty awkward. Actually, everyone was pretty awkward.";
 						}
 						if (state == 2 && path == 2 && transitions.won) { // hangout won!
+				showStatChange(true);
 								dialogue = "It was great to catch up with your friends and forget about school for a while.";
 						} else if (state == 2 && path == 2 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "It was nice seeing your friends; you just wish they would let you speak up a little more.";
 						}
 						if (state == 2 && path == 4 && transitions.won) { // win party
+				showStatChange(true);
 								dialogue = "The party had great music and you met a lot of cool people!";
 						} else if (state == 2 && path == 4 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "It was a horrible mess of people - you could barely move at all and got crushed in the crowd.";
 						}
 						if (state == 2 && path == 3 && transitions.won) { // win lecture
+				showStatChange(true);
 								dialogue = "All right, easy homework! You’re done with this assignment and will have more free time.";
 						} else if (state == 2 && path == 3 && !transitions.won) {
+				showStatChange(true);
 								dialogue = "Your homework was impossibly hard and no one else knows how to do it (or won’t help you).";
 						}
 			
@@ -800,9 +891,9 @@ public class textmanage : MonoBehaviour
 						if (state == 2 && path == 0) {
 								dialogue = "Congratulations on surviving another day in Hard Mode. See you tomorrow.";
 						}
-					if (state == 3 && path == 0) {
-				Application.LoadLevel ("ending");
-			}
+						if (state == 3 && path == 0) {
+								Application.LoadLevel ("ending");
+						}
 				}
 		}
 

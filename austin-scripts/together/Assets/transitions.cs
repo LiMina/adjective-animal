@@ -17,6 +17,10 @@ public class transitions : MonoBehaviour {
 	public static string currBattle = "wakeup";
 	public static int enemyCount = 1;
 	public static Sprite bg; 
+
+	public static int hap = 0;
+	public static int grad = 0;
+	public static int well = 0;
 	// Use this for initialization
 	void Start () {
 	
