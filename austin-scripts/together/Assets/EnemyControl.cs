@@ -15,6 +15,7 @@ public class EnemyControl : MonoBehaviour
 	private int currentAttackDamage = 0;
 
 	private bool charge = false;
+	private int turnsUntilHeal = -1;
 
 	// Use this for initialization
 	void Start () {
