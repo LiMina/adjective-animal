@@ -324,7 +324,7 @@ public class textmanage : MonoBehaviour
 						}
 						if (state == 0 && path == 1) {
 								if (!stats_upped) {
-										transitions.wellbeing += 0.20f;
+										transitions.wellbeing += 0.25f;
 					transitions.well = 1;
 					transitions.grad = 0;
 					transitions.hap = 0;
