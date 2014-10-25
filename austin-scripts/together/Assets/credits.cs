@@ -113,7 +113,17 @@ public class credits : MonoBehaviour {
 
 		GUI.Box (new Rect (50 + cameraOffsetX, cameraOffsetY, Screen.width - 100, 30), "Thanks for playing!", promptStyler);
 
-		GUI.Box (new Rect (50 + cameraOffsetX, 75 + cameraOffsetY, Screen.width - 100, 325), "\n\nThis game was created by:\n\nTracy Lee\nMina Li\nCalvin Lu\nAustin Shyu\n\n" +
+		string wonFinal;
+		if (transitions.won) {
+			wonFinal = "won";
+		} else {
+			wonFinal = "lost";
+		}
+		GUI.Box (new Rect (50 + cameraOffsetX, 75 + cameraOffsetY, Screen.width - 100, 325), "\nYou " + wonFinal + " the final battle! Your final scores:\n" +
+		         "_Happiness: " + Mathf.RoundToInt(transitions.happiness * 100) + 
+		         "    Well-being: " + Mathf.RoundToInt(transitions.wellbeing * 100) + 
+		         "    Grades: " + Mathf.RoundToInt (transitions.grades * 100) + "_\n\n" +
+		         "This game was created by:\n\nTracy Lee\nMina Li\nCalvin Lu\nAustin Shyu\n\n" +
 		         "If you liked what you played, please get in contact with us!\n\nCheck out our code at https://github.com/LiMina/adjective-animal.", styler);
 
 		if (GUI.Button (new Rect (300 + cameraOffsetX, 450 + cameraOffsetY, Screen.width - 600, 100), "\nReplay?", buttonStyler)) {
