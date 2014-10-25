@@ -208,3 +208,116 @@ Racism, Sexism, and Social Justice Warriors in Video Game Culture
     - creation of games that encourage kindness towards other gamers
     - it's a matter of education? riot compaign for people to be really nice to each other because supposedly statistics that they do better than way
         - this only really persisted for a bit before toxicity creeped back though
+
+Meaningful Mechanics
+- presented by Margaret Rhee (virtually here), Evan Lauteria, Amanda Phillips, Edmond Chang (virtually here)
+- How do mechanics work for or against social justice?
+- How do we develop vocabulary for expressing this?
+- Margaret Rhee :: Too Easy of a Game
+    - 2003: Do You Think You Are Smarter than a Computer?
+        - Turing Test Tournament
+    - Social Justice and Digital Storytelling
+    - Turing's Cathedral
+    - UC Berkeley's online version how convincing a computer/AI can be
+    - Anyone with a berkeley.edu address could play even though it was targetted towards the incoming class of 2013
+    - Gaming, queerness and gender
+    - Not a gamer by traditional definitions but a lover of games
+    - The way women are being harassed in gamergate is bring to light the need to deal with the sexism and misogyny in the industry
+    - Turing also posed a question on determining the difference between male and female
+    - Questions of how Turing's own sexual orientation might have influenced his work
+    - Hoping to reimagine games
+    - Misogyny is way too easy of a game
+- Evan Lauteria :: (audio presentation/talk/thought project)
+    - what resistance looks like for gamers and what it looks like in the future
+    - tomogachi life --> not allowing same sex couples
+        - you don't make a sim, you live your life
+        - exclusionary game practices; hashtag campaign/complaint
+        - there was a bug that allowed for some same sex couples, but they pushed a patch to prevent this
+            - supposedly related to a bug that would cause the game to crash
+            - or so they say
+            - (it seems to be kind of uncertain.)
+    - equality as a queer campaign
+    - how culture manifests/affects campaigns
+    - what does it mean to engage in queer resistence?
+    - exclusion is social commentary whether you like it or not
+    - nintendo seems to make their games asocial so that it's easily accessible from many cultures
+    - "We're using this as an opportunity to better understand our consumers and their expectations of us at all levels of the organization."
+    - Very normative trajectory: romancing, marrying, having children --> stems a lot from heteronormative culture 
+    - Optional homosexuality, bisexuality, and transgender: thinking about being inclusion, language of the least resistance
+        - This feels like the best way to do it without receiving a lot of backlash but it also means that it's not normalized and is just an extra
+- Amanda Phillips :: (audio presentation)
+    - Thinking about queer desire
+    - Technologies of inclusivity
+    - MassEffect
+    - Heteronormative feminine and masculine positions
+        - fem!Shep and bro!Shep :: bro!Shep is pretty much the same no matter what, but fem!Shep plays butch/femme depending on which partner she chooses
+        - bro!Shep: are you okay with dating a human // fem!Shep: are you okay with dating a woman
+        - gender also encoded onto species
+    - Customizable queerness ends up coding into gender binary
+        - Becomes obvious that the female version is basically a copy of the male version
+    - Virgin/whore dichotomy - entirely contradictory stereotypes
+    - Offloading our problematic things onto alien species
+    - Women are "more difficult" because everyone has a different idea of "what a beautiful woman looks like"
+        - can't go from female to male, but females can be created from a male template (for animations)
+    - So much blame to the machine
+    - Much investment into the white male body, which is why everything else is "hard"
+    - Developers often just swap surface signifiers and fail to invest deeply in reaching inclusivity
+    - Preserve gender binary and heteronormativity, even if surface effort put into swapping out a male character for a female character
+    - Affirmative action practices: only really closes a gap between white men and white women
+    - There aren't really answers for all of these things yet, the vocabulary and discourse around inclusivity, but it is something that needs to develop and happen
+- Edmond Chang :: "Cards Against Humanity is _______"
+    - Cards Against Humanity: the game is supposed to be fun and have funny things
+        - strange pairings of question and answers
+    - However, this game is problematic because their supposed to be funny due to coded stereotypes and racial/sexist/etc jokes
+    - A lot of TW, actually...
+    - Normaization of being homophobic, rape culture, etc.
+    - "Passable transvestites" was a card and Jonah Miller made headlines by burning the card; one of the makers apologized for it and said that it was taken out of the game
+    - What is the threshold for when something is too mean/cheap/problematic
+    - Reveals that games often give people the agency to be assholes
+    - Much of the pleasure of videogames comes at the expense of women and people of color 
+    - However, while gamers can be the source of some of the most horrible comments out there, they can be the source of some of the most enlightening and meaningful comments
+    - Why I Need Diverse Games
+    - Games should be for humanity and encourage compassion for others
+- Round Table
+    - People not knowing how to "create beautiful women"
+        - women, when presented as characters, don't really have any agency
+        - bayonetta: criticsms based on heteronormative readings
+            - this is a problem because this is a very queer game
+    - Male gaze: this is something useful to think about in regarding to the objectification of women
+        - however, it can impoverishes what we talk about; there's a lot more to talk about than just that
+        - fem distubance: queer forms of femininity - intensify it such that it breaks the mold and creating something really queer (like bayonetta)
+    - Borderlands has peripheral queerness but it was included and people don't make a huge deal out of it
+        - inclusion as it pertains to token characters? is it harmful to have queer characters are token characters?
+            - we lose some agency when those who are cishet determine who we are represented
+            - it's not bad to be seen on the screen but it may affect our daily lives and we don't seem to have much power to control how we're presented as
+            - problem when you have so few representations of queer individuals
+                - but this a bit of chicken and the egg problem
+            - it's not about the fact that they're in background, it's more the problem is that they're stereotyped narratives
+                - queer people are never really happy in the media
+            - it's a step in the right direction, perhaps
+    - be careful that we don't slip into blindness and that we end up getting into "color-blindness" and "gender-blindess" and making sure that it's visible
+        - the missing element of the fact that queer people's lives are often diferent and we have particular issues that we face as queer individuals that cishet people don't have to face
+    - difficulty of authenticity: a lot of these stories end up being personal as a result
+        - creating skins for queer characters --> the idea of "queer" visually, and making them different from cishet individuals
+        - authentic identity: queerness as deconstructing identity
+    - what's queer software? what's queer programming?
+        - femtech net, etc.
+        - what would a feminist programming language look like?
+        - programming is not gender neutral
+        - programming is a bit of a black box, but processing in programming needs to be looked at
+        - we need to keep pushing on these things
+        - technology is not neutral
+            - technology with maleness encoded into it
+            - facebook policy: hurts the lgbt community
+            - twitter: no decent harrassment prevention
+            - technology is very responsible for the culture we have now
+            - tech tends to disregard the humanities a lot; forgetting about humans and how what technology affects society
+    - a lot of the usage of minorities in games is for monetary gain
+        - we need to have games that put in minorities not for gain but because they need to be presented and are an integral part of our every day lives
+    - QGCon brings together people from a lot of communities to connect everyone and making these games visible 
+    - How it is that we expect art medium to do better than our culture? 
+        - this is a broad problem that needs to be addressed
+    - Also slash fiction
+        - this culture seems to become less and less useful as texts proliferate and the sphere expands
+        - it becomes harder to find a community and a legitimate feeling of belonging
+        - this is not how we're going to recouperate queer identity or community
