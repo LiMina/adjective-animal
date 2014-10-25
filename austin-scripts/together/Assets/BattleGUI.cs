@@ -20,10 +20,65 @@ public class BattleGUI : MonoBehaviour
 
 		private GameObject turnStateMachine;
 
+		float buttonWidth = (Screen.width - (Screen.width / 8) - 100) / 3 - 40;
+		float buttonHeight = 25;
+
 		void Start ()
 		{
 				dialogue = playerTurnString;
 				turnStateMachine = GameObject.FindGameObjectWithTag ("TurnStateMachine");
+
+				texture = new Texture2D (16, 16);
+				for (int y = 0; y < texture.height; ++y) {
+					for (int x = 0; x < texture.width; ++x) {
+						if ((x > 2 && y > 2) && (x < texture.width - 3 && y < texture.height - 3)) {
+							Color color = new Color (228f / 255f, 174f / 255f, 198f / 255f, 1f);
+							texture.SetPixel (x, y, color);
+						} else {
+							Color color = new Color (228f / 255f, 200f / 255f, 213f / 255f, 1f);
+							texture.SetPixel (x, y, color);
+						}
+					}
+				}
+
+				promptTexture = new Texture2D (Screen.width - 50, 50);
+				for (int y = 0; y < promptTexture.height; ++y) {
+					for (int x = 0; x < promptTexture.width; ++x) {
+						if ((x > 2 && y > 2) && (x < promptTexture.width - 3 && y < promptTexture.height - 3)) {
+							Color color = new Color (228f / 255f, 125f / 255f, 171f / 255f, 1f);
+							promptTexture.SetPixel (x, y, color);
+						} else {
+							Color color = new Color (228f / 255f, 200f / 255f, 213f / 255f, 1f);
+							promptTexture.SetPixel (x, y, color);
+						}
+					}
+				}
+
+				buttonTexture = new Texture2D ((int)buttonWidth, (int)buttonHeight);
+				for (int y = 0; y < buttonTexture.height; ++y) {
+					for (int x = 0; x < buttonTexture.width; ++x) {
+						if ((x > 1 && y > 1) && (x < buttonTexture.width - 2 && y < buttonTexture.height - 2)) {
+							Color color = new Color (245f / 255f, 207f / 255f, 148f / 255f, 1f);
+							buttonTexture.SetPixel (x, y, color);
+						} else {
+							Color color = new Color (254f / 255f, 234f / 255f, 174f / 255f, 1f);
+							buttonTexture.SetPixel (x, y, color);
+						}
+					}
+				}
+
+				buttonHoverTexture = new Texture2D (Screen.width - 200, 25);
+				for (int y = 0; y < buttonHoverTexture.height; ++y) {
+					for (int x = 0; x < buttonHoverTexture.width; ++x) {
+						if ((x > 1 && y > 1) && (x < buttonHoverTexture.width - 2 && y < buttonHoverTexture.height - 2)) {
+							Color color = new Color (254f / 255f, 234f / 255f, 174f / 255f, 1f);
+							buttonHoverTexture.SetPixel (x, y, color);
+						} else {
+							Color color = new Color (254f / 255f, 234f / 255f, 174f / 255f, 1f);
+							buttonHoverTexture.SetPixel (x, y, color);
+						}
+					}
+				}
 		}
 
 		void Update ()
@@ -48,8 +103,8 @@ public class BattleGUI : MonoBehaviour
 				float HapTextY = Screen.height - 130;
 				float boxTwoX = 50 + (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 16;
 				float boxThreeX = 50 + 2 * (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 8;
-				float buttonWidth = (Screen.width - (Screen.width / 8) - 100) / 3 - 40;
-				float buttonHeight = 25;
+				//float buttonWidth = (Screen.width - (Screen.width / 8) - 100) / 3 - 40;
+				//float buttonHeight = 25;
 				float buttonX = 50 + (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 16 + 20;
 				float buttonOneY = Screen.height - 180;
 				float buttonTwoY = Screen.height - 150;
@@ -64,7 +119,8 @@ public class BattleGUI : MonoBehaviour
 
 				int cameraOffsetX = (int)(Camera.main.transform.position.x * Screen.width / 10);
 				int cameraOffsetY = (int)(Camera.main.transform.position.y * Screen.height / 10);
-
+				
+				/** TEXTURE INITIALIZATION
 				texture = new Texture2D (16, 16);
 				for (int y = 0; y < texture.height; ++y) {
 						for (int x = 0; x < texture.width; ++x) {
@@ -76,7 +132,7 @@ public class BattleGUI : MonoBehaviour
 										texture.SetPixel (x, y, color);
 								}
 						}
-				}
+				}*/
 				texture.Apply ();
 		
 				styler = new GUIStyle (GUI.skin.box);
@@ -85,6 +141,7 @@ public class BattleGUI : MonoBehaviour
 				styler.normal.background = texture;
 
 				/* For dialogue */
+				/** TEXTURE INITIALIZATION
 				promptTexture = new Texture2D (Screen.width - 50, 50);
 				for (int y = 0; y < promptTexture.height; ++y) {
 						for (int x = 0; x < promptTexture.width; ++x) {
@@ -96,7 +153,7 @@ public class BattleGUI : MonoBehaviour
 										promptTexture.SetPixel (x, y, color);
 								}
 						}
-				}
+				}*/
 				promptTexture.Apply ();
 		
 				promptStyler = new GUIStyle (GUI.skin.box);
@@ -105,6 +162,7 @@ public class BattleGUI : MonoBehaviour
 				promptStyler.normal.background = promptTexture;
 
 				/* For buttons */
+				/** TEXTURE INTIALIZATION
 				buttonTexture = new Texture2D ((int)buttonWidth, (int)buttonHeight);
 				for (int y = 0; y < buttonTexture.height; ++y) {
 						for (int x = 0; x < buttonTexture.width; ++x) {
@@ -116,8 +174,10 @@ public class BattleGUI : MonoBehaviour
 										buttonTexture.SetPixel (x, y, color);
 								}
 						}
-				}
+				} */
 				buttonTexture.Apply ();
+
+				/** TEXTURE INITIALIZATION
 				buttonHoverTexture = new Texture2D (Screen.width - 200, 25);
 				for (int y = 0; y < buttonHoverTexture.height; ++y) {
 						for (int x = 0; x < buttonHoverTexture.width; ++x) {
@@ -129,7 +189,7 @@ public class BattleGUI : MonoBehaviour
 										buttonHoverTexture.SetPixel (x, y, color);
 								}
 						}
-				}
+				} */
 				buttonHoverTexture.Apply ();
 		
 				buttonStyler = new GUIStyle (GUI.skin.box);

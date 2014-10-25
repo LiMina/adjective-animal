@@ -83,6 +83,45 @@ public class textmanage : MonoBehaviour
 				lunch = transitions.lunch;
 				classesTaken = transitions.classesTaken;
 				extracurriculars = transitions.extra;
+
+				texture = new Texture2D (128, 128);
+				for (int y = 0; y < texture.height; ++y) {
+					for (int x = 0; x < texture.width; ++x) {
+						if ((x > 2 && y > 2) && (x < texture.width - 3 && y < texture.height - 3)) {
+							Color color = new Color (228f / 255f, 174f / 255f, 198f / 255f, 1f);
+							texture.SetPixel (x, y, color);
+						} else {
+							Color color = new Color (228f / 255f, 200f / 255f, 213f / 255f, 1f);
+							texture.SetPixel (x, y, color);
+						}
+					}
+				}
+
+				buttonTexture = new Texture2D (Screen.width - 200, 25);
+				for (int y = 0; y < buttonTexture.height; ++y) {
+					for (int x = 0; x < buttonTexture.width; ++x) {
+						if ((x > 1 && y > 1) && (x < buttonTexture.width - 2 && y < buttonTexture.height - 2)) {
+							Color color = new Color (245f / 255f, 207f / 255f, 148f / 255f, 1f);
+							buttonTexture.SetPixel (x, y, color);
+						} else {
+							Color color = new Color (254f / 255f, 234f / 255f, 174f / 255f, 1f);
+							buttonTexture.SetPixel (x, y, color);
+						}
+					}
+				}
+
+				buttonHoverTexture = new Texture2D (Screen.width - 200, 25);
+				for (int y = 0; y < buttonHoverTexture.height; ++y) {
+					for (int x = 0; x < buttonHoverTexture.width; ++x) {
+						if ((x > 1 && y > 1) && (x < buttonHoverTexture.width - 2 && y < buttonHoverTexture.height - 2)) {
+							Color color = new Color (254f / 255f, 234f / 255f, 174f / 255f, 1f);
+							buttonHoverTexture.SetPixel (x, y, color);
+						} else {
+							Color color = new Color (254f / 255f, 234f / 255f, 174f / 255f, 1f);
+							buttonHoverTexture.SetPixel (x, y, color);
+						}
+					}
+				}
 		}
 
 		void Reset_statepath ()
@@ -197,6 +236,7 @@ public class textmanage : MonoBehaviour
 		{
 				GUI.skin.box.fontSize = fontSize;	
 				GUI.skin.box.wordWrap = true;
+				/** TEXTURE INITIALIZATION
 				texture = new Texture2D (128, 128);
 				for (int y = 0; y < texture.height; ++y) {
 						for (int x = 0; x < texture.width; ++x) {
@@ -208,7 +248,7 @@ public class textmanage : MonoBehaviour
 										texture.SetPixel (x, y, color);
 								}
 						}
-				}
+				} */
 				texture.Apply ();
 
 				styler = new GUIStyle (GUI.skin.box);
@@ -216,6 +256,7 @@ public class textmanage : MonoBehaviour
 				styler.normal.background = texture;
 
 				/* For buttons */
+				/** TEXTURE INITIALIZATION
 				buttonTexture = new Texture2D (Screen.width - 200, 25);
 				for (int y = 0; y < buttonTexture.height; ++y) {
 						for (int x = 0; x < buttonTexture.width; ++x) {
@@ -227,8 +268,9 @@ public class textmanage : MonoBehaviour
 										buttonTexture.SetPixel (x, y, color);
 								}
 						}
-				}
+				} */
 				buttonTexture.Apply ();
+				/** TEXTURE INITIALIZATION
 				buttonHoverTexture = new Texture2D (Screen.width - 200, 25);
 				for (int y = 0; y < buttonHoverTexture.height; ++y) {
 						for (int x = 0; x < buttonHoverTexture.width; ++x) {
@@ -240,7 +282,7 @@ public class textmanage : MonoBehaviour
 										buttonHoverTexture.SetPixel (x, y, color);
 								}
 						}
-				}
+				} */
 				buttonHoverTexture.Apply ();
 		
 				buttonStyler = new GUIStyle (GUI.skin.box);
@@ -349,8 +391,8 @@ public class textmanage : MonoBehaviour
 										transitions.grades += 0.1f;
 										stats_upped = true;
 					transitions.well = 0;
-					transitions.grad = 0;
-					transitions.hap = 1;
+					transitions.grad = 1;
+					transitions.hap = 0;
 								}
 				showStatChange(true);
 								dialogue = "Okay, that's cool; dinner for breakfast is great! While it sits in the microwave, you spend some time looking over your notes.\nYour grades increased.";			

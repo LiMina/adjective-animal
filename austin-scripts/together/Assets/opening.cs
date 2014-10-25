@@ -13,7 +13,20 @@ public class opening : MonoBehaviour {
 	private bool blink = false;
 	private int counter = 0;
 	private int blinkSpeed = 30;
+
 	void Start () {
+		texture = new Texture2D (128, 128);
+		for (int y = 0; y < texture.height; ++y) {
+			for (int x = 0; x < texture.width; ++x) {
+				if ((x > 2 && y > 2) && (x < texture.width - 3 && y < texture.height - 3)) {
+					Color color = new Color (228f / 255f, 174f / 255f, 198f / 255f, 1f);
+					texture.SetPixel (x, y, color);
+				} else {
+					Color color = new Color (228f / 255f, 200f / 255f, 213f / 255f, 1f);
+					texture.SetPixel (x, y, color);
+				}
+			}
+		}
 	}
 	
 	// Update is called once per frame
@@ -28,7 +41,6 @@ public class opening : MonoBehaviour {
 				}
 		counter++;
 		if(Input.anyKeyDown) {
-			Debug.Log("A key or mouse click has been detected");
 			Application.LoadLevel ("CreationScreen");
 		}
 	}
@@ -40,6 +52,7 @@ public class opening : MonoBehaviour {
 		GUI.skin.box.fontSize = fontSize;
 		GUI.skin.button.fontSize = fontSize;
 		GUI.skin.box.wordWrap = true;
+		/** TEXTURE INITIALIZATION
 		texture = new Texture2D (128, 128);
 		for (int y = 0; y < texture.height; ++y) {
 			for (int x = 0; x < texture.width; ++x) {
@@ -51,12 +64,12 @@ public class opening : MonoBehaviour {
 					texture.SetPixel (x, y, color);
 				}
 			}
-		}
+		} */
 		texture.Apply ();
 		
 		styler = new GUIStyle (GUI.skin.box);
 		styler.normal.textColor = Color.black;
-		styler.fontSize = 120;
+		styler.fontSize = 100;
 		styler.normal.background = texture;
 
 		flasher = new GUIStyle (GUI.skin.label);

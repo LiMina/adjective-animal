@@ -120,6 +120,7 @@ public class TurnStateMachine : MonoBehaviour
 				deadEnemyCounter++;
 			}
 			if (deadEnemyCounter == numEnemies) { // THEY'RE ALL DEAD AHHHHHHH
+				turnsLeft = -1;
 				if (!ending && getTurnState () != 0) { // Finish the message for your last attack before continuing to the end message
 					if (Input.GetButtonDown ("Fire1")) {
 						ending = true;
@@ -459,7 +460,8 @@ public class TurnStateMachine : MonoBehaviour
 		if (!showedSpecialEffect) {
 			if (transitions.currBattle == "wakeup") {
 				print ("in wakeup");
-				announcerLine = "Shut up that alarm!!";
+				announcerLine = "You feel groggy... Your chance of missing attacks is increased for this battle!";
+				missChance = 0.1f;
 				showInstructions = true;
 			} else if (transitions.currBattle == "lecture") {
 				announcerLine = "The monotony of the lecture puts you in a tired state... You cannot critical hit!";
@@ -657,7 +659,7 @@ public class TurnStateMachine : MonoBehaviour
 		ending = false;
 		showedSpecialEffect = false;
 		critChance = 0.0625f;
-		missChance = 0f;
+		missChance = 0.0625f;
 		turnsLeft = -1;
 		attack = 6 + (int)(Mathf.Round (transitions.happiness * 100) / 5 + 0.5);
 		DIEAttack = 15 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);

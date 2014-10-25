@@ -19,6 +19,18 @@ public class DescriptionBox : MonoBehaviour
 		void Start ()
 		{
 				GetComponent<MeshRenderer> ().enabled = false;
+				texture = new Texture2D (16, 16);
+				for (int y = 0; y < texture.height; ++y) {
+					for (int x = 0; x < texture.width; ++x) {
+						if ((x > 2 && y > 2) && (x < texture.width - 3 && y < texture.height - 3)) {
+							Color color = new Color (228f / 255f, 174f / 255f, 198f / 255f, 1f);
+							texture.SetPixel (x, y, color);
+						} else {
+							Color color = new Color (228f / 255f, 200f / 255f, 213f / 255f, 1f);
+							texture.SetPixel (x, y, color);
+						}
+					}
+				}
 		}
 
 		// Update is called once per frame
@@ -87,6 +99,7 @@ public class DescriptionBox : MonoBehaviour
 				int cameraOffsetX = (int) (Camera.main.transform.position.x * Screen.width / 10);
 				int cameraOffsetY = (int) (Camera.main.transform.position.y * Screen.height / 10);
 
+				/** TEXTURE INITIALIZATION
 				texture = new Texture2D (16, 16);
 				for (int y = 0; y < texture.height; ++y) {
 						for (int x = 0; x < texture.width; ++x) {
@@ -98,7 +111,7 @@ public class DescriptionBox : MonoBehaviour
 										texture.SetPixel (x, y, color);
 								}
 						}
-				}
+				}**/
 				texture.Apply ();
 		
 				styler = new GUIStyle (GUI.skin.box);
