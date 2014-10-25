@@ -15,7 +15,7 @@ public class textmanage : MonoBehaviour
 		public float winlose = 0.0f;
 		public int extracurriculars = 0;
 		public int CLASSLIMIT = 2;
-		public int EXTRALIMIT = 2;
+		public int EXTRALIMIT = 0;
 		public bool waitActive = false;
 		public float BATTLETIMEDELAY = 2.0f;
 		public bool wait_called = false;
@@ -219,7 +219,7 @@ public class textmanage : MonoBehaviour
 						if (state == 0 && path == 0) {
 								dialogue = "...WAKE UP!!!!!";
 						} else if (state == 1 && path == 0) {
-								dialogue = "You roll over, groan and hit your alarm clock";		
+								dialogue = "You roll over, groan and hit your alarm clock.";		
 						} else if (state == 2 && path == 0) {
 								choosingOption = true;
 								dialogue = "What will you do?";
@@ -404,7 +404,11 @@ public class textmanage : MonoBehaviour
 										transitions.bg = Resources.Load<Sprite> ("processed_background6");
 								}
 								choosingOption = true;
-								dialogue = "Where are you going next?";
+								if (transitions.classesTaken != 3) {
+									dialogue = "Where are you going next?";
+								} else {
+									dialogue = "You're almost done with school. What's the last thing you have today?";
+								}
 				
 								if (!lunch) {
 										if (GUI.Button (new Rect (100, Screen.height - 170, Screen.width - 200, 25), "Test", buttonStyler)) {
@@ -625,7 +629,7 @@ public class textmanage : MonoBehaviour
 						if (state == 0 && path == 0) {
 				transitions.bg = Resources.Load<Sprite> ("processed_sunset1");
 								choosingOption = true;
-								dialogue = "You made it through the day! What are you doing after school?";
+								dialogue = "You made it through the day! What's the first thing you're doing after school?";
 				
 								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Club Meeting", buttonStyler)) {
 										clickedbutton = 1;
@@ -697,7 +701,7 @@ public class textmanage : MonoBehaviour
 						if (state == 0 && path == 0) {
 								transitions.bg = Resources.Load<Sprite> ("processed_sunset2");
 								choosingOption = true;
-								dialogue = "What are you going to do now?";
+								dialogue = "How will you spend the rest of your night before going to bed?";
 				
 								if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Club Meeting", buttonStyler)) {
 										clickedbutton = 1;
@@ -784,7 +788,7 @@ public class textmanage : MonoBehaviour
 			
 				} else if (scene == "end") {
 						if (state == 0 && path == 0) {
-				transitions.bg = Resources.Load<Sprite> ("processed_bedroom3");
+								transitions.bg = Resources.Load<Sprite> ("processed_bedroom3");
 								dialogue = "Phew. It’s been a long day. Time to go to bed and try to sleep.";
 								//LOAD BATTLE
 						}
