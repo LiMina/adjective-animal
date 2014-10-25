@@ -13,7 +13,7 @@ What is QGCon?
 - This is the second year of QGCon
 
 This year:
-- GamerGate is out there (and happening)
+- Gamergate is out there (and happening)
 - We needed a group of people to be welcoming and comforting
 - Many people are feeling unsafe and unable to voice themselves right now
 - Hopefully this will be a safe space
@@ -101,8 +101,110 @@ Queer Games
     - Twine: text based, experience based
     - some of the queer games has been spilling into more mainstream AAA tradition
 - Now
-    - even in the last month or so, even with GamerGate, there have been a lot of interesting queer games coming out
+    - even in the last month or so, even with Gamergate, there have been a lot of interesting queer games coming out
     - they are not from the usual voices we hear about, either
     - queer games are becoming less about a particular scene with figureheads, and more about a group of people coming together and making things
 
+Index Cards
+1. Something you want to try/learn. What do you want?
+2. Something that you want to let go of.
 
+Racism, Sexism, and Social Justice Warriors in Video Game Culture
+- presented by Lisa Nakamura
+- "I don't think that journalism understands what journalism is" - regards to calling Anita Sarkeesian a journalist
+- Gaming at the Edge by Adrienne Shaw
+- Gamergate - there has been so much written about it already
+- Social Justice Warrior (SJW)
+    - Games have always been at the center of this
+    - Straight white male is the opposite of the SJW usually (queer, female, POC)
+- The idea of the gamer has changed
+- UrbanDictionary definition is accusatory
+    - seen as someone who is a crusader who is outside of the gaming culture
+    - racialized other
+    - queer women of color have always been around, but they are considered immigrants of gaming culture
+    - the citation makes it clear that they're considered native to somewhere else like Livejournal and Tumblr
+- There is a need for people who can add a different voice
+    - You can't just add people of color to mainstream culture and expect it to be enough
+- Procedural meritocracy
+    - Right goes to those who can create a win condition for themselves and a lose condition for others and achieve victory for their demographics
+    - "Real gamer" - this need for female players to prove themselves by beating everyone else.
+- The only girl who deserves saving is the only one who doesn't need it - "the final girl"
+    - the girl who gains the right to live
+- "Transcending a talented tenth" - W.B. Dubois
+    - disprove the alleged inferiority
+    - really elitist, though, and is therefore problematic
+    - cannot uplift every person, and there it results in leaving behind people
+- Talented tength in the gaming community generates 133t people
+- Beliving in meritocracy is not the way to go
+- What are games but the posibility of happiness?
+- We attach the most strongly to the things that are supposed to make you happy but also are incredibly disappointing
+- Queer players are only able to match by doing well - otherwise, they are believed to not have the right to argue their point
+- The game is stacked against minorities
+- Games are a literal manifestation of life's discrination
+- leveling up in gaming is not the way to achieve social justice
+- SJW example: some games allow players the option to play as this "ideal" SJW example
+    - Edge of Tomorrow
+- SJW example: "bad" example because they aren't "fair" and don't play the game and aren't this ideal person
+    - rude, sincere, and rejects the image of the ideal
+- being tired of being the only person who brings up race or gender or sexual orientation
+- some people say we should ignore Gamergate: focuses on cis hetero white males in games
+- what are people outside of the norm actually doing?
+    - Journey: wanted avatars to not have arms so you can't shoot people
+        - speech is not possible (you can't call anyone anything)
+        - claim that this is a AAA game as opposed to an independent game
+- it's time for gamers and scholars ot untangle the complex world of gaming culture
+- we have the gaming world's attention - what will we do with it?
+- discriminatory behaviors are often blown off as just trolling
+    - "it's not about expressing an opinion; it's about getting something done" 
+    - claimed to be something to throw people off so that you can do better
+    - a claim that it's just to get an advantage
+- full essays and articles at lisanakamura.net, comments to lnakamur@umich.edu
+- platform makers want to create as many channels of communication as possible
+    - not all of this may be welcome, though
+- it's kind of utopian idea that you can create civility through design
+- still feeds into the idea of the talented tenth, where a maker reveals they're some minority after success
+- why does the game create this identity for us?
+    - we imagine we can earn our way
+    - the idea that if we try harder, we will get half as much and that will be enough
+- what is a good player?
+    - games create this condition and favor certain abilities
+- competition is often seen as versus
+    - this has a lot to do with our own selfish wants
+    - what are we doing in relation to one another
+- the nature of compeitive games and the way they make money
+    - undermines teaching civility
+    - there are a lot of limits
+    - limited by money and profit
+    - minecraft as an example of competitiveness but also gives you the ability to build things
+    - sandbox games represent a different posibility and more gender balanced
+    - but even competitive games should (and can) have this ability to build and create in a more equal way
+- outside of the gamer community into the larger culture and social justice issues and movements
+    - to a certain extent in television and movies, no one wants to see these kinds of representations (or don't want their children exposed to them)
+    - is there a way that things in gamer culture make it to the larger scheme of things?
+    - part of the internet are made safer for people, but gaming is often seen as impossible
+        - games and youtube comments are places that a lot of people have given up as safe spaces
+- there are specific minorities and gaming cultures in the US, but what about internationally?
+    - two tendencies that are problematic: the "white knight" (gender binary and masculinity), and the young female (the idea of sacrifice that is very feminine and needing to sacrifice their online identity to do social justice - kind of joan of arc narrative)
+    - transnationality: 
+        - independent publishers going out of print just like independent game makers: both have struggles with trying to stay afloat
+        - try to be non-hierarchical
+- drawing a line between procedural meritocracy vs. just competitiveness
+    - "I don't want to discount the pleasure of kicking someone's ass"
+    - issues of pleasure versus buying into the oppression/the established system
+- breaking the law is part of being an SJW (often?)
+- the cruel optimism that your labor will be needed if you work hard enough, but it's not really always attainable because society may not want it
+    - ignoring people's needs --> draws people to games
+- competitive games often rewards those who have a lot of time, and who has a lot of time?
+    - privilege of having that kind of leisure time
+    - women just have less leisure time than men do: don't really have that capital either compared to men
+    - playing games requires a lot of capital
+- farmville
+    - the whole discourse about SJW is often focused on AAA games with shooter/violent games
+    - social/casual games as a separate system that have many more women playing them
+    - but how does this parallel ecosystem, that is more friendly to women, but how does this affect the gamer culture?
+    - anxiety over the culture changing, but also the more time put into casual games, creates less for other kind of "big" games
+- journey
+    - competitive games make it easy for you to hate on people when they're on a team you're gaming with and they don't pull their weight
+    - creation of games that encourage kindness towards other gamers
+    - it's a matter of education? riot compaign for people to be really nice to each other because supposedly statistics that they do better than way
+        - this only really persisted for a bit before toxicity creeped back though
