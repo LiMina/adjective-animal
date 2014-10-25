@@ -19,6 +19,21 @@ public class credits : MonoBehaviour {
 	}
 
 	void OnGUI () {
+		transitions.happiness=.20f;
+		transitions.grades=.20f;
+		transitions.wellbeing=.5f;
+		transitions.nextImage = null;
+		transitions.won = false;
+		transitions.outOfBattle = true;
+		transitions.nextState = 0;
+		transitions.nextPath = 0;
+		transitions.nextScene = "room";
+		transitions.lunch = false;
+		transitions.classesTaken = 0;
+		transitions.extra = 0;
+		transitions.currBattle = "wakeup";
+		transitions.enemyCount = 1;
+		transitions.bg = Resources.Load<Sprite> ("processed_bedroom2"); 
 		int cameraOffsetX = (int)(Camera.main.transform.position.x * Screen.width / 10);
 		int cameraOffsetY = (int)(Camera.main.transform.position.y * Screen.height / 20);
 		/* For dialogue */
