@@ -1,0 +1,108 @@
+Notes taken by LiMina
+
+Chris Goetz
+Chelsea Howe
+Squinky Kiai
+Bonnie Ruberg
+Zoya Street
+
+What is QGCon?
+- This was started in the Metrion (?)
+- An awareness that academia was behind regarding the modern gaming industry
+- Create a space where academia and queer game makers and players could come together
+- This is the second year of QGCon
+
+This year:
+- GamerGate is out there (and happening)
+- We needed a group of people to be welcoming and comforting
+- Many people are feeling unsafe and unable to voice themselves right now
+- Hopefully this will be a safe space
+
+Crash Courses
+- 5 minute microtalks
+
+Games 101
+- introduction to games who aren't as familiar with games
+- games were originally made of things like paper, wood, bone, etc.
+    - a way to sort of make sense of the world
+- machines: games became industrialized
+    - particularly through computers
+    - became a thing that makes money; maybe a bit exclusive
+- core vs. casual
+    - core: military strategy, fighting, etc.; less accessible
+    - casual: experiences that are more accessible to everyone
+- AAA vs. Indie
+    - AAA: big, expensive games; requires a lot of time and money
+    - Indie: often cheaper and more accessible for people to enjoy
+
+A specific gaming culture around masculinity and heteronormativity
+- "cuties killing video games"
+
+The Games Industry
+- currently the definition of games is mostly digital
+- 1950s: first games distributed on computers (also the first indie games appeared)
+- Academia was the only place you could kind of play on computers, so it became a bit privileged.
+- AAA
+    - a small set of games produced with huge budgets
+    - for a while, this was the only thing that people saw
+    - played on consoles or PCs with a narrow set of themes
+- Indie
+    - late 2000s, we start to see these games more visibly
+    - these had been around but not really out there to the public
+    - iPhones, Wii, these technologies began to change who played games
+- F2P
+    - free to play / freemium
+    - defined by how it makes money
+    - gives you a small amount of enjoyment; you can pay to accelerate how much fun you have with it though
+- Serious Games
+    - defined by thematic content
+    - disease, public policy, etc.
+- Experimental
+    - defined by what things are played on/with
+- LARP
+    - live action roleplay
+    - pretty broad, and has a lot of potential for exploring some serious things
+
+Games Studies 101
+- Game studies is very young
+    - social science, humanities, industry/practice/engineering
+    - it's not very cemented into academia right now
+- Terminology
+    - Operational logic
+    - Procedural rhetoric
+    - narratology vs. ludology
+        - narratology: focused on story
+        - ludology: focused on game mechanics, "game formalism"; has a tendency to exclude people
+    - identification
+        - player vs avatar
+        - the incorporation of the avatar into the player
+        - how does the player view themselves when they play?
+
+Queer Studies
+- this is more about the fact that we all think like queer scholars
+- the studies began in the mid 80s and has been kind of hidden in departments
+- academics talking about queer issues
+    - a way of seeing things that are queer in whatever field you're working in
+- queer studies scholars are (usually) queer
+- seeing things queerly
+- if we abstract it out into a way of thinking/a series of ideologies and finding the queer in things that don't seem to be queer
+- what it might mean to think queerly
+    - failure itself in games is a certain representation of queerness
+
+Call out Academics!
+
+Queer Games
+- 1990s-2000
+    - queer games have existed for as long as there have been games
+    - marginal developers outside of AAA making these queer games
+- 2010s
+    - a group of people and communities making queerness in games more visible
+    - notable games: dys4ia, lim, howling dogs (moving forward with Twine), mainichi, gone home
+    - Twine: text based, experience based
+    - some of the queer games has been spilling into more mainstream AAA tradition
+- Now
+    - even in the last month or so, even with GamerGate, there have been a lot of interesting queer games coming out
+    - they are not from the usual voices we hear about, either
+    - queer games are becoming less about a particular scene with figureheads, and more about a group of people coming together and making things
+
+
