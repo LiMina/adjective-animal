@@ -28,7 +28,7 @@ public class Stats : MonoBehaviour {
 		if (health > 0) {
 			GUI.Label (new Rect (p.x - 30, Screen.height - p.y - 140,300, 25), "hp:" + health, styler);
 		} else {
-			GUI.Label (new Rect (p.x - 30, Screen.height - p.y - 70,300, 25), "  K.O.", styler);
+			GUI.Label (new Rect (p.x - 30, Screen.height - p.y - 140,300, 25), "  K.O.", styler);
 		}
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		/*textcolor = new GUIStyle (GUI.skin.label);
