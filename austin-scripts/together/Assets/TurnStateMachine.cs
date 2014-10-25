@@ -356,9 +356,9 @@ public class TurnStateMachine : MonoBehaviour
 								DIE_MANA_COST = 15;
 								SPLOSIONS_MANA_COST = 25;
 						} else if (transitions.currBattle == "club") {
-								announcerLine = "The room is packed and buzzing with energy... Attacks either hit critically or miss!";
-								critChance = 0.6f;
-								missChance = 0.4f;
+								announcerLine = "The room is packed and buzzing with energy... Attacks hit critically or miss at 50% chance each!";
+								critChance = 0.5f;
+								missChance = 0.5f;
 						}  else if (transitions.currBattle == "friends") {
 								announcerLine = "It's always great being with friends... Happiness is maxed out for your attacks!";
 								attack = 6 + (int)(100 / 5 + 0.5);
