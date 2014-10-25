@@ -189,8 +189,6 @@ public class TurnStateMachine : MonoBehaviour
 					}
 					return true;
 				}
-				if (transitions.currBattle != "wakeup" && textmanage.scene != "school" && textmanage.scene != "school2") // To catch extra cases
-					announcerLine = winLine;
 				/** Win lines */
 				if (transitions.currBattle == "wakeup") {
 					if (getTurnState () == 0) {
@@ -293,9 +291,11 @@ public class TurnStateMachine : MonoBehaviour
 						}
 					}
 				} else if (transitions.currBattle == "friends") {
+					Debug.Log ("why " + getTurnState ());
 					if (getTurnState () == 0) {
 						announcerLine = winLine + " You had a great time with your friends!";
 						nextTurnState ();
+						Debug.Log ("SUPERWHY " + getTurnState ());
 					} else if (getTurnState () == 1) {
 						if (Input.GetButtonDown ("Fire1")) {
 							announcerLine = "Your happiness has increased greatly!";
@@ -328,10 +328,6 @@ public class TurnStateMachine : MonoBehaviour
 						nextTurnState ();
 						nextTurnState ();
 					}
-				}
-				if (transitions.currBattle != "wakeup" && textmanage.scene != "school" && textmanage.scene != "school2") { // To catch extra cases
-					nextTurnState ();
-					nextTurnState ();
 				}
 				return true;
 			}
