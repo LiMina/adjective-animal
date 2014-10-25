@@ -879,6 +879,7 @@ public class textmanage : MonoBehaviour
 			
 				} else if (scene == "end") {
 						if (state == 0 && path == 0) {
+				showStatChange(false);
 								transitions.bg = Resources.Load<Sprite> ("processed_bedroom3");
 								dialogue = "Phew. It’s been a long day. Time to go to bed and try to sleep.";
 								//LOAD BATTLE
