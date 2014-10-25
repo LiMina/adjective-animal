@@ -24,9 +24,9 @@ public class CreationScreen : MonoBehaviour {
 	public int operatingSystemSelectIteration = 0;
 	static string[] sex = {"Male", "Female", "Intersex"};
 	static string[] gender = {"Male", "Female", "Nonbinary"};
-	static string[] orientation = {"Heterosexual", "Homosexual", "Bisexual", "Pansexual", "Polysexual", "Grey-Asexual", "Asexual"};
-	static string[] haircolor = {"Black", "Brown", "Red", "Blond(e)", "White"};
-	static string[] hairstyle = {"Buzzcut", "Bob", "K-Pop Star Hair", "Straight and Long", "Skrillex Sidecut"};
+	static string[] orientation = {"Heterosexual", "Homosexual", "Bisexual", "Pansexual", "Polysexual", "Grey-Asexual", "Demisexual", "Asexual"};
+	static string[] haircolor = {"Black", "Brown", "Red", "Blond(e)", "White", "Green", "Blue", "Purple", "Colorful Highlights"};
+	static string[] hairstyle = {"Buzzcut", "Straight and Long", "Pompadour", "Bob", "K-Pop Star Hair", "Fauxhawk", "Skrillex Sidecut", "Too Curly to Manage", "Gravity-Defying"};
 	static string[] favcolor = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Indigo", "Black", "White"};
 	static string[] operatingsystem = {"Windows", "OS X", "Linux"};
 	public int lineNum = 0;
@@ -49,6 +49,7 @@ public class CreationScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Camera.main.backgroundColor = new Color (163f / 255f, 203f / 255f, 204f / 255f, 1f);
 		if(Input.GetMouseButtonDown(0) && endCreation){
 			lineNum++;
 		}
@@ -113,6 +114,7 @@ public class CreationScreen : MonoBehaviour {
 		
 		labelStyler = new GUIStyle (GUI.skin.label);
 		labelStyler.fontSize = 25;
+		labelStyler.normal.textColor = Color.black;
 		
 		optionStyler = new GUIStyle (GUI.skin.button);
 		optionStyler.normal.textColor = Color.black;
@@ -228,9 +230,12 @@ public class CreationScreen : MonoBehaviour {
 			}
 		if(lineNum == 2){
 			endCreation = true;
-			dialogue = "There are some things you can't control in life.";
+			dialogue = "Too bad.";
 			}
 		else if(lineNum == 3){
+			dialogue = "There are just some things that you can't control in life, y'know?";
+			}
+		else if(lineNum == 4){
 			if(operatingSystemSelectIteration == 2){
 				dialogue = "Your operating system is not one of those things. Go you.";
 			}
@@ -238,10 +243,10 @@ public class CreationScreen : MonoBehaviour {
 				dialogue = "Look, we're just trying to make a point, okay?";
 			}
 		}
-		else if (lineNum == 4) {
+		else if (lineNum == 5) {
 			dialogue = "So, are you ready to start the game?";
 			}
-		else if (lineNum == 5) {
+		else if (lineNum == 6) {
 			Application.LoadLevel("dialogue");
 			}
 		else{}
