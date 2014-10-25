@@ -43,6 +43,15 @@ public class EnemyControl : MonoBehaviour
 			return;
 		}
 
+		if (transitions.currBattle == "party") {
+			if (turnsUntilHeal < 0) {
+				turnsUntilHeal = 3;
+			} else if (turnsUntilHeal == 0) {
+				this.GetComponent<Stats>().health = Mathf.Min(this.GetComponent<Stats>().health + 20, this.GetComponent<Stats>().maxHealth);
+				turnsUntilHeal = 3;
+			}
+		}
+
 		if (transitions.currBattle == "wakeup") {
 			if (TurnStateMachine.getTurn () == ID && TurnStateMachine.getTurnState () == 0 && !charge) {
 				TurnStateMachine.setAnnouncerLine ("The enemy hits snooze and is preparing to attack!");
@@ -74,6 +83,9 @@ public class EnemyControl : MonoBehaviour
 				} else {
 					TurnStateMachine.setAnnouncerLine ("The enemy's attack missed!");
 					TurnStateMachine.nextTurnState ();
+				}
+				if (transitions.currBattle == "party") {
+					turnsUntilHeal--;
 				}
 			}
 			TurnStateMachine.nextTurnState ();

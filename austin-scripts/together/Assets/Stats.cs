@@ -6,6 +6,7 @@ public class Stats : MonoBehaviour {
 	
 	public int health = 80;
 	public int mana = 10;
+	public int maxHealth = 80;
 	public int attack = 5;
 	public GUIStyle styler;
 
@@ -124,12 +125,16 @@ public class Stats : MonoBehaviour {
 								health = 200;
 						attack = 10;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "party") {
-						if (random <= 0.33)
+						if (random <= 0.33) {
 								health = 80;
-						else if (random <= 0.66)
+								maxHealth = 80;
+						} else if (random <= 0.66) {
 								health = 100;
-						else
+								maxHealth = 100;
+						} else {
 								health = 120;
+								maxHealth = 120;
+						}
 						attack = 6;
 				} else { 	//Final Boss: Sleeping
 						health = 220;
