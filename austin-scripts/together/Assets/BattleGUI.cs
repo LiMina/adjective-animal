@@ -45,6 +45,7 @@ public class BattleGUI : MonoBehaviour
 				float statX = 70;
 				float HPTextY = Screen.height - 180;
 				float MPTextY = Screen.height - 155;
+				float HapTextY = Screen.height - 130;
 				float boxTwoX = 50 + (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 16;
 				float boxThreeX = 50 + 2 * (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 8;
 				float buttonWidth = (Screen.width - (Screen.width / 8) - 100) / 3 - 40;
@@ -52,6 +53,7 @@ public class BattleGUI : MonoBehaviour
 				float buttonX = 50 + (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 16 + 20;
 				float buttonOneY = Screen.height - 180;
 				float buttonTwoY = Screen.height - 150;
+				float buttonThreeY = Screen.height - 120;
 				float backButtonY = Screen.height - 90;
 				float announcerX = 25;
 				float announcerY = 25;
@@ -162,6 +164,13 @@ public class BattleGUI : MonoBehaviour
 		           "Well-being : " + TurnStateMachine.playerHP + "/" + Mathf.RoundToInt (transitions.wellbeing * 100), textcolor);
 				GUI.Label (new Rect (statX + cameraOffsetX, MPTextY + cameraOffsetY, statWidth, statHeight),
 		           "Grades : " + TurnStateMachine.playerMP + "/" + Mathf.RoundToInt (transitions.grades * 100), textcolor);
+				if (transitions.currBattle == "friends") {
+						GUI.Label (new Rect (statX + cameraOffsetX, HapTextY + cameraOffsetY, statWidth, statHeight),
+					           "Happiness : 100", textcolor);
+				} else {
+						GUI.Label (new Rect (statX + cameraOffsetX, HapTextY + cameraOffsetY, statWidth, statHeight),
+					           "Happiness : " + Mathf.RoundToInt (transitions.happiness * 100), textcolor);
+				}
 	
 				//Handles whether or not the buttons are locked (due to currently choosing a target)
 				GUI.Box (new Rect (boxTwoX + cameraOffsetX, boxY + cameraOffsetY, boxWidth, boxHeight), "", styler);
@@ -304,6 +313,14 @@ public class BattleGUI : MonoBehaviour
 						if (GUI.Button (new Rect (buttonX + cameraOffsetX, buttonTwoY + cameraOffsetY, buttonWidth, buttonHeight), "Abilities", buttonStyler)) {
 								TurnStateMachine.commandSelection = TurnStateMachine.SELECT_ABILITY;
 						}
+						
+						if (TurnStateMachine.playerMP == Mathf.RoundToInt (transitions.grades * 100) || transitions.wellbeing <= .05f) {
+								GUI.enabled = false;
+						}
+						if (GUI.Button (new Rect (buttonX + cameraOffsetX, buttonThreeY + cameraOffsetY, buttonWidth, buttonHeight), "All-Nighter", buttonStyler)) {
+								turnStateMachine.GetComponent<TurnStateMachine>().castAllNighter();
+						}
+						GUI.enabled = !attackLock;
 				} else {	//Otherwise show the ability menu
 						if (TurnStateMachine.playerMP < TurnStateMachine.DIE_MANA_COST) {
 								GUI.enabled = false;

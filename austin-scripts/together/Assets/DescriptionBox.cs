@@ -10,6 +10,7 @@ public class DescriptionBox : MonoBehaviour
 		public string ABILITY_DESC = "Perform a special action only available to the studious.";
 		public static string SPLOSIONS_DESC = "An icy shower strikes down lethargy. Deals moderate damage to all enemies.\nRequires a grade of 50.";
 		public string BACK_DESC = "Plot twist: a moment of indecision!";
+		public string ALL_NIGHTER_DESC = "You stayed up really late last night! Recovers grades equal to happiness.\nReduces your MAX well-being by 5.";
 		public string currentDesc = "";
 		public GUIStyle styler;
 		public Texture2D texture;
@@ -58,6 +59,14 @@ public class DescriptionBox : MonoBehaviour
 										} else if (TurnStateMachine.commandSelection == TurnStateMachine.SELECT_ABILITY) {
 												currentDesc = SPLOSIONS_DESC;
 												return;
+										}
+								} else if (new Rect (50 + (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 16 + 20,
+				                     Screen.height - 120,
+				                     (Screen.width - (Screen.width / 8) - 100) / 3 - 40,
+				                     25).Contains (new Vector2 (Input.mousePosition.x, Screen.height - Input.mousePosition.y))) {
+										if (TurnStateMachine.commandSelection == TurnStateMachine.SELECT_NONE) {
+											currentDesc = ALL_NIGHTER_DESC;
+											return;
 										}
 								} else if (new Rect (50 + (Screen.width - (Screen.width / 8) - 100) / 3 + Screen.width / 16 + 20,
 				                     Screen.height - 90,

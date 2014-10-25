@@ -49,6 +49,7 @@ public class TurnStateMachine : MonoBehaviour
 	public static string attackLine = "You tackled the problem at hand!";
 	public static string DIELine = "You sipped your coffee, jolting your tiredness awake!";
 	public static string SPLOSIONSLine = "A cold shower snaps away your drowsiness, giving you a literal wake-up call!";
+	public static string allNighterLine = "Sleeping late gives you the immediate grade boost you need, but what are the long-term consequences...?";
 	public static string winLine = "You overcame your adversaries!";
 	public static string loseLine = "You feel terribly overwhelmed. You couldn't handle the pressure...";
 	public static bool ending = false;
@@ -182,6 +183,7 @@ public class TurnStateMachine : MonoBehaviour
 							transitions.wellbeing = Mathf.Min (1, transitions.wellbeing + 0.3f);
 							transitions.happiness = Mathf.Min (1, transitions.happiness + 0.2f);
 							transitions.grades = Mathf.Min (1, transitions.grades + 0.2f);
+							tranStatChange(1,1,1);
 						}
 					}
 					return true;
@@ -696,6 +698,21 @@ public class TurnStateMachine : MonoBehaviour
 		}
 		nextTurnState ();	
 		nextTurnState (); //twice b/c no animation
+		commandSelection = SELECT_NONE;
+	}
+
+	public void castAllNighter ()
+	{
+		playerMP = Mathf.Min(Mathf.RoundToInt (transitions.grades * 100), playerMP + Mathf.RoundToInt (transitions.happiness * 100));
+		transitions.wellbeing -= 0.05f;
+		playerHP = Mathf.Min (playerHP, Mathf.RoundToInt (transitions.wellbeing * 100));
+		announcerLine = allNighterLine;
+		if (poison) {
+			announcerLine += " You lost 5 well-being from hunger!";
+			playerHP = Mathf.Max (1, playerHP - 5);
+		}
+		nextTurnState ();
+		nextTurnState ();
 		commandSelection = SELECT_NONE;
 	}
 }
