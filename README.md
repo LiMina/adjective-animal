@@ -21,6 +21,6 @@ October 4, 2014: Team deadline for having the first scene complete, from the dia
 
 October 11, 2014: Workshop 3. Attempting to finalize framework and finalizing prototypes to create artwork for the following week. Game mechanics will need to be adjusted and code will be tweaked as needed.
 
-October 18, 2014: Finishing artwork, adding in special effects. Finalizing and cleaning up code for presentation. Any other mishaps should be pointed out at this point and handled before the conference.
+October 18, 2014: Finishing artwork, adding in special effects. Finalizing and cleaning up code for presentation. Any other mishaps should be pointed out at this point and handled before the conference. (Finally naming our game, Hard Mode 101!)
 
-October 25-26, 2014: QGCon 2014. Presentation day!
+October 25-26, 2014: QGCon 2014. Presentation day on the 25th! Notes available in qgcon-notes.txt, written by LiMina. (A note from LiMina: it's by no means comprehensive, and I may have missed various items while tweeting.)
