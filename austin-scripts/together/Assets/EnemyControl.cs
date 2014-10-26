@@ -47,7 +47,7 @@ public class EnemyControl : MonoBehaviour
 			if (turnsUntilHeal < 0) {
 				turnsUntilHeal = 3;
 			} else if (turnsUntilHeal == 0) {
-				this.GetComponent<Stats>().health = Mathf.Min(this.GetComponent<Stats>().health + 20, this.GetComponent<Stats>().maxHealth);
+				this.GetComponent<Stats>().health = Mathf.Min(this.GetComponent<Stats>().health + 15, this.GetComponent<Stats>().maxHealth);
 				turnsUntilHeal = 3;
 			}
 		}

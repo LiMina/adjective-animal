@@ -70,11 +70,11 @@ public class credits : MonoBehaviour {
 	}
 
 	void OnGUI () {
-		transitions.happiness=.20f;
-		transitions.grades=.20f;
-		transitions.wellbeing=.5f;
+		//transitions.happiness=.20f;
+		//transitions.grades=.20f;
+		//transitions.wellbeing=.5f;
 		transitions.nextImage = null;
-		transitions.won = false;
+		//transitions.won = false;
 		transitions.outOfBattle = true;
 		transitions.nextState = 0;
 		transitions.nextPath = 0;
@@ -182,6 +182,10 @@ public class credits : MonoBehaviour {
 		         "If you liked what you played, please get in contact with us!\n\nCheck out our code at https://github.com/LiMina/adjective-animal.", styler);
 
 		if (GUI.Button (new Rect (300 + cameraOffsetX, 450 + cameraOffsetY, Screen.width - 600, 100), "\nReplay?", buttonStyler)) {
+			transitions.happiness=.20f;
+			transitions.grades=.20f;
+			transitions.wellbeing=.5f;
+			transitions.won = false;
 			Application.LoadLevel ("dialogue");
 				}
 		}

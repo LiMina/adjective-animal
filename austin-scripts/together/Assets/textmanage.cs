@@ -420,13 +420,13 @@ public class textmanage : MonoBehaviour
 								choosingOption = true;
 								dialogue = "Welcome to the start of your day. What do you have first?";
 
-								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Lecture", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Lecture [grades]", buttonStyler)) {
 										clickedbutton = 1;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Test", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Test [happiness]", buttonStyler)) {
 										clickedbutton = 2;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Gym", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Gym [well-being] [happiness]", buttonStyler)) {
 										clickedbutton = 3;
 								}
 				
@@ -518,32 +518,32 @@ public class textmanage : MonoBehaviour
 								}
 				
 								if (!lunch) {
-										if (GUI.Button (new Rect (100, Screen.height - 170, Screen.width - 200, 25), "Test", buttonStyler)) {
+										if (GUI.Button (new Rect (100, Screen.height - 170, Screen.width - 200, 25), "Test [happiness]", buttonStyler)) {
 												clickedbutton = 1;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Gym", buttonStyler)) {
+										if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Gym [well-being] [happiness]", buttonStyler)) {
 												clickedbutton = 2;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Lecture", buttonStyler)) {
+										if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Lecture [grades]", buttonStyler)) {
 												clickedbutton = 3;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lunch", buttonStyler)) {
+										if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lunch [well-being]", buttonStyler)) {
 												clickedbutton = 4;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying", buttonStyler)) {
+										if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying [well-being] [grades]", buttonStyler)) {
 												clickedbutton = 5;
 										}
 								} else {
-										if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Test", buttonStyler)) {
+										if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Test [happiness]", buttonStyler)) {
 												clickedbutton = 1;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Gym", buttonStyler)) {
+										if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Gym [well-being] [happiness]", buttonStyler)) {
 												clickedbutton = 2;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lecture", buttonStyler)) {
+										if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Lecture [grades]", buttonStyler)) {
 												clickedbutton = 3;
 										}
-										if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying", buttonStyler)) {
+										if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Studying [well-being] [grades]", buttonStyler)) {
 												clickedbutton = 4;
 										}
 								}
@@ -749,13 +749,13 @@ public class textmanage : MonoBehaviour
 								choosingOption = true;
 								dialogue = "You made it through the day! What's the first thing you're doing after school?";
 				
-								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Club Meeting", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Club meeting [well-being] [grades]", buttonStyler)) {
 										clickedbutton = 1;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Hanging out with friends", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Hanging out with friends [happiness]", buttonStyler)) {
 										clickedbutton = 2;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Homework", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Homework [grades]", buttonStyler)) {
 										clickedbutton = 3;
 								}
 						}
@@ -828,16 +828,16 @@ public class textmanage : MonoBehaviour
 								choosingOption = true;
 								dialogue = "How will you spend the rest of your night before going to bed?";
 				
-								if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Club Meeting", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 140, Screen.width - 200, 25), "Club meeting [well-being] [grades]", buttonStyler)) {
 										clickedbutton = 1;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Hanging out with friends", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 110, Screen.width - 200, 25), "Hanging out with friends [happiness]", buttonStyler)) {
 										clickedbutton = 2;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Homework", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 80, Screen.width - 200, 25), "Homework [grades]", buttonStyler)) {
 										clickedbutton = 3;
 								}
-								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Party", buttonStyler)) {
+								if (GUI.Button (new Rect (100, Screen.height - 50, Screen.width - 200, 25), "Party [well-being] [happiness]", buttonStyler)) {
 										clickedbutton = 4;
 								}
 				
