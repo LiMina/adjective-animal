@@ -1,4 +1,7 @@
 Notes taken by LiMina
+- These are, by no means, comprehensive, and are what I've been able to capture in between being completely shellshocked by the amazingness of all the speakers and participants and tweeting like crazy.
+
+DAY 1: October 25, 2014
 
 Chris Goetz
 Chelsea Howe
@@ -431,3 +434,183 @@ Enabling Realities :: Brenda Laurel
 - the challenge of conveying everything you want to say via Twitter: it's limiting, seriously.
     - it can also come off more abrasive than you intended it to be
 - there is no safe space - there are only safer places
+
+DAY 2: October 26, 2014
+
+Designing Inclusive Communities
+- lead by Sarah Schoemann
+- Talking about what communities we're a part of and affiliate strongly with
+    - divided into Conferences and Twitter
+- Improvements
+    - Twitter
+        - non-linear style of conversations
+        - 140 character limit (can't capture everything and leads to misunderstanding; however, it makes reading concise)
+        - open-nature (double-edged - can be harrassed easily, but means it's a very open environment for conversation as well)
+        - implicit social conduct/constraints (don't interupt people's conversations or jump into one that you're not a part of; but people do this anyhow)
+        - having safe spaces; twitter doesn't handle this well and has poor moderation
+    - Conferences
+        - access privilege; inability to attend do to financial and/or physical reasons
+        - can be easy to feel that the conference is accessible if you're within the conference and its target audience but sometimes hard to recognize when it is excluding people
+        - social anxiety for some people
+        - codes of conduct written but not enforced
+    - both
+        - people getting defensive about being called out and unwilling to admit mistakes
+        - harrassment, sexism/misogyny
+- Pros of QGCon
+    - racial diversity, acknowledging privilege, good representation of people, being graceful about being called out
+
+Queering Human-Game Relations
+- by Merritt Kopas and Naomi Clark
+- Queer has been reinterpretted as an escape
+    - this is not equal to LGBTSTQIA
+    - not equal to any particular sexual/gender minority
+    - this is an ever changing term, that comes with its own politics
+    - a questioning of what the normative is
+- being aware of using terms like "beyond marriage" as opposed to "against marriage"
+- don't let obvious, photogenic answers limit you
+- queer characters often put in for reactions and a way to avoid certain politics
+- queer mechanics: rules can oppose norms as opposed ot just content representing what is queer
+- queer studies were born out of fields like film studies, which is often focused on content
+- the idea that games are inherently queer because it is a safe space to fail (this is challenged later in the talk)
+- rejecting rules is queerness
+- games encourage capitalism; reinforces cishet normative goals (marriage, etc.)
+- rehabilitating the notion of the gamer, trying to leave behind the stereotype of the game
+- obsession of the representation/visualization of items in games, in particular violence
+- marketing problem of board games historically
+    - dice were seen as gambling, so gamemakers switched to using the spinner as the new PRNG
+    - games became considered as a thing for the family
+    - technology and games develop together
+- casino as the institutionalized form of gambling
+- Kriegs Spiel was a strategy practice for generals and became the basis of games such as Dungeons and DRagons
+    - a lot of games (if not all) spring from the industrialization and warfare in society
+- The tension of games as a place between productive and unproductive
+- The Grasshopper: Games Life and Utopia
+    - retelling/reflection/play off of Aesop's fable story
+- Evangialist games
+    - games can make the world a better place? No.
+    - maybe games should just be purely for fun with no practical/social/political value? No.
+- Games are often libidinal profiteers
+- "Games need to be saved!" Nah.
+- Games are a cultural fantasy: how we believe or want our world to work
+- War games are a projection and just not how real war is.
+- Most videogames have simple/straightforward goals, unlike real life
+- Games reinforce competitive culture
+    - why is it that many people fall out of games because of failure
+    - consideration that games are childish
+    - a reminder of gender/sexuality oppression sometimes
+- competitiveness <--> capitalist mindset (victory, winning, success)
+- Games have real lasting damage on queer individuals
+    - many queers do not feel games are a safe space to fail (fail better, fail harder)
+- Games are a good way to learn about how to fit into the system/ how to be good participants in the system
+- Experience of failure is deeply painful
+    - failure to achieve proper gender
+- Rejected human centric perspective in research
+- Games as less tools such much as actors who have been doing things to and for us
+- We don't spend much time thinking about what they do to us and what we do to them?
+    - disciplining process
+    - training systems, only a relentless push towards efficient work
+    - reinforce particular dominant views of the world
+- Alientation of play
+    - not sure how to play outside of games sometimes
+    - games used to discipline ourselves
+- What are the alternatives?
+- Glitches: agency in glitches (not intentional glitches)
+    - power and meaning in not revealing if a glitch is intentional or not
+- We close ourselves to such glitches to achieve code perfection
+- Reject games as friendly objects and have games that challenge the game experience
+- Chess
+    - starts out a total equilibrium; curiously equal and unrealistic (same as Go)
+- Games exist that start in desequilibrium, but are less common (this is changing in recent years)
+- what disruptions are caused in game play?
+- competiting understandings of queerness
+- question that queerness opposes utility (this shouldn't continue)
+- new ways to relate to play
+- glitches: some, in particular, are repeatedly used
+    - however, this diminishes their effect and are usually just visual
+    - glitches should be organic, generated from the interaction of the gamemaker with the game
+- glitches and intentionally chaotic systems
+    - chaotic systems are more likely to produce glitches but chaotic systems are not glitches in and of themselves
+- abstract glitches
+    - game mechanics like teleporting through the walls, which can actually mess up the game
+- open world games --> colonist fantasy?
+- disciplining action of the screen/physical limitation
+    - technology advancements affect how we play physically, but there is usually a fixed relationship between screen and player
+    - this may be changing with the development of the oculus rift, though
+
+Kinky, Queer, Disruptive
+- talks that bring together language of kink
+- thinking about desire differently
+- Jetta Rae: A Series of Pictures of Pinball To Accompany My Monologue
+    - what does this have to do with consent and queerness?
+    - consent: this is not just a thing that is given and traded
+        - power structures and differentials, and frameworks in which you can agree to something
+    - the opposite: not necessarily non-consent
+        - conquest
+        - the idea that sex is not something you share but something you take and obtain and win
+        - assigned value to various partners and the worth between having sex with different people
+    - the gender binary that exists, and we assign value to people in our sexual encounters
+        - have to play by a standard of values and tools by which we judge people
+        - reduces sex into a supermarket sweep
+    - gamergate: a push towards a universal standard
+        - games you literally hump to win
+    - what is a pinball machine?
+        - there is no universal standard; every pinball game has a set of rules, but...
+        - no such thing as being good at pinball because there's no universal standard
+        - you just move around and collaborate with the machine
+    - in the same vein, there is no such thing as "good at sex"
+        - you're either a good listener, or you're not.
+    - queer sexuality: we must make an active movement 
+    - consent is a unique set of rules
+        - i encourage you to consider each relationship that you have as a unique set of rules
+    - in the way that pinball is not compulsarily forced into standard makes it beautiful
+    - as we define queerness in gaming, we also be mindful to resist the urge and the temptation to resist to set constitutions
+    - if we try to set hard limits to what defines queerness and kink, we run the risk of alientating ourselves, and right now we really need each other
+- Lisa Yamasaki: Exploring Homoerotic Sadism in the Portal Video Game Series
+    - one interpretation of the relationship between Chell and GLaDOS
+    - relationship is being consideration of homoerotic sadism between Chell and GLaDOS
+    - Cave Johnson and Caroline (GLaDOS)
+    - the good as a moral ideal that excludes the ability for pleasure
+    - pain to elicit or deny pleasure
+    - there's a sensation of oppression
+    - ***this seems to mostly be a reading of her paper, so I would recommend reading her paper as opposed to having me try to take notes***
+    - Chell's successes and ability to escape GLaDOS's challenges seems to produce a euphoric reaction in GLaDOS (interesting)
+    - When GLaDOS loses power when being turned into a potato as Wheatley takes over GLaDOS's body
+        - GLaDOS recovers some of her humanity as Caroline
+        - push Chell past her limits (in the same way as sadomachoism seems to work)
+        - multistep process with resolution
+        - Cave Johnson was a paternal figure
+        - It is Chell's potato plant that GLaDOS gets transfered into it
+        - GLaDOS manages to escape Cave Johnson's paternal role and becomes maternal figure to Chell?
+    - Pain to extend beyond perceived limitations, both Chell and GLaDOS move beyond their roles and move into a romantic relationship? (hm)
+    - the second death of Chell and GLaDOS
+    - GLaDOS's passivity through the recording of Cave Johnson's voice, and continues to guide Chell through the rooms
+    - GLaDOS's feelings go beyond seeing herself in Chell and cares about her well being? 
+    - GLaDOS relives her human life through Chell? Eventually releases Chell (sadness and deflected anger)
+    - overturning of paternal relationship in sadomasochism
+- Jonatan Yde: Game Odditites - Exploring queer presence in mainstream and commonly accepted games
+    - a series of photos challenges and disrupts what is a norm; progressively showing that what was the norm in the previous image is not so in the next image
+    - gone home
+        - when the game starts off, it resembles an adventure horror game
+        - but it really is a story about midlife crisis and is not really a horror story at all
+    - the silent age
+        - joe is a dunce and it is hard for the player to control him
+        - queerness that joe represents
+    - waking mars
+        - slow paced and tranquil
+        - protagonist (maya?) is a queer presence
+        - it is natural for the player ot try to fill in the empty spaces between caves and such with familiar things
+        - asian female explorer versus caucasian male conquerer
+    - laura croft
+        - sexualization in tomb raider series
+    - a new beginning
+    - my little pony...?
+- very different tones in all of these talks
+- woman is not a dirty word 
+- consent between Chell and GLaDOS?
+    - can GLaDOS, as a program, can she consent? (interesting)
+    - what capacities does GLaDOS have?
+- what is the most divergent thing that you would consider to be a pinball machine?
+    - hercules: largest pinball machine in existence; "it is the gaudiest testament to man"
+    - (and one more, whose name I didn't quite catch)
+    - pinball community: consideration of giving up old pinball machines to be mod-ed to be able to continue the culture
+    - does GLaDOS's consent matter if she is the one inflicting? when we see that Chell as masochistic.
