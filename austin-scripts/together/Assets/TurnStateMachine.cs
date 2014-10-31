@@ -476,7 +476,7 @@ public class TurnStateMachine : MonoBehaviour
 				DIEAttack = 0 + (int)(Mathf.Round (transitions.happiness * 100) / 4 + 0.5);
 				SPLOSIONSAttack = 5 + (int)(Mathf.Round (transitions.happiness * 100) / 2 + 0.5);
 			} else if (textmanage.scene == "school2" && transitions.currBattle == "test") {
-				turnsLeft = 5;
+				turnsLeft = 6;
 				announcerLine = "You sure hope you can finish the test within the time limit... Finish the battle in " + turnsLeft + " turns!";
 			} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
 				announcerLine = "You should really try to eat at the same time everyday, because you're dizzyingly hungry.... Lose well-being each turn!";
@@ -498,7 +498,7 @@ public class TurnStateMachine : MonoBehaviour
 				announcerLine = "Homework is so stressful an- Ow! A paper cut... Fight with only half your well-being!";
 				playerHP = Mathf.RoundToInt (transitions.wellbeing * 100 / 2);
 			} else if (transitions.currBattle == "party") {
-				announcerLine = "The party gets wilder as the night progresses... Enemies will periodically heal!";
+				announcerLine = "The party gets wilder as the night progresses... Enemies heal every 3 turns!";
 			} else if (transitions.currBattle == "sleep") {
 				announcerLine = "Sometimes getting a good night's rest is a challenge... The enemy's stats rose sharply!";
 			} else {
