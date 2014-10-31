@@ -114,7 +114,7 @@ public class Stats : MonoBehaviour {
 						health = 60;
 						attack = 7;
 				} else if (textmanage.scene == "school" && transitions.currBattle == "test") {
-						health = 70;
+						health = 80;
 						attack = 4;
 				} else if (textmanage.scene == "school" && transitions.currBattle == "gym") {
 						health = 35;
@@ -123,31 +123,31 @@ public class Stats : MonoBehaviour {
 						if (random <= 0.33)
 								health = 70;
 						else if (random <= 0.66)
-								health = 75;
-						else
 								health = 80;
+						else
+								health = 90;
 						attack = 7;
 				} else if (textmanage.scene == "school2" && transitions.currBattle == "gym") {
 						if (random <= 0.5)
-								health = 30;
-						else if (random <= 0.66)
 								health = 35;
-						else
+						else if (random <= 0.66)
 								health = 40;
-						attack = 6;
+						else
+								health = 45;
+						attack = 5;
 				} else if (textmanage.scene == "school2" && transitions.currBattle == "test") {
 						if (random <= 0.33)
-								health = 70;
+								health = 90;
 						else if (random <= 0.66)
-								health = 75;
+								health = 95;
 						else
-								health = 80;
+								health = 100;
 						attack = 6;
 				} else if (textmanage.scene == "school2" && transitions.currBattle == "studying") {
 						if (random <= 0.33)
-								health = 30;
-						else if (random <= 0.66)
 								health = 40;
+						else if (random <= 0.66)
+								health = 45;
 						else
 								health = 50;
 						attack = 5;
@@ -177,11 +177,11 @@ public class Stats : MonoBehaviour {
 						attack = 4;
 				} else if (textmanage.scene == "afterschool" && transitions.currBattle == "hw") {
 						if (random <= 0.33)
-								health = 110;
+								health = 140;
 						else if (random <= 0.66)
-								health = 120;
+								health = 150;
 						else
-								health = 130;
+								health = 160;
 						attack = 4;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "club") {
 						if (random <= 0.33)
@@ -201,11 +201,11 @@ public class Stats : MonoBehaviour {
 						attack = 4;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "hw") {
 						if (random <= 0.33)
-								health = 130;
+								health = 160;
 						else if (random <= 0.66)
-								health = 140;
+								health = 170;
 						else
-								health = 150;
+								health = 180;
 						attack = 4;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "party") {
 						if (random <= 0.33) {
@@ -220,7 +220,7 @@ public class Stats : MonoBehaviour {
 						}
 						attack = 4;
 				} else { 	//Final Boss: Sleeping
-						health = 220;
+						health = 250;
 						attack = 6;
 				}
 	}
