@@ -117,7 +117,7 @@ public class Stats : MonoBehaviour {
 						health = 80;
 						attack = 4;
 				} else if (textmanage.scene == "school" && transitions.currBattle == "gym") {
-						health = 35;
+						health = 40;
 						attack = 5;
 				} else if (textmanage.scene == "school2" && transitions.currBattle == "lecture") {
 						if (random <= 0.33)
@@ -129,11 +129,11 @@ public class Stats : MonoBehaviour {
 						attack = 7;
 				} else if (textmanage.scene == "school2" && transitions.currBattle == "gym") {
 						if (random <= 0.5)
-								health = 35;
-						else if (random <= 0.66)
 								health = 40;
+						else if (random <= 0.66)
+								health = 50;
 						else
-								health = 45;
+								health = 60;
 						attack = 5;
 				} else if (textmanage.scene == "school2" && transitions.currBattle == "test") {
 						if (random <= 0.33)
@@ -145,11 +145,11 @@ public class Stats : MonoBehaviour {
 						attack = 6;
 				} else if (textmanage.scene == "school2" && transitions.currBattle == "studying") {
 						if (random <= 0.33)
-								health = 40;
-						else if (random <= 0.66)
-								health = 45;
-						else
 								health = 50;
+						else if (random <= 0.66)
+								health = 55;
+						else
+								health = 60;
 						attack = 5;
 				} else if (textmanage.scene == "school2" && transitions.currBattle == "lunch") {
 						if (random <= 0.33)
@@ -161,67 +161,67 @@ public class Stats : MonoBehaviour {
 						attack = 10;
 				} else if (textmanage.scene == "afterschool" && transitions.currBattle == "club") {
 						if (random <= 0.33)
-								health = 70;
+								health = 100;
 						else if (random <= 0.66)
-								health = 80;
+								health = 110;
 						else
-								health = 90;
-						attack = 5;
+								health = 120;
+						attack = 7;
 				} else if (textmanage.scene == "afterschool" && transitions.currBattle == "friends") {
 						if (random <= 0.33)
-								health = 130;
+								health = 180;
 						else if (random <= 0.66)
-								health = 150;
+								health = 200;
 						else
-								health = 170;
-						attack = 4;
+								health = 220;
+						attack = 5;
 				} else if (textmanage.scene == "afterschool" && transitions.currBattle == "hw") {
 						if (random <= 0.33)
-								health = 140;
+								health = 170;
 						else if (random <= 0.66)
-								health = 150;
+								health = 180;
 						else
-								health = 160;
+								health = 190;
 						attack = 4;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "club") {
 						if (random <= 0.33)
-								health = 80;
+								health = 110;
 						else if (random <= 0.66)
-								health = 90;
+								health = 120;
 						else
-								health = 100;
-						attack = 5;
+								health = 130;
+						attack = 7;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "friends") {
 						if (random <= 0.33)
-								health = 140;
+								health = 200;
 						else if (random <= 0.66)
-								health = 160;
+								health = 220;
 						else
-								health = 180;
-						attack = 4;
+								health = 240;
+						attack = 5;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "hw") {
 						if (random <= 0.33)
-								health = 160;
+								health = 190;
 						else if (random <= 0.66)
-								health = 170;
+								health = 200;
 						else
-								health = 180;
+								health = 210;
 						attack = 4;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "party") {
 						if (random <= 0.33) {
-								health = 110;
-								maxHealth = 110;
+								health = 150;
+								maxHealth = 150;
 						} else if (random <= 0.66) {
-								health = 120;
-								maxHealth = 120;
+								health = 160;
+								maxHealth = 160;
 						} else {
-								health = 130;
-								maxHealth = 130;
+								health = 170;
+								maxHealth = 170;
 						}
 						attack = 4;
 				} else { 	//Final Boss: Sleeping
 						health = 250;
-						attack = 6;
+						attack = 9;
 				}
 	}
 	
