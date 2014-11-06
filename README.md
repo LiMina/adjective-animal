@@ -9,6 +9,8 @@ All parts of this project were a combined effort, although LiMina took a heavier
 
 In teams, LiMina and austinshyu worked primarily on the narrative and handling user input to move the story along, while KirbiKaka and lunartofu worked primarily on the battle mechanics.
 
+~*~
+
 Timeline:
 
 September 13, 2014: Workshop 1. The team is formed for the first time and named [adjective][animal]. Contact information is exchanged and planning begins.
@@ -29,7 +31,9 @@ Finalized battle stats: https://docs.google.com/spreadsheets/d/1l1JxkcWsGTK7vhzh
 
 Presentation at QGCon: http://www.twitch.tv/qgcon/b/581808394?t=5h46m10s (Start at 5 hours, 46 minutes, 10 seconds.)
 
-Some comments received:
+~*~
+
+Some Player Comments:
 
 "Concept is good. I like the story, similar to Berkeley student's life."
 
