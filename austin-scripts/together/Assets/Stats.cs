@@ -177,11 +177,11 @@ public class Stats : MonoBehaviour {
 						attack = 5;
 				} else if (textmanage.scene == "afterschool" && transitions.currBattle == "hw") {
 						if (random <= 0.33)
-								health = 170;
+								health = 150;
 						else if (random <= 0.66)
-								health = 180;
+								health = 160;
 						else
-								health = 190;
+								health = 170;
 						attack = 4;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "club") {
 						if (random <= 0.33)
@@ -201,11 +201,11 @@ public class Stats : MonoBehaviour {
 						attack = 5;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "hw") {
 						if (random <= 0.33)
-								health = 190;
+								health = 160;
 						else if (random <= 0.66)
-								health = 200;
+								health = 170;
 						else
-								health = 210;
+								health = 180;
 						attack = 4;
 				} else if (textmanage.scene == "afterschool2" && transitions.currBattle == "party") {
 						if (random <= 0.33) {
@@ -220,7 +220,7 @@ public class Stats : MonoBehaviour {
 						}
 						attack = 4;
 				} else { 	//Final Boss: Sleeping
-						health = 250;
+						health = 230;
 						attack = 9;
 				}
 	}
