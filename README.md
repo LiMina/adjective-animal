@@ -30,12 +30,21 @@ Finalized battle stats: https://docs.google.com/spreadsheets/d/1l1JxkcWsGTK7vhzh
 Presentation at QGCon: http://www.twitch.tv/qgcon/b/581808394?t=5h46m10s (Start at 5 hours, 46 minutes, 10 seconds.)
 
 Some comments received:
+
 "Concept is good. I like the story, similar to Berkeley student's life."
+
 "Love the metaphor here. Life needs more power-ups."
+
 "Felt a lot like EARTHBOUND, which I very much liked!!"
+
 "Liked the initial bait-and-swith of the 'create your character' screen."
+
 "The background aesthetics were super cool --> loved that you used actual scenes from the Cal campus, the filter was a nice touch too."
+
 "The scenario-specific attack/ability names + descriptions were really fun to discover and kep tme wanting more."
+
 "Good monster images as well, I really enjoyed them!"
+
 "I like the 'friends' screen how "Banter" is the lowest level attack and to really get somewhere you have to be more risk taking like pointing out their comments might be insensitive or coming out."
+
 "...the story overall is dramatized the right amount...dramatized [enough to] be a game but realistic enough to remind you that [it's] based on reality"
