@@ -24,3 +24,5 @@ October 11, 2014: Workshop 3. Attempting to finalize framework and finalizing pr
 October 18, 2014: Finishing artwork, adding in special effects. Finalizing and cleaning up code for presentation. Any other mishaps should be pointed out at this point and handled before the conference. (Finally naming our game, Hard Mode 101!)
 
 October 25-26, 2014: QGCon 2014. Presentation day on the 25th! Notes available in qgcon-notes.txt, written by LiMina. (A note from LiMina: it's by no means comprehensive, and I may have missed various items while tweeting.)
+
+Finalized battle stats: https://docs.google.com/spreadsheets/d/1l1JxkcWsGTK7vhzhZlWamJSH0D-_U-kZcGLKXtalECI/edit?usp=sharing
