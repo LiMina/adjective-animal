@@ -26,3 +26,5 @@ October 18, 2014: Finishing artwork, adding in special effects. Finalizing and c
 October 25-26, 2014: QGCon 2014. Presentation day on the 25th! Notes available in qgcon-notes.txt, written by LiMina. (A note from LiMina: it's by no means comprehensive, and I may have missed various items while tweeting.)
 
 Finalized battle stats: https://docs.google.com/spreadsheets/d/1l1JxkcWsGTK7vhzhZlWamJSH0D-_U-kZcGLKXtalECI/edit?usp=sharing
+
+Presentation at QGCon: http://www.twitch.tv/qgcon/b/581808394?t=5h46m10s (Start at 5 hours, 46 minutes, 10 seconds.)
